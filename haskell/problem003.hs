@@ -7,15 +7,16 @@ What is the largest prime factor of the number 600851475143 ?
 http://projecteuler.net/index.php?section=problems&id=3
 -}
 
-primes = 2:sieve [3,5..]
-sieve (p:ps) = p:sieve [q | q <- ps, q `mod` p /= 0]
+sqrtfloor = floor . sqrt . fromIntegral
+isPrime x = if odd x || x == 2 then undividable x (sqrtfloor x) else False
+undividable m n
+    | n <= 2          = True
+    | otherwise       = if mod m n == 0 then False else undividable m (n - 1)
 
-primemax n = 
-    let primes_cand = takeWhile (< (floor . sqrt . fromIntegral $ n)) primes
-        divisor     = [x | x <- primes_cand, n `mod` x == 0]
-    in  maximum divisor
+isMaxFactor m n = if isPrime n && mod m n == 0 then n else isMaxFactor m (n - 1)
+maxprime n = isMaxFactor n $ sqrtfloor n
 
-problem003 = primemax 600851475143
+problem003 = maxprime 600851475143
 
 main = do
-    print $ "problem003: answer " ++ show problem003
+    putStrLn $ "problem003: answer " ++ show problem003
