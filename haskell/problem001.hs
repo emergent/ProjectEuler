@@ -10,12 +10,10 @@ http://projecteuler.net/index.php?section=problems&id=1
 --summul_old xs = sum [x | x <- xs, x `mod` 3 == 0 || x `mod` 5 == 0]
 --problem001 = summul_old [1..999]
 
-summul n (a,b) = 
-    let sum_a = a * (div n a) * (1 + div n a) `div` 2
-        sum_b = b * (div n b) * (1 + div n b) `div` 2
-        sum_ab = a * b * (div n (a * b)) * (1 + div n (a * b)) `div` 2
-    in  sum_a + sum_b - sum_ab
-problem001 = summul 999 (3,5)
+summul1 n x = x * (div n x) * (1 + div n x) `div` 2
+summul2 n x y = summul1 n x + summul1 n y - summul1 n (x * y)
+
+problem001 = summul2 999 3 5
 
 main = do
-    print $ "problem001: answer " ++ show problem001
+    putStrLn $ "problem001: answer " ++ show problem001
