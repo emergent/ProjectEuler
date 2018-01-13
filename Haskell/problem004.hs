@@ -7,8 +7,6 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 http://projecteuler.net/index.php?section=problems&id=4
 -}
 
--- memo: palindromic number = 回文数
-
 isPalindromic :: Int -> Bool
 isPalindromic x =
      let s = show x

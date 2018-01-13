@@ -12,7 +12,6 @@ isPrime x = if odd x || x == 2 then undividable x (sqrtfloor x) else False
 undividable m n
     | n <= 2          = True
     | otherwise       = if mod m n == 0 then False else undividable m (n - 1)
-
 isMaxFactor m n = if isPrime n && mod m n == 0 then n else isMaxFactor m (n - 1)
 maxprime n = isMaxFactor n $ sqrtfloor n
 
