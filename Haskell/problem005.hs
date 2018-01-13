@@ -8,16 +8,7 @@ What is the smallest positive number that is <dfn title="divisible with no remai
 http://projecteuler.net/index.php?section=problems&id=5
 -}
 
-divided x [] = x
-divided x (y:ys) = 
-    if mod x y == 0 
-        then divided (div x y) ys
-        else divided x ys
-
-mindivisibles [] = []
-mindivisibles (x:xs) = (divided x (mindivisibles xs)) : (mindivisibles xs)
-
-problem005 = product . mindivisibles . reverse $ [1..20]
+problem005 = foldr1 lcm [1..20]
 
 main = do
     putStrLn $ "problem005: answer " ++ show problem005
