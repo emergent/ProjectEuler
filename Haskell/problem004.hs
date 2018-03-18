@@ -12,7 +12,6 @@ isPalindromic x =
      let s = show x
      in  s == reverse s
 
-problem004 = maximum [(x * y, x, y) | x <- [100..999], y <- [100..x], isPalindromic (x * y) == True]
+problem004 = maximum [(x * y, x, y) | x <- [100..999], y <- [100..x], isPalindromic (x * y)]
 
-main = do
-    putStrLn $ "problem004: answer " ++ show problem004
+main = putStrLn $ "problem004: answer " ++ show problem004

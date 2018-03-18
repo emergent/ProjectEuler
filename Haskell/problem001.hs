@@ -7,10 +7,9 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 http://projecteuler.net/index.php?section=problems&id=1
  -}
 
-summul1 n x = x * (div n x) * (1 + div n x) `div` 2
+summul1 n x = x * div n x * (1 + div n x) `div` 2
 summul2 n x y = summul1 n x + summul1 n y - summul1 n (x * y)
 
 problem001 = summul2 999 3 5
 
-main = do
-    putStrLn $ "problem001: answer " ++ show problem001
+main = putStrLn $ "problem001: answer " ++ show problem001

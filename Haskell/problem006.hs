@@ -14,8 +14,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 http://projecteuler.net/index.php?section=problems&id=6
 -}
 
-diffs xs = (sum xs) ^ 2 - (sum . map (^ 2) $ xs)
+diffs xs = sum xs ^ 2 - (sum . map (^ 2) $ xs)
 problem006 = diffs [1..100]
 
-main = do
-    putStrLn $ "problem006: answer " ++ show problem006
+main = putStrLn $ "problem006: answer " ++ show problem006
