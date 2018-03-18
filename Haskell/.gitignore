@@ -1,0 +1,7 @@
+clean.sh
+getall.sh
+makeprog.rb
+run
+template.hs.txt
+*.o
+*.hi
