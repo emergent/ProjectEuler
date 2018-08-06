@@ -23,7 +23,7 @@ def isPrime(num):
             if num % p == 0:
                 return False
         else:
-            print(num)
+            #print(num)
             primes.append(num)
             return True
 
