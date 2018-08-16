@@ -21,7 +21,6 @@
     (>  x 2) (cons 2 (sieve 0 (Math/sqrt x) (range 3 (+ x 1) 2)))))
 
 (defn sumprimes [xmax]
-  ;(+ 2 (sumoddprimes 0 3 xmax)))
   (reduce + (primes xmax)))
 
 (defn -main []
