@@ -17,3 +17,10 @@ $ chmod a+x problem001.clj
 $ ./problem001.clj
 ```
 
+### Python
+
+Use `python3`.
+
+```
+$ python3 problem001.py
+```
