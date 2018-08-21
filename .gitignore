@@ -2,6 +2,6 @@ clean.sh
 getall.sh
 makeprog.rb
 run
-template.hs.txt
+template.*.txt
 *.o
 *.hi
