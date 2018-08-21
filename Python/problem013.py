@@ -111,7 +111,6 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 http://projecteuler.net/index.php?section=problems&id=013
 '''
-import math
 
 digits = """
 37107287533902102798797998220837590246510135740250
