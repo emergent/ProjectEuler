@@ -30,7 +30,6 @@ def getCollatzChain(n):
         else:            # odd
             n = n * 3 + 1
         chain.append(n)
-    #print(init, len(chain))
     return chain
 
 if __name__ == '__main__':
