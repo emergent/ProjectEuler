@@ -22,7 +22,6 @@ http://projecteuler.net/index.php?section=problems&id=014
 import math
 
 def getCollatzChain(n):
-    init = n
     chain = [n]
     while n != 1:
         if (n % 2 == 0): # even
