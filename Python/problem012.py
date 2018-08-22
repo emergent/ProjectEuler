@@ -37,6 +37,5 @@ if __name__ == '__main__':
         if (len(dv) > 500):
             print(tn, len(dv))
             break
-        print(tn, len(dv))
         i += 1
         
