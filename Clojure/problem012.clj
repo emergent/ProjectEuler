@@ -20,7 +20,7 @@
           2)))
 
 (defn countdivisors [x]
-  (->> (range 1, (Math/floor (Math/sqrt x)))
+  (->> (range 1 (Math/floor (Math/sqrt x)))
       (filter #(zero? (mod x %)))
       (map #(list % (quot x %)))
       (flatten)
