@@ -23,7 +23,7 @@ def getTriangleNumber(i):
 
 def getDivisors(x):
     dv = []
-    for i in range(1, int(math.sqrt(x))):
+    for i in range(1, math.ceil(math.sqrt(x))):
         if x % i == 0:
             dv.append(i)
             dv.append(x // i)
