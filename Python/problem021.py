@@ -36,6 +36,6 @@ def getAmicablePair(x):
         return ()
 
 if __name__ == '__main__':
-    anslist = set([getAmicablePair(i) for i in range(1, 10000)])
+    anslist = set(getAmicablePair(i) for i in range(1, 10000))
     print(anslist)
     print(sum(set(chain.from_iterable(anslist))))
