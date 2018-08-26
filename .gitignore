@@ -5,3 +5,5 @@ run
 template.*.txt
 *.o
 *.hi
+data/*
+
