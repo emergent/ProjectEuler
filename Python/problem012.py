@@ -23,11 +23,11 @@ def getTriangleNumber(i):
 
 def getDivisors(x):
     dv = []
-    for i in range(1, math.ceil(math.sqrt(x))):
+    for i in range(1, int(math.sqrt(x))+1):
         if x % i == 0:
             dv.append(i)
             dv.append(x // i)
-    return dv
+    return list(set(dv))
 
 if __name__ == '__main__':
     i = 0
