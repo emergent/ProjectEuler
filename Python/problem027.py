@@ -56,6 +56,3 @@ if __name__ == '__main__':
                 ans = (a, b, num_of_primes)
     print(ans)
     print(ans[0]*ans[1])
-
-
-    
