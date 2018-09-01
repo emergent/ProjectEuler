@@ -18,7 +18,7 @@
   (cond
     (<= x 1) '()
     (=  x 2) '(2)
-    (>  x 2) (cons 2 (sieve 0 (Math/sqrt x) (range 3 (+ x 1) 2)))))
+    (>  x 2) (cons 2 (sieve 0 (Math/sqrt x) (range 3 (inc x) 2)))))
 
 (defn sumprimes [xmax]
   (reduce + (primes xmax)))
