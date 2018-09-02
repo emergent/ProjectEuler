@@ -15,8 +15,6 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 http://projecteuler.net/index.php?section=problems&id=028
 '''
-import math
-
 def sum_diagonals_n_by_n_spiral(n): # when n is odd number only
     return sum([4 * (x ** 2) - 6 * x + 6 for x in range(1, n+1, 2)]) - 3
 
