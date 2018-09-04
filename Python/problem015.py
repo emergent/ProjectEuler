@@ -1,14 +1,6 @@
 #! /usr/bin/env python3
 '''
 Problem 15 - Project Euler
-
-Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
-
-<div style="text-align:center;">
-<img src="project/images/p015.gif" alt="">
-</div>
-How many such routes are there through a 20×20 grid?
-
 http://projecteuler.net/index.php?section=problems&id=015
 '''
 import functools
