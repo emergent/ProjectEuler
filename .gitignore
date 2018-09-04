@@ -6,4 +6,5 @@ template.*.txt
 *.o
 *.hi
 */data/*
+*.json
 
