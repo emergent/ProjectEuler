@@ -3,11 +3,7 @@
 Problem 15 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=015
 '''
-import functools
-import operator
-
-def factorial(x):
-    return functools.reduce(operator.mul, range(1,x+1))
+from math import factorial
 
 if __name__ == '__main__':
     # calc 40_C_20

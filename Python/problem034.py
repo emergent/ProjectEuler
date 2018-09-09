@@ -3,12 +3,7 @@
 Problem 34 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=034
 '''
-import math
-from functools import reduce
-from operator import mul
-
-def factorial(x):
-    return reduce(mul, range(1, x+1)) if x >= 1 else 1
+from math import factorial
 
 def digitfact(x):
     return x == sum(map(lambda i: factorial(int(i)), list(str(x))))
