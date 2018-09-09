@@ -31,6 +31,3 @@ def getmax(x, y, rest):
     
 if __name__ == '__main__':
     print(getmax(0, 0, len(triangle)-1))
-
-
-
