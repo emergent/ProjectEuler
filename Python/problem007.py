@@ -3,33 +3,16 @@
 Problem 7 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=7
 '''
-import math
+from mathtools import primes
 
-primes = []
-
-def isPrime(num):
-    if num < 2:
-        return False
-    elif num == 2:
-        primes.append(num)
-        return True
-    else:
-        maxnum = math.ceil(math.sqrt(num))
-        for p in filter(lambda x: x <= maxnum, primes):
-            if num % p == 0:
-                return False
-        else:
-            #print(num)
-            primes.append(num)
-            return True
+NUM = 10_001
 
 if __name__ == '__main__':
-    num = 2
-    count = 0
-    while True:
-        if isPrime(num):
-            count += 1
-            if count == 10_001:
-                print(str(num)+' is the 10,001st prime number.')
-                break
-        num += 1
+    pmax = 110000
+    ps = primes(pmax)
+    while len(ps) < NUM:
+        pmax += 10000
+        ps = primes(pmax)
+    else:
+        print(str(ps[NUM-1])+' is the {}st prime number.'.format(NUM))
+

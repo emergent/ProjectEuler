@@ -3,22 +3,7 @@
 Problem 26 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=026
 '''
-from math import ceil, sqrt
-def sieve(ps, k, nmax):
-    n = ps[k]
-    if n > nmax:
-        return ps
-    else:
-        return sieve(list(filter((lambda x: x == n or x % n != 0), ps)),
-                     k + 1, nmax)
-
-def primes(maxnum):
-    if maxnum < 2:
-        return []
-    elif maxnum == 2:
-        return [2]
-    else:
-        return [2] + sieve(list(range(3, maxnum+1, 2)), 0, ceil(sqrt(maxnum)))
+from mathtools import primes
 
 def countcycle(x):
     count, n = 0, 1
