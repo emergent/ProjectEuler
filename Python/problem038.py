@@ -15,7 +15,7 @@ def isPandigital9digits(x):
 
 if __name__ == '__main__':
     maxp = 918273645
-    for i in range(9191, 10000):
+    for i in range(9183, 10000):
         ps = int(''.join([str(i * x) for x in range(1, 2+1)]))
         if isPandigital9digits(ps):
             print(ps, i)
