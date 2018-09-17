@@ -3,7 +3,6 @@
 Problem 43 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=043
 '''
-import math
 from itertools import permutations
 
 denomi = [2, 3, 5, 7, 11, 13, 17]
