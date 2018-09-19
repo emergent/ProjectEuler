@@ -24,3 +24,10 @@ Use `python3`.
 ```
 $ python3 problem001.py
 ```
+
+### C++
+
+```
+$ make
+$ ./problem001
+```
