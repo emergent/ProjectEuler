@@ -10,11 +10,9 @@ if __name__ == '__main__':
     N = 1_000_0
     ps = primes(N)
     odd_composite_num = list(set(range(5, N+1, 2)) - set(ps))
-    print(odd_composite_num)
     for i in odd_composite_num:
         for sq in range(1, int(math.sqrt(i/2))+1)[::-1]:
             if (i - 2 * (sq ** 2)) in ps:
-                print(i, sq, i-2*(sq**2))
                 break
         else:
             print(i)
