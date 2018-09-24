@@ -14,19 +14,15 @@ def samedigits(*xs):
     x = set(str(xs[0]))
     return all([set(str(y)) == x for y in xs[1:]])
 
-def isarithmetical(*xs):
-    if len(xs) < 2:
-        return True
-    xs = list(sorted(xs))
-    ys = [xs[i+1]-xs[i] for i in range(len(xs)-1)]
-    return all([z == ys[0] for z in ys[1:]])
-
 if __name__ == '__main__':
-    N = 9999    
-    ps = list(filter(lambda x: x > 999, primes(N)))
-    ans = [c for c in combinations(ps,3) if samedigits(*c) and isarithmetical(*c)]
+    ps = list(filter(lambda x: x > 999, primes(9999)))
+    cs = [c for c in combinations(ps,2) if samedigits(*c) and (2 * max(c) - min(c)) in ps]
+    
+    ans = []
+    for c in cs:
+        x, y = min(c), max(c)
+        z = 2 * y - x
+        if samedigits(x, y, z):
+            ans.append((x, y, z))
     print(ans)
     print(list(map(lambda x: reduce(add, map(str, x)), ans)))
-
-
-    
