@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 '''
-Problem 51 - Project Euler
-http://projecteuler.net/index.php?section=problems&id=051
+Problem 52 - Project Euler
+http://projecteuler.net/index.php?section=problems&id=052
 '''
 def samedigits(x,y):
     return set(str(x)) == set(str(y))
