@@ -1,4 +1,4 @@
-#! /usr/bin/env boot
+#! /usr/bin/env clojure
 ; Problem 1 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=1
 
@@ -9,5 +9,4 @@
   (- (+ (summul1 n x) (summul1 n y))
     (summul1 n (* x y))))
 
-(defn -main []
-  (println (summul2 999 3 5)))
+(println (summul2 999 3 5))

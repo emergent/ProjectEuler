@@ -1,4 +1,4 @@
-#! /usr/bin/env boot
+#! /usr/bin/env clojure
 ; Problem 3 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=3
 
@@ -29,5 +29,4 @@
 (defn maxprimefactor [x]
   (int (maxprimefactor' x (primes (Math/sqrt x)))))
 
-(defn -main []
-  (println (maxprimefactor 600851475143N)))
+(println (maxprimefactor 600851475143N))

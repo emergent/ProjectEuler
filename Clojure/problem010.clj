@@ -1,4 +1,4 @@
-#! /usr/bin/env boot
+#! /usr/bin/env clojure
 ; Problem 10 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=10
 
@@ -19,5 +19,4 @@
 (defn sumprimes [xmax]
   (reduce + (primes xmax)))
 
-(defn -main []
-  (println (sumprimes (bigint (* 2 (Math/pow 1000 2))))))
+(println (sumprimes (bigint (* 2 (Math/pow 1000 2)))))

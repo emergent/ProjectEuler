@@ -1,4 +1,4 @@
-#! /usr/bin/env boot
+#! /usr/bin/env clojure
 ; Problem 12 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=012
 
@@ -15,10 +15,9 @@
       (count)
       (list x)))
 
-(defn -main []
-  (->> (range)
-      (map trinum)
-      (map countdivisors)
-      (filter #(> (second %) 500))
-      (first)
-      (println)))
+(->> (range)
+    (map trinum)
+    (map countdivisors)
+    (filter #(> (second %) 500))
+    (first)
+    (println))

@@ -1,4 +1,4 @@
-#! /usr/bin/env boot
+#! /usr/bin/env clojure
 ; Problem 2 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=2
 
@@ -17,5 +17,4 @@
 (defn fibevensum [x]
   (reduce + (filter even? (fibmax x))))
 
-(defn -main []
-  (println (fibevensum 4000000)))
+(println (fibevensum 4000000))
