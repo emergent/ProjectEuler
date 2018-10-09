@@ -10,11 +10,10 @@ $ runghc problem001.hs
 
 ### Clojure
 
-Install `boot-clj` before executing program.
+Use clojure >= 1.9.0.
 
 ```
-$ chmod a+x problem001.clj
-$ ./problem001.clj
+$ clojure problem001.clj
 ```
 
 ### Python
