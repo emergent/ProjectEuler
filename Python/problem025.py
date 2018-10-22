@@ -6,7 +6,7 @@ http://projecteuler.net/index.php?section=problems&id=025
 def fibonacci(): # generator
     a, b, i = 1, 1, 1
     while True:
-        yield (i, a)
+        yield i, a
         a, b = b, a+b
         i = i + 1
 
@@ -17,6 +17,3 @@ if __name__ == '__main__':
     while len(str(f)) < maxdigits:
         i, f = next(fib)
     print(i, f)
-
-
-
