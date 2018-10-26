@@ -1,7 +1,14 @@
 #! /usr/bin/env clojure
 ; Problem 34 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=034
-(require '[clojure.string :refer [split]])
+
+(defn dec2list [x]
+  (map #(Integer/parseInt %)
+       (-> (str x)
+           (clojure.string/split #""))))
+
+(defn ppp [str]
+  (do (println str) str))
 
 (defn factorial [x]
   (if (zero? x)
@@ -9,15 +16,10 @@
     (* x (factorial (dec x)))))
 
 (defn digitfact [x]
-  (->> (-> (str x)
-           (split #""))
-       (map #(Integer/parseInt %))
+  (->> (dec2list x)
        (map factorial)
        (reduce +)
        (= x)))
-
-(defn ppp [str]
-  (do (println str) str))
 
 (->> (range 3 10000000)
      (filter digitfact)
