@@ -7,9 +7,6 @@
        (-> (str x)
            (clojure.string/split #""))))
 
-(defn ppp [str]
-  (do (println str) str))
-
 (defn factorial [x]
   (if (zero? x)
     1
@@ -23,6 +20,5 @@
 
 (->> (range 3 10000000)
      (filter digitfact)
-     (ppp)
      (reduce +)
      (println))
