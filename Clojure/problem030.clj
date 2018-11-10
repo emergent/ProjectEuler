@@ -3,16 +3,10 @@
 ; http://projecteuler.net/index.php?section=problems&id=030
 (require '[clojure.string :refer [split]])
 
-(defn pp [s]
-  (do
-    (println s)
-    s))
-
 (defn sum-digits-power [x, p]
   (->> (-> (str x)
            (split #""))
        (map #(int (Math/pow (Integer/parseInt %) p)))
-;       (pp)
        (reduce +)))
 
 (-> (for [i (range 2 354294)
