@@ -4,7 +4,7 @@
 
 (defn palindromic? [x]
   (let [s (str x)]
-    (= s (clojure.string/join (reverse s)))))
+    (= s (clojure.string/reverse s))))
 
 (->> (range 100 (inc 999))
      (map #(map (fn [x] (* x %)) (range 100 (inc %))))
