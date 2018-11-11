@@ -3,7 +3,7 @@
 Problem 35 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=035
 '''
-from mathutil import primes
+from mathtools import primes
 
 def rotate(x):
     a = list(str(x))
