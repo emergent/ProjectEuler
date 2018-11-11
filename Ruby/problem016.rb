@@ -3,8 +3,4 @@
 Problem 16 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=016
 =end
-NUM_TIMES = 1000
-a = (2 ** NUM_TIMES).to_s
-sum = 0
-a.size.times {|i| sum += a[i].chr.to_i }
-puts sum
+puts (2 ** 1000).to_s.split('').map {|d| d.to_i }.sum
