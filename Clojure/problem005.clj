@@ -4,10 +4,9 @@
 (defn gcd [a b]
   (loop [m (max a b)
          n (min a b)]
-        (let [r (mod m n)]
-          (if (zero? r)
-            n
-            (recur n r)))))
+    (if (zero? n)
+      m
+      (recur n (mod m n)))))
 
 (defn lcm [a b]
   (/ (* a b)
