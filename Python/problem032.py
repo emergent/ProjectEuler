@@ -9,7 +9,7 @@ def pandigitalproducts(x):
     sep = '|'
     pat = ''.join(map(str,range(1,x+1)))+sep*2
     perms = set(filter(lambda s: not(s[0] == sep or s[-1] == sep or sep*2 in s), 
-                   map(''.join, permutations(pat))))
+                map(''.join, permutations(pat))))
     pps = [] # (multiplicand, multiplier, product)
 
     for p in perms:
