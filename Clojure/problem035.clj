@@ -7,14 +7,11 @@
 (def prime-million (primes 1000000))
 
 (defn rotate1 [s]
-  (let [f (first s)
-        r (rest  s)]
-       (-> (concat r (list f))
-           (s/join))))
+  (-> (concat (rest s) (list (first s)))
+      (s/join)))
 
 (defn circular-prime? [x]
   (loop [s (rotate1 (str x))]
-    ;(println (list s x))
     (if (= (Integer/parseInt s) x)
       true
       (if (< (.indexOf prime-million (Integer/parseInt s)) 0)
