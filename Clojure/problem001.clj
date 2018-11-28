@@ -7,6 +7,6 @@
   
 (defn summul2 [n x y]
   (- (+ (summul1 n x) (summul1 n y))
-    (summul1 n (* x y))))
+     (summul1 n (* x y))))
 
 (println (summul2 999 3 5))
