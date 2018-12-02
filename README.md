@@ -24,9 +24,23 @@ Use `python3`.
 $ python3 problem001.py
 ```
 
-### C++
+### C/C++
 
 ```
 $ make
 $ ./problem001
+```
+
+### Ruby
+
+```
+$ ruby problem001.rb
+```
+
+### Scheme
+
+Use `Gauche`.
+
+```
+$ gosh problem001.scm
 ```
