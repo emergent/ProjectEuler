@@ -20,8 +20,7 @@ def _sieve(ps, k, nmax):
     if n > nmax:
         return ps
     else:
-        return _sieve(list(filter((lambda x: x == n or x % n != 0), ps)),
-                     k + 1, nmax)
+        return _sieve([x for x in ps if x % n != 0 or x == n], k+1, nmax)
 
 def primes(maxnum):
     '''
