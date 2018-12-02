@@ -3,22 +3,30 @@
 Problem 14 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=014
 '''
-import math
+chains = {}
 
-def getCollatzChain(n):
-    chain = [n]
+def getCollatzChainLength(n):
+    chain = []
+    extra = 0
     while n != 1:
-        if (n % 2 == 0): # even
-            n = n // 2
-        else:            # odd
-            n = n * 3 + 1
+        if n in chains:
+            extra = chains[n]
+            break
+        else:
+            chain.append(n)
+            if (n % 2 == 0): # even
+                n = n // 2
+            else:            # odd
+                n = n * 3 + 1
+    else:
         chain.append(n)
-    return chain
+
+    for i, item in enumerate(chain):
+        if item not in chains:
+            chains[item] = len(chain[i:]) + extra
+
+    return len(chain) + extra
 
 if __name__ == '__main__':
-    ans, maxchain = 0, 0
-    for i in range(1, 1_000_000):
-        chain = getCollatzChain(i)
-        if len(chain) > maxchain:
-            ans, maxchain = i, len(chain)
-    print(ans, maxchain)
+    print(max([(x, getCollatzChainLength(x)) for x in range(1, 1_000_000)],
+            key=(lambda x: x[1])))
