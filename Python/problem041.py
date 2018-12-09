@@ -7,7 +7,7 @@ from mathtools import isprime
 from itertools import permutations
 
 if __name__ == '__main__':
-    digits = list(map(str, range(1,10)))
+    digits = list(map(str, range(1,8)))
     while len(digits) > 2:
         for i in reversed(sorted(permutations(digits))):
             p = int(''.join(i))
