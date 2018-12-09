@@ -12,9 +12,6 @@
     (= (set (map #(- (int %) 48) strx))
        (ndigit (count strx)))))
 
-(defn pppp [s]
-  (do (println "---tsuuka---") s))
-
 (->> primes10m
      (filter pandigital?)
      (apply max)
