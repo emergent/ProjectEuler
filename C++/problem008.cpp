@@ -3,9 +3,6 @@
  * http://projecteuler.net/index.php?section=problems&id=8
  */
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
 #include <string>
 
 const std::string digits = "\
