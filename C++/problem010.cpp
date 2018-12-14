@@ -4,23 +4,8 @@
  */
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cmath>
 #include <numeric>
-
-template <typename T>
-void print(std::vector<T> v) {
-    std::cout << '[';
-    for (const auto i : v) {
-        std::cout << i << ' ';
-    }
-    std::cout << ']' << std::endl;
-}
-
-template <typename T>
-void print(T x) {
-    std::cout << x << std::endl;
-}
+#include <cmath>
 
 std::vector<long>
 sieve(long n, long maxn, std::vector<long> &v) {
