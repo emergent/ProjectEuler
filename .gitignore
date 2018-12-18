@@ -5,6 +5,5 @@ run
 template.*.txt
 *.o
 *.hi
-*/data/*
 *.json
-
+measure*
