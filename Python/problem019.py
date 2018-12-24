@@ -3,8 +3,6 @@
 Problem 19 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=019
 '''
-import math
-
 daysofmonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def count_sundays():
