@@ -25,11 +25,3 @@
           (keep has-no-dup-digit x))
     (nth (- (dec 1000000) (* 24 (factorial 8))))
     (println))
-
-;(comment 
-; (-> (range 1234 (inc 43210))
-   ;(as-> x
-   ;  (keep has-no-dup-digit x)
-     ;(do (println x) x))
-   ;(nth (inc 100))
-   ;(println)))
