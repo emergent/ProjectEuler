@@ -44,3 +44,11 @@ Use `Gauche`.
 ```
 $ gosh problem001.scm
 ```
+
+### Rust
+
+Use `cargo`.
+
+```
+$ cargo run --bin 001
+```
