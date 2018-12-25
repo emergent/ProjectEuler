@@ -1,0 +1,6 @@
+[package]
+name = "project-euler-in-rust"
+version = "0.1.0"
+authors = ["emergent <yosikawa@gmail.com>"]
+
+[dependencies]
