@@ -2,19 +2,13 @@
 ; Problem 2 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=2
 
-(defn fibmax' [x xs]
-  (let [n (+ (first xs) (second xs))]
-    (if (< x n)
-      xs
-      (fibmax' x (cons n xs)))))
+(defn fibevensum [xmax]
+  (loop [a 1 b 2 sum 0]
+    (if (>= a xmax)
+      sum
+      (if (even? a)
+        (recur b (+ a b) (+ sum a))
+        (recur b (+ a b) sum)))))
 
-(defn fibmax [x]
-  (cond
-    (= x 1) '(1)
-    (= x 2) '(1 2)
-    :else (reverse (fibmax' x '(2 1)))))
-
-(defn fibevensum [x]
-  (reduce + (filter even? (fibmax x))))
-
-(println (fibevensum 4000000))
+(-> (fibevensum 4000000)
+    (println))
