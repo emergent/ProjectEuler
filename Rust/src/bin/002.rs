@@ -1,22 +1,18 @@
 /// Problem 2 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=2
 
-fn fibevensum(term_max: i32) -> i32 {
-    let mut a = 1;
-    let mut b = 2;
-    let mut tmp;
-    let mut sum = 0;
-    
-    while a < term_max {
-        if a % 2 == 0 {
-            sum += a;
-        }
-        tmp = b;
-        b = a + b;
-        a = tmp;
+fn fibevensum2(a: i32, b: i32, sum: i32, xmax: i32) -> i32 {
+    if a >= xmax {
+        return sum;
+    } else if a % 2 == 0 {
+        return fibevensum2(b, a+b, sum+a, xmax);
+    } else {
+        return fibevensum2(b, a+b, sum, xmax);
     }
+}
 
-    sum
+fn fibevensum(xmax: i32) -> i32 {
+    fibevensum2(1, 2, 0, xmax)
 }
 
 fn main() {
