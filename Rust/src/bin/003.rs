@@ -10,13 +10,13 @@ fn maxprimefactor(x: i64) -> i64 {
         if target % divider == 0 {
             target /= divider;
             if target == 1 {
-                break;
+                return divider;
             }
         } else {
             divider += 1;
         }
     }
-    divider
+    -1 // no case
 }
 
 fn main() {
