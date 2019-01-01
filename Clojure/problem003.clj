@@ -1,20 +1,7 @@
 #! /usr/bin/env clojure
 ; Problem 3 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=3
-
-(defn sieve [n max ls]
-  (let [k (nth ls n)]
-    (if (> k max)
-      ls
-      (recur (+ n 1)
-             max
-             (filter #(or (= % k) (not= (mod % k) 0)) ls)))))
-
-(defn primes [x]
-  (cond
-    (<= x 1) '()
-    (=  x 2) '(2)
-    (>  x 2) (cons 2 (sieve 0 (Math/sqrt x) (range 3 (inc x) 2)))))
+(require '[mathtools :refer [primes]])
 
 (defn maxprimefactor' [x ps]
   (if (empty? ps)
