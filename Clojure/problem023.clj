@@ -18,15 +18,14 @@
        (filter abundant?)))
 
 (defn sumoftwo [coll limit]
-  (let [n (count coll)]
-    (->> (for [x coll
-               y coll
-               :let [z (+ x y)]
-               :when (< z limit)] 
-           z)
-         sort
-         distinct
-         (reduce +))))
+  (->> (for [x coll
+             y coll
+             :let [z (+ x y)]
+             :when (< z limit)]
+         z)
+       sort
+       distinct
+       (reduce +)))
 
 (println
  (let [limit 28123]
