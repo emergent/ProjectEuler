@@ -19,12 +19,10 @@
 
 (defn sumoftwo [coll limit]
   (let [n (count coll)]
-    (->> (for [i (range 0 n)
-               j (range i n)
-               :let [x (nth coll i)
-                     y (nth coll j)
-                     z (+ x y)]
-               :when (< z limit)]
+    (->> (for [x coll
+               y coll
+               :let [z (+ x y)]
+               :when (< z limit)] 
            z)
          sort
          distinct
