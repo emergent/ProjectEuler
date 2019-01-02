@@ -5,14 +5,13 @@
 
 (let [N 10000
       ps (primes N)
-      odd-composite-num (for [a (range 5 (inc N) 2)
-                              :when (< (.indexOf ps a) 0)] a)]
+      odd-composite-num (->> (range 5 (inc N) 2)
+                             (filter #(< (.indexOf ps %) 0)))]
   (loop [odds odd-composite-num]
     (let [odd (first odds)
-          g (-> (for [sq (reverse (range 1 (inc (int (Math/sqrt (/ odd 2))))))
+          g (for [sq (reverse (range 1 (inc (int (Math/sqrt (/ odd 2))))))
                       :let [i (- odd (* 2 (* sq sq)))]
-                      :when (>= (.indexOf ps i) 0)] (list i odd))
-                (first))]
-      (if (nil? g)
+                      :when (>= (.indexOf ps i) 0)] i)]
+      (if (empty? g)
         (println odd)
         (recur (rest odds))))))
