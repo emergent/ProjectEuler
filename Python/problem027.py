@@ -20,7 +20,7 @@ def count_primes(a, b):
 
 if __name__ == '__main__':
     ans = (0, 0, 0) # answer: a, b, num_of_primes
-    for a in range(-999, 999): # a
+    for a in range(-999, 1000): # a
         for b in filter(isprime, range(2, 1000)): # b
             num_of_primes = count_primes(a, b)
             if num_of_primes > ans[2]:
