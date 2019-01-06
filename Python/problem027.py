@@ -4,7 +4,6 @@ Problem 27 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=027
 '''
 from mathtools import isprime
-from itertools import permutations
 
 def prime_generator(a, b):
     n = 0
