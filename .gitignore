@@ -8,3 +8,9 @@ template.*.txt
 *.json
 measure*
 /Rust/target/*
+/C/**
+/C++/**
+!Makefile
+!*.h
+!*.c
+!*.cpp
