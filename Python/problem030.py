@@ -13,6 +13,3 @@ if __name__ == '__main__':
     # and (9 ** 5) * 6 = 354294
     ans = [i for i in range(2, 354294) if i == sum_digits_power(i, 5)]
     print(sum(ans), ans)
-        
-
-    

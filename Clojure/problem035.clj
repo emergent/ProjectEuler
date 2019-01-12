@@ -17,7 +17,7 @@
       (if (< (.indexOf prime-million (Integer/parseInt s)) 0)
         false
         (recur (rotate1 s))))))
-  
+
 (->> prime-million
      (filter circular-prime?)
      (count)

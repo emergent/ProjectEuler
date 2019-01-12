@@ -9,7 +9,7 @@ fn nthpower(x: i32, e: u32) -> bool {
         sumpower += (quot % 10).pow(e);
         quot = quot / 10;
     }
-    
+
     if sumpower == x { true } else { false }
 }
 

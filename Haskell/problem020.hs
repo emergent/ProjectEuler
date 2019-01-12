@@ -5,7 +5,7 @@ http://projecteuler.net/index.php?section=problems&id=020
 
 factorial n = product [1..n]
 
-problem020 = 
+problem020 =
             let
                 n = show $ factorial 100
             in
