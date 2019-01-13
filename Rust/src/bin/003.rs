@@ -2,21 +2,25 @@
 /// http://projecteuler.net/index.php?section=problems&id=3
 
 fn maxprimefactor(x: i64) -> i64 {
-    let limit = (x as f64).sqrt() as i64 + 1;
     let mut divider = 2;
     let mut target = x;
 
-    while divider <= limit {
+    while target != 1 {
         if target % divider == 0 {
             target /= divider;
-            if target == 1 {
-                return divider;
-            }
         } else {
             divider += 1;
         }
     }
-    -1 // no case
+    divider
+}
+
+#[test]
+fn test_maxprimefactor() {
+    assert_eq!(maxprimefactor(2),  2);
+    assert_eq!(maxprimefactor(3),  3);
+    assert_eq!(maxprimefactor(10), 5);
+    assert_eq!(maxprimefactor(16), 2);
 }
 
 fn main() {
