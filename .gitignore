@@ -1,16 +1,21 @@
-clean.sh
-getall.sh
-makeprog.rb
-run
-template.*.txt
-*.o
-*.hi
+# common
 *.json
 measure*
-/Rust/target/*
+makeprog.rb
+template.*.txt
+clean.sh
+getall.sh
+# Haskell
+run
+*.o
+*.hi
+# C / C++
 /C/**
 /C++/**
 !Makefile
 !*.h
 !*.c
 !*.cpp
+# Rust
+/Rust/target/*
+/Rust/Cargo.lock
