@@ -9,11 +9,7 @@ def isprime(x):
     elif not isinstance(x, int) or x < 2 or x % 2 == 0:
         return False
     else:
-        for i in primes(int(math.sqrt(x))+1):
-            if x % i == 0:
-                return False
-        else:
-            return True
+        return all([x % i != 0 for i in range(3, int(x**0.5)+1, 2)])
 
 def _sieve(ps, k, nmax):
     n = ps[k]
