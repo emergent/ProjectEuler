@@ -13,5 +13,3 @@ puts (100..999).to_a
         .map {|a| a[0] * a[1]}
         .select {|x| palindromic?(x) }
         .max
-
-
