@@ -3,10 +3,10 @@
 fn comb(n: i64, k: i64) -> i64 {
     match k {
         1 => n,
-        _ => comb(n, k-1) * (n-k+1) / k,
+        _ => comb(n, k - 1) * (n - k + 1) / k,
     }
 }
 
 fn main() {
-    println!("{}", comb(40,20));
+    println!("{}", comb(40, 20));
 }

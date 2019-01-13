@@ -2,16 +2,16 @@
 /// http://projecteuler.net/index.php?section=problems&id=16
 extern crate num;
 
-use num::FromPrimitive;
 use num::bigint::BigInt;
+use num::FromPrimitive;
 
 fn sumofdigitspower(x: i32, p: usize) -> i32 {
     let xb: BigInt = FromPrimitive::from_i32(x).unwrap();
     num::pow(xb, p)
         .to_string()
         .chars()
-        .map(|c| c as i32 -48)
-        .fold(0, |sum,x| sum + x)
+        .map(|c| c as i32 - 48)
+        .fold(0, |sum, x| sum + x)
 }
 
 #[test]
