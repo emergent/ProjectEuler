@@ -5,9 +5,9 @@ fn fibevensum2(a: i32, b: i32, sum: i32, xmax: i32) -> i32 {
     if a >= xmax {
         return sum;
     } else if a % 2 == 0 {
-        return fibevensum2(b, a+b, sum+a, xmax);
+        return fibevensum2(b, a + b, sum + a, xmax);
     } else {
-        return fibevensum2(b, a+b, sum, xmax);
+        return fibevensum2(b, a + b, sum, xmax);
     }
 }
 
