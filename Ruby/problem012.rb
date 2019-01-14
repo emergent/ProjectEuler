@@ -14,7 +14,3 @@ while triangledivs(i) < 500
     i += 1
 end
 puts ((i+1)*(i+2)/2)
-
-
-
-
