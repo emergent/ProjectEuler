@@ -25,5 +25,5 @@ a="73167176531330624919225119674426574742355349194934
 71636269561882670428252483600823257530420752963450"
 .gsub(/\s/,'')
 puts (0..(a.size-13)).map {|i|
-    a.slice(i, 13).chars.map {|c| c.to_i }.inject(1) {|acc,x| acc*x }
+    a.slice(i, 13).chars.map {|c| c.to_i }.inject(:*)
 }.max
