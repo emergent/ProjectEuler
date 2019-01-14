@@ -18,7 +18,7 @@
        (reduce +)
        (= x)))
 
-(->> (range 3 (inc (* (factorial 9) 7)))
+(->> (range 3 (* (factorial 9) 7))
      (filter digitfact)
      (reduce +)
      (println))
