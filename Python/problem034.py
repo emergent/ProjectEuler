@@ -12,8 +12,8 @@ def digitfact(x):
 
 if __name__ == '__main__':
     with Pool(8) as p:
-        df = p.map(digitfact, range(3, 10000000))
-    
+        df = p.map(digitfact, range(3, factorial(9)*7))
+
     df = list(map(lambda y: y[0], filter(lambda x: x[1], df)))
     print(df)
     print(sum(df))
