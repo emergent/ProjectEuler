@@ -7,7 +7,7 @@ require 'prime'
 
 def rotate x
     xs = x.to_s
-    (xs[1,7] + xs[0]).to_i
+    (xs[1..-1] + xs[0]).to_i
 end
 
 def rotate_primes arr
@@ -38,7 +38,6 @@ def rotate_primes arr
     result
 end
 
-p (rotate_primes(
-    Prime.each(1_000_000).to_a
+puts (rotate_primes(Prime.each(1_000_000).to_a
     .select {|i| i.to_s =~ /^[^024568]+$/ && i > 10 }
     ) + [2,3,5,7]).count
