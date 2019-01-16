@@ -13,7 +13,7 @@ def count_primes(a,b)
 end
 
 puts (-999..999).flat_map {|a|
-    (2..1000).select {|b| b.prime? }.map {|b|
+    (2..1000).select(&:prime?).map {|b|
         [a, b, count_primes(a,b)]
     }
-}.max {|x,y| x[2] <=> y[2]}.take(2).inject(:*)
+}.max_by {|x| x[2]}.take(2).inject(:*)
