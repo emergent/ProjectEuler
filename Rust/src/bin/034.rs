@@ -7,11 +7,17 @@ fn fac(x: i32) -> i32 {
     }
 }
 
+fn facdigits(x: i32) -> i32 {
+    let mut xd = x;
+    let mut sum = 0;
+    while xd != 0 {
+        sum += fac(xd % 10);
+        xd = xd / 10;
+    }
+    sum
+}
+
 fn main() {
-    let ans: i32 = (3..(fac(9)*7)).filter(|&i|
-        i == i.to_string()
-                .chars()
-                .fold(0, |sum, c| sum + fac(c as i32 - 48))
-    ).sum();
+    let ans: i32 = (3..(fac(9)*7)).filter(|&i| i == facdigits(i)).sum();
     println!("{}", ans);
 }
