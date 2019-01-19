@@ -3,10 +3,11 @@
 Problem 4 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=004
 '''
-from itertools import combinations
+from itertools import combinations_with_replacement
 
-def isPalindromic(x):
-    return str(x) == str(x)[::-1]
+def palindrome(x, y):
+    p = x * y
+    return p if p == int(str(p)[::-1]) else 0
 
 if __name__ == '__main__':
-    print(max(filter(isPalindromic, map(lambda x: x[0]*x[1], combinations(range(100,1000), 2)))))
+    print(max({palindrome(*c) for c in combinations_with_replacement(range(100,1000)[::-1], 2)}))

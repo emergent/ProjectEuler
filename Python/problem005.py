@@ -4,9 +4,9 @@ Problem 5 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=5
 '''
 from math import gcd
-import functools
+from functools import reduce
 
 def lcm(a, b):
     return a * b // gcd(a, b)
 
-print(functools.reduce(lcm, range(1, 21)))
+print(reduce(lcm, range(1, 21)))
