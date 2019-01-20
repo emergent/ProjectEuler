@@ -2,7 +2,7 @@
  * Problem 2 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=2
  */
-let fibevensum = (fmax: number) => {
+const fibevensum = (fmax: number) => {
     let a: number = 1;
     let b: number = 2;
     let sum: number = 0;
