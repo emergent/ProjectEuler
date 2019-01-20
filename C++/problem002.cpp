@@ -6,15 +6,15 @@
 
 int fibevensum(int fmax) {
     int a = 1, b = 2, tmp;
-    int sum = 2;
+    int sum = 0;
     while (b < fmax) {
-        tmp = a;
-        a = b;
-        b = a + tmp;
-
         if (b % 2 == 0) {
             sum += b;
         }
+
+        tmp = a;
+        a = b;
+        b = a + tmp;
     }
     return sum;
 }
