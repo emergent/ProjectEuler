@@ -19,3 +19,5 @@ run
 # Rust
 /Rust/target/*
 /Rust/Cargo.lock
+# TypeScript
+/TypeScript/*.js
