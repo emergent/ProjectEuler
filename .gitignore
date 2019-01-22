@@ -20,4 +20,4 @@ run
 /Rust/target/*
 /Rust/Cargo.lock
 # TypeScript
-/TypeScript/*.js
+/TypeScript/dist/*.js
