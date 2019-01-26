@@ -50,5 +50,13 @@ $ gosh problem001.scm
 Use `cargo`.
 
 ```
-$ cargo run --bin 001
+$ cargo run --bin 001 --release
+```
+
+### TypeScript
+
+Use [`ts-node`](https://github.com/TypeStrong/ts-node).
+
+```
+ts-node problem001.ts
 ```
