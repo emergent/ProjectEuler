@@ -3,7 +3,9 @@
 
 import math
 import numpy as np
+from functools import lru_cache
 
+@lru_cache(maxsize=4294967296)
 def isprime(x):
     if x == 2:
         return True
