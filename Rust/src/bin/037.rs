@@ -3,36 +3,26 @@
 extern crate project_euler;
 use project_euler::is_prime;
 
-fn is_truncatable(base: u64) -> bool {
-    let mut count = 0;
-
-    // truncate from right
-    let mut x = base;
-    x = x / 10;
-    while x != 0 {
-        if !is_prime(x) {
+fn is_truncatable(x: u64) -> bool {
+    let mut xr = x / 10;
+    let mut d  = 10;
+    let mut xl;
+    while xr > 0 {
+        xl = x % d;
+        if !(is_prime(xr) && is_prime(xl)) {
             return false;
         }
-        count += 1;
-        x = x / 10;
+        xr = xr / 10;
+        d *= 10;
     }
-
-    // truncate from left
-    let mut y;
-    for i in 1..(count+1) {
-        y = base % (10_u64.pow(i));
-        if !is_prime(y) {
-            return false;
-        }
-    }
-    true
+    return is_prime(x)
 }
 
 fn main() {
     let mut tp = 11;
     let mut tps = Vec::new();
     while tps.len() < 11 {
-        if is_prime(tp) && is_truncatable(tp) {
+        if is_truncatable(tp) {
             tps.push(tp);
         }
         tp += 2;
