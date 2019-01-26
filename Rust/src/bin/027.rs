@@ -5,12 +5,10 @@ use project_euler::is_prime;
 
 fn count_primes(a: i64, b: i64) -> i64 {
     let mut n = 0;
-    let mut y;
-    loop {
+    let mut y = b;
+    while y > 0 && is_prime(y as u64) {
+        n += 1;
         y = n * n + a * n + b;
-        if y > 0 && is_prime(y as u64) {
-            n += 1;
-        } else { break; }
     }
     n
 }
