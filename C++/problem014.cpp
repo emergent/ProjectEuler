@@ -3,8 +3,6 @@
  * http://projecteuler.net/index.php?section=problems&id=14
  */
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 long chain(long n) {
     if (n == 1) {
