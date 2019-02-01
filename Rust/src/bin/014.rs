@@ -2,7 +2,7 @@
 /// http://projecteuler.net/index.php?section=problems&id=14
 use std::collections::HashMap;
 
-fn chain(n: u32, cache: &mut HashMap<u32, u32>) -> u32 {
+fn chain(n: u64, cache: &mut HashMap<u64, u64>) -> u64 {
     match cache.get(&n) {
         Some(&i) => i,
         None => {
@@ -18,7 +18,8 @@ fn chain(n: u32, cache: &mut HashMap<u32, u32>) -> u32 {
 }
 
 fn main() {
-    let mut cache = HashMap::<u32,u32>::new();
+    //let mut cache = HashMap::<u64,u64>::new();
+    let mut cache = HashMap::<u64,u64>::with_capacity(1024 * 1024);
 
     let mut maxn = 0;
     let mut maxi = 0;
@@ -29,5 +30,5 @@ fn main() {
             maxi = i;
         }
     }
-    println!("{}", maxi);
+    println!("{}, {}", maxn, maxi);
 }
