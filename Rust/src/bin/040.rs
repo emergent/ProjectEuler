@@ -2,7 +2,7 @@
 /// http://projecteuler.net/index.php?section=problems&id=40
 
 fn main() {
-    let mut numv = Vec::new();
+    let mut numv = Vec::with_capacity(1000000);
     let mut idx = 1;
     let mut ans: i32 = 1;
 
