@@ -4,15 +4,15 @@
 fn main() {
     let mut numv = Vec::new();
     let mut idx = 1;
-    let mut ans = 1;
+    let mut ans: i32 = 1;
 
     for i in 1.. {
         for c in i.to_string().chars() {
-            numv.push(c as i32 - 48);
+            numv.push(c as i8 - 48);
         }
 
         if numv.len() > idx {
-            ans *= numv[idx-1];
+            ans *= numv[idx-1] as i32;
             idx *= 10;
         }
         if idx > 1000000 { break; }
