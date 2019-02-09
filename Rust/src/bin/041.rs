@@ -63,5 +63,4 @@ fn test_numcat() {
     assert_eq!(numcat(&vec![1]), 1);
     assert_eq!(numcat(&vec![1,2,3]), 123);
     assert_eq!(numcat(&vec![1,2,3,4]), 1234);
-    assert_eq!(numcat(&vec![1,2,3,4]), 1234);
 }
