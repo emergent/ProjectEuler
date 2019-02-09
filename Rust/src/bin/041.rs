@@ -33,8 +33,8 @@ fn numcat(v: &Vec<i32>) -> i32 {
     if v.is_empty() { return 0; }
 
     let mut catn: i32 = 0;
-    for (i, &n) in v.iter().enumerate() {
-        catn += 10_i32.pow((v.len()-i-1) as u32)  * n;
+    for (i, &n) in v.iter().rev().enumerate() {
+        catn += n * 10_i32.pow(i as u32);
     }
     catn
 }
