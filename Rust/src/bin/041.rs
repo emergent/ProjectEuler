@@ -45,14 +45,12 @@ fn pandigitals(d: i32) -> Vec<i32> {
 }
 
 fn main() {
-    for i in (1..10).rev() {
-        let mut ps = pandigitals(i);
-        ps.reverse();
-        for p in ps {
-            if is_prime(p as u64) {
-                println!("{}", p);
-                return;
-            }
+    let mut ps = pandigitals(7);
+    ps.reverse();
+    for p in ps {
+        if is_prime(p as u64) {
+            println!("{}", p);
+            return;
         }
     }
 }
