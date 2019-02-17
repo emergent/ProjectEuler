@@ -2,7 +2,7 @@
 /// http://projecteuler.net/index.php?section=problems&id=7
 
 extern crate project_euler;
-use project_euler::is_prime;
+use project_euler::prime::is_prime;
 
 fn main() {
     let mut counter = 1; // includes '2'

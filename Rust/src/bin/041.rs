@@ -1,47 +1,26 @@
 /// Problem 41 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=41
 extern crate project_euler;
-use project_euler::is_prime;
+use project_euler::{prime::is_prime, itertools::permutations};
 
-fn perm(ins: Vec<i32>, outs: Vec<i32>, n: i32, res: &mut Vec<Vec<i32>>) {
-    if ins.len() == 0 || n == 0 {
-        res.push(outs);
-    } else {
-        for i in 0..ins.len() {
-            let mut ins2 = ins.clone();
-            let mut outs2 = outs.clone();
-            let a = ins2[i];
-            outs2.push(a);
-            ins2.remove(i);
-            perm(ins2, outs2, n-1, res);
-        }
-    }
-}
-
-fn permutations(n: i32) -> Vec<Vec<i32>> {
-    if n < 1 {
-        return vec![];
-    }
-
-    let mut res = Vec::<Vec<i32>>::new();
-    let ins = (1..(n+1)).collect::<Vec<_>>();
-    perm(ins, vec![], n, &mut res);
-    res
-}
-
-fn numcat(v: &Vec<i32>) -> i32 {
+fn numcat(v: &Vec<u32>) -> u32 {
     if v.is_empty() { return 0; }
 
-    let mut catn: i32 = 0;
+    let mut catn: u32 = 0;
     for (i, &n) in v.iter().rev().enumerate() {
-        catn += n * 10_i32.pow(i as u32);
+        catn += n * 10_u32.pow(i as u32);
     }
     catn
 }
 
-fn pandigitals(d: i32) -> Vec<i32> {
-    let res = permutations(d);
-    res.into_iter().map(|r| numcat(&r)).collect::<Vec<i32>>()
+fn pandigitals(d: u32) -> Vec<u32> {
+    if d < 1 {
+        return vec![];
+    }
+
+    let ins = (1 ..= d).collect::<Vec<_>>();
+    let res = permutations(ins, d);
+    res.into_iter().map(|r| numcat(&r)).collect::<Vec<u32>>()
 }
 
 fn main() {

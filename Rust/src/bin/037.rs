@@ -1,7 +1,7 @@
 /// Problem 37 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=37
 extern crate project_euler;
-use project_euler::is_prime;
+use project_euler::prime::is_prime;
 
 fn is_truncatable(x: u64) -> bool {
     let mut xr = x / 10;
