@@ -1,18 +1,21 @@
 #! /usr/bin/env clojure
 ; Problem 44 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=44
+(defn penta? [y]
+  (let [d (+ 1 (* 24 y))
+        d_sq (int (Math/sqrt d))]
+    (and (= (* d_sq d_sq) d)
+         (zero? (mod (inc d_sq) 6)))))
+
 (defn penta [n]
   (/ (* n (dec (* 3 n))) 2))
 
-(let [pentas (map penta (range 1 3000))]
-  (->> pentas
-       (map-indexed
-        #(for [x (range 1 (inc %))
-               :let [px (penta x)]
-               :when (and (>= (.indexOf pentas (+ %2 px)) 0)
-                          (>= (.indexOf pentas (- %2 px)) 0))]
-           (- %2 px)))
-       (filter not-empty)
-       (flatten)
-       (apply min)
-       (println)))
+(loop [k 2 j 1]
+  (let [pk (penta k) pj (penta j)]
+    (if (and (penta? (+ pk pj))
+             (penta? (- pk pj)))
+      (println pk pj ", D =" (- pk pj))
+
+      (if (< j (dec k))
+        (recur k (inc j))
+        (recur (inc k) 1)))))
