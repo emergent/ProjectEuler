@@ -21,7 +21,8 @@ fn main() {
             let pk = penta(k);
             let pj = penta(j);
             if is_penta(pk - pj) && is_penta(pk + pj) {
-                println!("{}", (pk - pj).abs());
+                println!("D = |Pk - Pj| = |{} - {}| = {}",
+                            pk, pj,  (pk - pj).abs());
                 return;
             }
         }
