@@ -4,12 +4,25 @@ Problem 44 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=044
 '''
 import math
-from itertools import combinations
+
+def is_penta(y):
+    d = 1 + 24 * y
+    d_sq = int(math.sqrt(d))
+    if d_sq * d_sq == d and (d_sq + 1) % 6 == 0:
+        return True
+    return False
+
+def penta(n):
+    return int(n * (3 * n - 1) / 2)
 
 if __name__ == '__main__':
-    N = 3000
-    pentas = [int((n * (3*n - 1)) / 2) for n in range(1, N)]
-    penta_pair = list(filter(lambda x: (x[0]+x[1]) in pentas and abs(x[0]-x[1]) in pentas, \
-                      combinations(pentas, 2)))
-    print(penta_pair[0])
-    print(abs(penta_pair[0][0]-penta_pair[0][1]))
+    k = 2
+    while True:
+        pentas = [(penta(k), penta(j)) for j in range(1, k)
+                   if is_penta(penta(k)+penta(j)) and
+                      is_penta(penta(k)-penta(j))]
+        if len(pentas) > 0:
+            print(pentas[0])
+            print('D = {}'.format(abs(pentas[0][1]-pentas[0][0])))
+            break
+        k += 1
