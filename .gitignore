@@ -1,4 +1,6 @@
 # common
+.idea/
+*.iml
 *.json
 measure*
 makeprog.rb
@@ -21,3 +23,5 @@ run
 /Rust/Cargo.lock
 # TypeScript
 /TypeScript/dist/*.js
+# Clojure
+.cpcache
