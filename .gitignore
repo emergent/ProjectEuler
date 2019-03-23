@@ -1,4 +1,5 @@
 # common
+.vscode/
 .idea/
 *.iml
 *.json
@@ -7,6 +8,7 @@ makeprog.rb
 template.*.txt
 clean.sh
 getall.sh
+cmake-build-debug
 # Haskell
 run
 *.o
