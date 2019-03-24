@@ -33,7 +33,6 @@ fn main() {
             }
         }
     }
-    let allval = (1..limit).collect::<HashSet<i32>>();
-    let ans = allval.difference(&sumoftwo).sum::<i32>();
-    println!("{}", ans);
+    let allsum: i32 = (1..limit).sum();
+    println!("{}", allsum - sumoftwo.iter().sum::<i32>());
 }
