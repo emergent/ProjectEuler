@@ -19,7 +19,7 @@ fn pandigitals(d: u32) -> Vec<u32> {
     }
 
     let ins = (1 ..= d).collect::<Vec<_>>();
-    let res = permutations(ins, d);
+    let res = permutations(&ins, d);
     res.into_iter().map(|r| numcat(&r)).collect::<Vec<u32>>()
 }
 
