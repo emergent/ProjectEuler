@@ -58,5 +58,12 @@ $ cargo run --bin 001 --release
 Use [`ts-node`](https://github.com/TypeStrong/ts-node).
 
 ```
-ts-node problem001.ts
+$ ts-node problem001.ts
+```
+
+### Kotlin
+
+```
+$ make
+$ java -jar problem001.jar
 ```
