@@ -18,7 +18,6 @@ fn main() {
     for i in 9183 .. 10000 {
         let ps = [i, i * 2].iter()
             .map(i32::to_string)
-            //.fold("".to_string(), |s, str| { s.push_str(&str); s })
             .collect::<String>()
             .parse::<u32>()
             .unwrap();
