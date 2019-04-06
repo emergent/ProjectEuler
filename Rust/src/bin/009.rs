@@ -20,20 +20,15 @@ fn test_pythagorean_triplet() {
 }
 
 fn main() {
-    let mut abc = 0;
-    for c in (5..1000).step_by(2) {
-        match pythagorean_triplet(c) {
-            Some((a, b, c)) => {
-                let sumabc = a + b + c;
-                if 1000 % sumabc == 0 {
-                    let quot = 1000 / sumabc;
-                    abc = a * b * c * quot.pow(3);
-                    println!("({}, {}, {})", a * quot, b * quot, c * quot);
-                    break;
-                }
-            }
-            None => continue,
-        }
-    }
+    let abc = (5..).step_by(2)
+        .filter_map(|c| pythagorean_triplet(c))
+        .filter(|&(a, b, c)| 1000 % (a + b + c) == 0)
+        .map(|(a, b, c)| {
+            let quot = 1000 / (a + b + c);
+            println!("({}, {}, {})", a * quot, b * quot, c * quot);
+            a * b * c * quot.pow(3)
+        })
+        .next()
+        .unwrap_or(0);
     println!("{}", abc);
 }
