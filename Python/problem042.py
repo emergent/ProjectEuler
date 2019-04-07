@@ -28,7 +28,5 @@ if __name__ == '__main__':
         score = getAlphabeticalScore(w.rstrip().lower())
         if score in tn:
             ans += 1
-        
-
 
     print(ans)
