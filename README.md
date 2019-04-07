@@ -65,5 +65,5 @@ $ ts-node problem001.ts
 
 ```
 $ make
-$ java -jar problem001.jar
+$ kotlin build/problem001.jar
 ```
