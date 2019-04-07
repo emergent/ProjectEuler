@@ -3,13 +3,15 @@ DEFINE=
 INCLUDE=
 LDFLAGS=
 CPPFLAGS=-include-runtime
-CPPTARGET=$(patsubst %.kt,%.jar, $(wildcard *.kt)) 
+BUILDDIR=build
+TARGET=$(patsubst %.kt,$(BUILDDIR)/%.jar, $(wildcard *.kt))
 
 .PHONY: all
-all: $(CPPTARGET)
+all: $(TARGET)
 
-%.jar: %.kt
+$(BUILDDIR)/%.jar: %.kt
+	-mkdir -p $(BUILDDIR)
 	$(CPP) $< $(CPPFLAGS) -d $@ $(LDFLAGS)
 
 clean:
-	rm -rf *.class *~ $(CPPTARGET)
+	rm -rf *.class *~ $(BUILDDIR)/*
