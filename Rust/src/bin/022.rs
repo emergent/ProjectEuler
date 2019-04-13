@@ -24,10 +24,10 @@ fn read_names() -> Vec<String> {
 fn main() {
     let v = read_names();
 
-    let mut total = 0;
-    for (i, s) in v.iter().enumerate() {
-        let score: i32 = s.chars().map(|c| c as i32 - 64).sum();
-        total += score * (i as i32 + 1);
-    }
+    let total = v.iter().enumerate()
+        .map(|(i, s)| {
+            (i as i32 + 1) * s.chars().map(|c| c as i32 - 64).sum::<i32>()
+        })
+        .sum::<i32>();
     println!("{}", total);
 }
