@@ -3,23 +3,13 @@
 extern crate project_euler;
 use project_euler::itertools::permutations;
 
-fn is_divisible(subnum: u64, d: u64) -> bool {
-    subnum % d == 0
-}
-
 fn all_divisible(pv: &Vec<char>, denomi: &Vec<u64>) -> bool {
-    for (i, d) in denomi.iter().enumerate() {
-        let n = subnum(pv, i+1, 3);
-        if !is_divisible(n, *d) {
-            return false;
-        }
-    }
-    true
+    denomi.iter().enumerate()
+        .all(|(i, d)| subnum(pv, i+1, 3) % d == 0)
 }
 
 fn subnum(xv: &Vec<char>, n: usize, digits_len: usize) -> u64 {
-    xv[n..n+digits_len]
-        .iter()
+    xv[n..n+digits_len].iter()
         .collect::<String>()
         .parse::<u64>()
         .unwrap()
