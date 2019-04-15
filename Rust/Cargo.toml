@@ -5,3 +5,4 @@ authors = ["emergent <yosikawa@gmail.com>"]
 
 [dependencies]
 num = "*"
+itertools = "*"
