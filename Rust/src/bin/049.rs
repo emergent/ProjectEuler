@@ -1,7 +1,7 @@
+extern crate itertools;
 /// Problem 49 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=49
 extern crate project_euler;
-extern crate itertools;
 
 use itertools::Itertools;
 use project_euler::prime::primes;
@@ -26,8 +26,14 @@ fn main() {
         }
     }
 
-    let vstr = v.iter().map(|pset|
-        pset.iter().map(|u| u.to_string()).collect::<Vec<String>>().join("")
-    ).collect::<Vec<String>>();
+    let vstr = v
+        .iter()
+        .map(|pset| {
+            pset.iter()
+                .map(|u| u.to_string())
+                .collect::<Vec<String>>()
+                .join("")
+        })
+        .collect::<Vec<String>>();
     println!("{:?}", vstr);
 }

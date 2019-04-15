@@ -10,7 +10,7 @@ fn nthpower(x: i32, e: u32) -> bool {
         quot = quot / 10;
     }
 
-    if sumpower == x { true } else { false }
+    sumpower == x
 }
 
 fn main() {

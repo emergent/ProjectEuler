@@ -5,7 +5,7 @@ use project_euler::prime::is_prime;
 
 fn is_truncatable(x: u64) -> bool {
     let mut xr = x / 10;
-    let mut d  = 10;
+    let mut d = 10;
     let mut xl;
     while xr > 0 {
         xl = x % d;
@@ -15,7 +15,7 @@ fn is_truncatable(x: u64) -> bool {
         xr = xr / 10;
         d *= 10;
     }
-    return is_prime(x)
+    is_prime(x)
 }
 
 fn main() {
@@ -33,6 +33,6 @@ fn main() {
 
 #[test]
 fn test_is_truncatable() {
-    assert_eq!(is_truncatable(3797) , true);
-    assert_eq!(is_truncatable(1001) , false);
+    assert_eq!(is_truncatable(3797), true);
+    assert_eq!(is_truncatable(1001), false);
 }

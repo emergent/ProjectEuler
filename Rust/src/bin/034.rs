@@ -3,7 +3,7 @@
 fn fac(x: i32) -> i32 {
     match x {
         0 => 1,
-        _ => x * fac(x-1),
+        _ => x * fac(x - 1),
     }
 }
 
@@ -18,6 +18,6 @@ fn facdigits(x: i32) -> i32 {
 }
 
 fn main() {
-    let ans: i32 = (3..(fac(9)*7)).filter(|&i| i == facdigits(i)).sum();
+    let ans: i32 = (3..(fac(9) * 7)).filter(|&i| i == facdigits(i)).sum();
     println!("{}", ans);
 }

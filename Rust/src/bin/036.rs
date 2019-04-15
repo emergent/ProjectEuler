@@ -15,11 +15,18 @@ fn dec2bin(x: i32) -> String {
 }
 
 fn main() {
-    let ans = (1..(1_000_000-1)).step_by(2)
-        .filter(|&x| x ==
-                x.to_string().chars().rev().collect::<String>().parse().unwrap())
-        .filter(|&x| dec2bin(x) ==
-                dec2bin(x).chars().rev().collect::<String>())
-        .fold(0, |sum,x| sum + x);
+    let ans = (1..(1_000_000 - 1))
+        .step_by(2)
+        .filter(|&x| {
+            x == x
+                .to_string()
+                .chars()
+                .rev()
+                .collect::<String>()
+                .parse()
+                .unwrap()
+        })
+        .filter(|&x| dec2bin(x) == dec2bin(x).chars().rev().collect::<String>())
+        .fold(0, |sum, x| sum + x);
     println!("{}", ans)
 }

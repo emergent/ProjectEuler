@@ -15,8 +15,9 @@ fn is_pandigital_9digits(x: u32) -> bool {
 
 fn main() {
     let mut max = 918273645;
-    for i in 9183 .. 10000 {
-        let ps = [i, i * 2].iter()
+    for i in 9183..10000 {
+        let ps = [i, i * 2]
+            .iter()
             .map(i32::to_string)
             .collect::<String>()
             .parse::<u32>()

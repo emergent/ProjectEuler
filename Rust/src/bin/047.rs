@@ -26,7 +26,7 @@ fn main() {
     let primes = primes(500_000);
     let mut consecutives_count = 0;
 
-    for i in 2 .. {
+    for i in 2.. {
         let pf = prime_factors(i, &primes);
         let pf_kinds = pf.iter().collect::<HashSet<_>>().len();
 

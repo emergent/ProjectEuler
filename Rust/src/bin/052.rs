@@ -17,7 +17,7 @@ fn has_same_digits(m: i32, n: i32) -> bool {
 
     while mv.len() > 0 {
         if mv.pop() != nv.pop() {
-            return false
+            return false;
         }
     }
     true
@@ -27,7 +27,7 @@ fn main() {
     let mut n = 100000;
     loop {
         let mut same = true;
-        for i in 2 .. 6 {
+        for i in 2..6 {
             same = same & has_same_digits(n, n * i);
         }
         if same {
@@ -41,10 +41,10 @@ fn main() {
 
 #[test]
 fn test_digits_to_vec_sorted() {
-    assert_eq!(digits_to_vec_sorted(123), [1,2,3]);
-    assert_eq!(digits_to_vec_sorted(321), [1,2,3]);
-    assert_eq!(digits_to_vec_sorted(213), [1,2,3]);
-    assert_eq!(digits_to_vec_sorted(492), [2,4,9]);
+    assert_eq!(digits_to_vec_sorted(123), [1, 2, 3]);
+    assert_eq!(digits_to_vec_sorted(321), [1, 2, 3]);
+    assert_eq!(digits_to_vec_sorted(213), [1, 2, 3]);
+    assert_eq!(digits_to_vec_sorted(492), [2, 4, 9]);
 }
 
 #[test]

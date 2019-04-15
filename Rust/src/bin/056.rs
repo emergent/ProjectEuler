@@ -15,11 +15,7 @@ fn sum_of_digits(a: u32, b: u32) -> u32 {
 
 fn main() {
     let ans = (1..100)
-        .flat_map(|a| {
-            (1..100)
-                .map(|b| sum_of_digits(a, b))
-                .max()
-        })
+        .flat_map(|a| (1..100).map(|b| sum_of_digits(a, b)).max())
         .max()
         .unwrap_or(0);
     println!("{}", ans);

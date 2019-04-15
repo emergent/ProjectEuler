@@ -8,24 +8,37 @@ struct Fraction {
 
 impl Fraction {
     fn cancel_same_numbers(&self) -> Self {
-        let ns = self.numerator.to_string()
-            .chars().map(|c| c as i32 - 48).collect::<Vec<i32>>();
-        let ds = self.denominator.to_string()
-            .chars().map(|c| c as i32 - 48).collect::<Vec<i32>>();
+        let ns = self
+            .numerator
+            .to_string()
+            .chars()
+            .map(|c| c as i32 - 48)
+            .collect::<Vec<i32>>();
+        let ds = self
+            .denominator
+            .to_string()
+            .chars()
+            .map(|c| c as i32 - 48)
+            .collect::<Vec<i32>>();
         let mut n_after = 0;
         let mut d_after = 0;
         for &n in ns.iter().by_ref() {
-            d_after = ds.iter()
+            d_after = ds
+                .iter()
                 .filter(|&d| *d != n)
                 .map(|j| j.to_string())
                 .collect::<String>()
-                .parse::<i32>().unwrap_or(0);
+                .parse::<i32>()
+                .unwrap_or(0);
 
             if d_after != self.denominator {
-                n_after = ns.iter().filter(|&j| *j != n)
+                n_after = ns
+                    .iter()
+                    .filter(|&j| *j != n)
                     .map(|j| j.to_string())
                     .collect::<String>()
-                    .parse::<i32>().unwrap_or(0);
+                    .parse::<i32>()
+                    .unwrap_or(0);
                 break;
             }
         }
@@ -44,21 +57,32 @@ impl Fraction {
     }
 
     fn gcd(x: i32, y: i32) -> i32 {
-        if x == 0 { y } else { Self::gcd(y % x, x) }
+        if x == 0 {
+            y
+        } else {
+            Self::gcd(y % x, x)
+        }
     }
 }
 
 fn fequal(a: &Fraction, b: &Fraction) -> bool {
-    if a.denominator == 0 || b.denominator == 0 { return false; }
+    if a.denominator == 0 || b.denominator == 0 {
+        return false;
+    }
     a.numerator * b.denominator == a.denominator * b.numerator
 }
 
 fn main() {
     let mut v = Vec::new();
-    for a in 10 .. 100 {
-        for b in a + 1 .. 100 {
-            if b % 10 == 0 { continue; }
-            let f = Fraction { numerator: a, denominator: b };
+    for a in 10..100 {
+        for b in a + 1..100 {
+            if b % 10 == 0 {
+                continue;
+            }
+            let f = Fraction {
+                numerator: a,
+                denominator: b,
+            };
             if fequal(&f.cancel_same_numbers(), &f.lowest_common_terms()) {
                 v.push(f);
             }
@@ -70,7 +94,8 @@ fn main() {
     let ans_st = Fraction {
         numerator: v.iter().by_ref().fold(1, |acc, x| acc * x.numerator),
         denominator: v.iter().by_ref().fold(1, |acc, x| acc * x.denominator),
-    }.lowest_common_terms();
+    }
+    .lowest_common_terms();
 
     println!("{}", ans_st.denominator);
 }

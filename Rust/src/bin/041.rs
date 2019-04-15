@@ -1,10 +1,12 @@
 /// Problem 41 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=41
 extern crate project_euler;
-use project_euler::{prime::is_prime, itertools::permutations};
+use project_euler::{itertools::permutations, prime::is_prime};
 
 fn numcat(v: &Vec<u32>) -> u32 {
-    if v.is_empty() { return 0; }
+    if v.is_empty() {
+        return 0;
+    }
 
     let mut catn: u32 = 0;
     for (i, &n) in v.iter().rev().enumerate() {
@@ -18,7 +20,7 @@ fn pandigitals(d: u32) -> Vec<u32> {
         return vec![];
     }
 
-    let ins = (1 ..= d).collect::<Vec<_>>();
+    let ins = (1..=d).collect::<Vec<_>>();
     let res = permutations(&ins, d);
     res.into_iter().map(|r| numcat(&r)).collect::<Vec<u32>>()
 }
@@ -38,6 +40,6 @@ fn main() {
 fn test_numcat() {
     assert_eq!(numcat(&vec![]), 0);
     assert_eq!(numcat(&vec![1]), 1);
-    assert_eq!(numcat(&vec![1,2,3]), 123);
-    assert_eq!(numcat(&vec![1,2,3,4]), 1234);
+    assert_eq!(numcat(&vec![1, 2, 3]), 123);
+    assert_eq!(numcat(&vec![1, 2, 3, 4]), 1234);
 }

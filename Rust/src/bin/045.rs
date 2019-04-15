@@ -17,7 +17,7 @@ fn is_hexa(hn: u32) -> bool {
 }
 
 fn main() {
-    for n in 286u32 .. {
+    for n in 286u32.. {
         let tn = triangle(n);
         if is_penta(tn) && is_hexa(tn) {
             println!("{}", tn);

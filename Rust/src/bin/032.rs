@@ -26,7 +26,8 @@ fn pandigital_product(cs: &Vec<char>) -> Option<i32> {
 fn main() {
     let nums = "123456789".chars().collect::<Vec<char>>();
     let perm = permutations(&nums, nums.len() as u32);
-    let ans = perm.iter()
+    let ans = perm
+        .iter()
         .filter_map(|p| pandigital_product(p))
         .collect::<HashSet<i32>>()
         .iter()

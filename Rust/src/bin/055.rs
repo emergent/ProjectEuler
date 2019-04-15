@@ -1,7 +1,12 @@
 /// Problem 55 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=55
 fn reverse_num(x: u128) -> u128 {
-    x.to_string().chars().rev().collect::<String>().parse::<u128>().unwrap()
+    x.to_string()
+        .chars()
+        .rev()
+        .collect::<String>()
+        .parse::<u128>()
+        .unwrap()
 }
 
 fn is_lychrel(x: u128) -> bool {
@@ -19,7 +24,6 @@ fn is_lychrel(x: u128) -> bool {
 }
 
 fn main() {
-    let ans = (1..10000)
-        .filter(|&x| is_lychrel(x)).count();
+    let ans = (1..10000).filter(|&x| is_lychrel(x)).count();
     println!("{}", ans);
 }

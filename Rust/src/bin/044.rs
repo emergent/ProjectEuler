@@ -1,6 +1,5 @@
 /// Problem 44 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=44
-
 fn is_penta(y: i32) -> bool {
     let d = 1 + 24 * y;
     let d_sq = (d as f64).sqrt() as i32;
@@ -18,8 +17,7 @@ fn main() {
             let pk = penta(k);
             let pj = penta(j);
             if is_penta(pk - pj) && is_penta(pk + pj) {
-                println!("D = |Pk - Pj| = |{} - {}| = {}",
-                            pk, pj,  (pk - pj).abs());
+                println!("D = |Pk - Pj| = |{} - {}| = {}", pk, pj, (pk - pj).abs());
                 return;
             }
         }
@@ -28,9 +26,9 @@ fn main() {
 
 #[test]
 fn test_is_penta() {
-    for i in 1 .. 120 {
+    for i in 1..120 {
         match i {
-            1|5|12|22|35|51|70|92|117 => assert_eq!(is_penta(i), true),
+            1 | 5 | 12 | 22 | 35 | 51 | 70 | 92 | 117 => assert_eq!(is_penta(i), true),
             _ => assert_eq!(is_penta(i), false),
         }
     }

@@ -12,10 +12,12 @@ fn main() {
         }
 
         if numv.len() > idx {
-            ans *= numv[idx-1] as i32;
+            ans *= numv[idx - 1] as i32;
             idx *= 10;
         }
-        if idx > 1000000 { break; }
+        if idx > 1000000 {
+            break;
+        }
     }
     println!("{}", ans);
 }
