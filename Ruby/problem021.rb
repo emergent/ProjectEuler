@@ -6,18 +6,13 @@ http://projecteuler.net/index.php?section=problems&id=21
 require 'prime'
 
 class Integer
-    def devisors
-        return [0] if self <= 0
-        return [1] if self == 1
+    def d
+        return 0 if self <= 1
         self.prime_division
             .map {|a,b| (0..b).map {|i| a ** i }}
             .inject(&:product)
             .map {|a| [a].flatten.inject(&:*)}
-            .sort
-    end
-
-    def d
-        self.devisors.sum - self
+            .sum - self
     end
 
     def amicable_pair
