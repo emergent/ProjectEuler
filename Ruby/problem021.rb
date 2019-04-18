@@ -22,7 +22,3 @@ class Integer
 end
 
 puts (1..9999).map(&:amicable_pair).compact.select {|x| x < 10000 }.sum
-
-
-
-
