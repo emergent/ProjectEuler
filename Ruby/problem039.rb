@@ -11,9 +11,10 @@ class Integer
     end
 end
 
-pp (5..500).flat_map(&:pythagorean_triplet)
-            .select {|a| a.size > 0 && a.sum <= 1000}
-            .map(&:sum)
-            .inject(Hash.new(0)) {|hash, x| hash[x] += 1; hash }
-            .to_a
-            .max_by {|item| item[1] }[0]
+puts (5..500).lazy
+        .flat_map(&:pythagorean_triplet)
+        .select {|a| a.size > 0 && a.sum <= 1000}
+        .map(&:sum)
+        .inject(Hash.new(0)) {|hash, x| hash[x] += 1; hash }
+        .to_a
+        .max_by {|item| item[1] }[0]
