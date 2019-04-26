@@ -3,7 +3,7 @@
 Problem 14 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=14
 =end
-$cache = {} #Array.new(2_000_000, 0)
+$cache = {}
 
 def chain n
     if $cache[n]

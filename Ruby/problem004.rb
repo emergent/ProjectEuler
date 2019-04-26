@@ -12,5 +12,5 @@ end
 puts (100..999).to_a
         .combination(2)
         .map {|a, b| a * b}
-        .select {|x| x.palindromic? }
+        .select(&:palindromic?)
         .max
