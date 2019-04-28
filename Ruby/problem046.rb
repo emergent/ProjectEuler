@@ -6,7 +6,7 @@ http://projecteuler.net/index.php?section=problems&id=46
 require 'prime'
 
 def goldbach x
-    not (1..x)
+    not (1..Math.sqrt(x/2).to_i+1)
         .map {|i| x - (i * i * 2) }
         .select {|i| i > 0 }
         .select(&:prime?)
