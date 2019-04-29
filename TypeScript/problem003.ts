@@ -12,7 +12,7 @@ const maxprimefactor = (x: number): number => {
         }
     }
     return divider;
-}
+};
 
 {
     const N: number = 600851475143;
