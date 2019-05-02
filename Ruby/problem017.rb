@@ -1,8 +1,7 @@
 #! /usr/bin/env ruby
-=begin
-Problem 17 - Project Euler
-http://projecteuler.net/index.php?section=problems&id=17
-=end
+# Problem 17 - Project Euler
+# http://projecteuler.net/index.php?section=problems&id=17
+
 def count_from_1_to_9
     'one two three four five six seven eight nine'.split.map(&:size).sum
 end
