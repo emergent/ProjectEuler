@@ -10,7 +10,7 @@ fn main() {
 
     let mut maxlen = 0;
     let mut sumps = 0;
-    for (i, p) in ps.iter().enumerate() {
+    for (i, &p) in ps.iter().enumerate() {
         sumps += p;
         if sumps > lim {
             maxlen = i + 1;

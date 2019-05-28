@@ -65,11 +65,13 @@ impl Fraction {
     }
 }
 
-fn fequal(a: &Fraction, b: &Fraction) -> bool {
-    if a.denominator == 0 || b.denominator == 0 {
-        return false;
+impl PartialEq for Fraction {
+    fn eq(&self, other: &Self) -> bool {
+        if self.denominator == 0 || other.denominator == 0 {
+            return false;
+        }
+        self.numerator * other.denominator == self.denominator * other.numerator
     }
-    a.numerator * b.denominator == a.denominator * b.numerator
 }
 
 fn main() {
@@ -83,7 +85,7 @@ fn main() {
                 numerator: a,
                 denominator: b,
             };
-            if fequal(&f.cancel_same_numbers(), &f.lowest_common_terms()) {
+            if &f.cancel_same_numbers() == &f.lowest_common_terms() {
                 v.push(f);
             }
         }
