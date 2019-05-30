@@ -1,13 +1,23 @@
+extern crate num;
 
-pub fn is_prime(x: u64) -> bool {
+use self::num::{Integer, NumCast};
+
+pub fn is_prime<N>(x: N) -> bool
+where
+    N: Integer + NumCast + Copy,
+{
+    let two: N = NumCast::from(2).unwrap();
+    let three: N = NumCast::from(3).unwrap();
     match x {
-        2 | 3 | 5 | 7 => true,
-        _ if x < 2 || x % 2 == 0 => false,
+        x if x == two => true,
+        x if x < two || x % two == N::zero() => false,
         _ => {
-            let mut i = 3;
+            let mut i = three;
             while i * i <= x {
-                if x % i == 0 { return false; }
-                i += 2;
+                if x % i == N::zero() {
+                    return false;
+                }
+                i = i + two;
             }
             true
         }
@@ -16,15 +26,19 @@ pub fn is_prime(x: u64) -> bool {
 
 pub fn primes(x: u32) -> Vec<u32> {
     match x {
-        n if n <  2 => vec![],
+        n if n < 2 => vec![],
         n if n == 2 => vec![2],
         n => {
             let mut ps = Vec::new();
-            let mut target: Vec<u32> = (2..(n+1)).collect();
+            let mut target: Vec<u32> = (2..(n + 1)).collect();
             let mut i = 2;
             while i * i <= n {
                 ps.push(i);
-                target = target.iter().filter(|&x| x % i != 0).cloned().collect::<Vec<u32>>();
+                target = target
+                    .iter()
+                    .filter(|&x| x % i != 0)
+                    .cloned()
+                    .collect::<Vec<u32>>();
                 i = target[0];
             }
             ps.append(&mut target);
@@ -34,11 +48,42 @@ pub fn primes(x: u32) -> Vec<u32> {
 }
 
 #[test]
+fn test_is_prime() {
+    assert_eq!(is_prime(0), false);
+    assert_eq!(is_prime(1), false);
+    assert_eq!(is_prime(4), false);
+
+    assert_eq!(is_prime(2), true);
+    assert_eq!(is_prime(3), true);
+    assert_eq!(is_prime(5), true);
+    assert_eq!(is_prime(7), true);
+    assert_eq!(is_prime(11), true);
+    assert_eq!(is_prime(11 as i8), true);
+    assert_eq!(is_prime(11 as i16), true);
+    assert_eq!(is_prime(11 as i32), true);
+    assert_eq!(is_prime(11 as i64), true);
+    assert_eq!(is_prime(11 as i128), true);
+    assert_eq!(is_prime(11 as u8), true);
+    assert_eq!(is_prime(11 as u16), true);
+    assert_eq!(is_prime(11 as u32), true);
+    assert_eq!(is_prime(11 as u64), true);
+    assert_eq!(is_prime(11 as u128), true);
+    assert_eq!(is_prime(20190523 as u64), true);
+    assert_eq!(is_prime(20190523), true);
+}
+
+#[test]
 fn test_primes() {
     assert_eq!(primes(1), []);
     assert_eq!(primes(2), [2]);
     assert_eq!(primes(3), [2, 3]);
     assert_eq!(primes(4), [2, 3]);
     assert_eq!(primes(5), [2, 3, 5]);
-    assert_eq!(primes(100), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
+    assert_eq!(
+        primes(100),
+        [
+            2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
+            89, 97
+        ]
+    )
 }

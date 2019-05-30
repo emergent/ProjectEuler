@@ -7,7 +7,7 @@ fn goldbach(x: u32) -> bool {
     for i in 1.. {
         let twice_sq = i * i * 2;
         if x > twice_sq + 2 {
-            if is_prime((x - twice_sq).into()) {
+            if is_prime(x - twice_sq) {
                 return true;
             } else {
                 continue;
@@ -21,7 +21,7 @@ fn goldbach(x: u32) -> bool {
 
 fn main() {
     for i in (9..).step_by(2) {
-        if is_prime(i.into()) {
+        if is_prime(i) {
             continue;
         } else {
             if !goldbach(i) {

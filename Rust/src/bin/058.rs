@@ -21,10 +21,7 @@ fn main() {
     let mut v = vec![false]; // 1
     for i in 1.. {
         let (side, vs) = wrap(i);
-        let vs_b = vs
-            .iter()
-            .map(|&p| is_prime(p.into()))
-            .collect::<Vec<bool>>();
+        let vs_b = vs.iter().map(|&p| is_prime(p)).collect::<Vec<bool>>();
         v.extend(vs_b.iter().cloned());
         let len = v.len();
         let pcount = v.iter().filter(|&&b| b).count();
