@@ -1,7 +1,5 @@
-#=
-Problem 3 - Project Euler
-http://projecteuler.net/index.php?section=problems&id=3
-=#
+# Problem 3 - Project Euler
+# http://projecteuler.net/index.php?section=problems&id=3
 
 function maxprimefactor(x)
     divider = 2

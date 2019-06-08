@@ -1,7 +1,5 @@
-#=
-Problem 4 - Project Euler
-http://projecteuler.net/index.php?section=problems&id=4
-=#
+# Problem 4 - Project Euler
+# http://projecteuler.net/index.php?section=problems&id=4
 
 is_palindromic(x) = string(x) == reverse(string(x))
 
@@ -17,4 +15,5 @@ function search()
     end
     pmax
 end
+
 println(search())
