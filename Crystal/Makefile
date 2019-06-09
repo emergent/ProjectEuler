@@ -9,7 +9,7 @@ TARGET=$(patsubst %.cr,%, $(wildcard *.cr))
 all: $(TARGET)
 
 %: %.cr
-	$(COMPILER) $<
+	$(COMPILER) $< && rm $@.dwarf
 
 clean:
 	rm -rf $(TARGET) *.dwarf *~
