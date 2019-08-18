@@ -1,7 +1,7 @@
 CPP=kotlinc
 DEFINE=
 INCLUDE=
-LDFLAGS=
+LDFLAGS=-cp build
 CPPFLAGS=-include-runtime
 BUILDDIR=build
 TARGET=$(patsubst %.kt,$(BUILDDIR)/%.jar, $(wildcard *.kt))
