@@ -25,26 +25,23 @@ where
 }
 
 pub fn primes(x: u32) -> Vec<u32> {
-    match x {
-        n if n < 2 => vec![],
-        n if n == 2 => vec![2],
-        n => {
-            let mut ps = Vec::new();
-            let mut target: Vec<u32> = (2..(n + 1)).collect();
-            let mut i = 2;
-            while i * i <= n {
-                ps.push(i);
-                target = target
-                    .iter()
-                    .filter(|&x| x % i != 0)
-                    .cloned()
-                    .collect::<Vec<u32>>();
-                i = target[0];
+    let x_ = x as usize;
+    let mut ps = vec![];
+    let mut is_prime = vec![true; x_ + 1];
+
+    if x >= 2 {
+        for i in 2..x_ + 1 {
+            if is_prime[i] {
+                ps.push(i as u32);
             }
-            ps.append(&mut target);
-            ps
+            if i * i <= x_ {
+                for j in 2..(x_ / i) + 1 {
+                    is_prime[i * j] = false;
+                }
+            }
         }
     }
+    ps
 }
 
 #[test]
