@@ -2,7 +2,7 @@
 # Problem 4 - Project Euler
 # http://projecteuler.net/index.php?section=problems&id=4
 defmodule P004 do
-  def is_palindromic(x) do
+  def palindromic?(x) do
     rev = x
           |> Integer.to_string
           |> String.reverse
@@ -19,7 +19,7 @@ defmodule P004 do
          end
        )
     |> Stream.uniq
-    |> Stream.filter(&is_palindromic/1)
+    |> Stream.filter(&palindromic?/1)
     |> Enum.max
   end
 end
