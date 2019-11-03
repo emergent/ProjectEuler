@@ -5,36 +5,25 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cmath>
-
-std::vector<long>
-sieve(long n, long maxn, std::vector<long> &v) {
-    long k = v[n];
-    if (k > maxn) {
-        return v;
-    } else {
-        std::vector<long> copied = {};
-        std::copy_if(v.cbegin(), v.cend(), std::back_inserter(copied), [k](long x) { return x==k || x % k != 0; });
-        return sieve(n+1, maxn, copied);
-    }
-}
 
 std::vector<long> primes(long x) {
-    if (x < 2) {
-        return {};
-    } else if (x == 2) {
-        return {2};
-    } else {
-        std::vector<long> v = {};
-        for (int i = 3; i < x+1; i+=2) {
-            v.push_back(i);
+    std::vector<bool> is_p(x + 1, true);
+    std::vector<long> ps;
+    if (x >= 2) {
+        for (long i = 2; i <= x; i++) {
+            if (is_p[i]) {
+                ps.push_back(i);
+            }
+            if (i * i <= x) {
+                long max = x / i;
+                for (long j = 2; j <= max; j++) {
+                    is_p[i * j] = false;
+                }
+            }
         }
-        v = sieve(0, std::floor(std::sqrt(x)+1), v);
-        std::reverse(v.begin(), v.end());
-        v.push_back(2);
-        std::reverse(v.begin(), v.end());
-        return v;
     }
+
+    return ps;
 }
 
 int main(int argc, char **argv) {
