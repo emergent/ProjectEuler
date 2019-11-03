@@ -3,39 +3,18 @@
  * http://projecteuler.net/index.php?section=problems&id=9
  */
 #include <iostream>
-
-bool isPythagorean(int triplet[], int c) {
-    int a, b;
-    for (b = 4; b < c; b++) {
-        for (a = 3; a < b; a++) {
-            if (a * a + b * b == c * c) {
-                triplet[0] = a;
-                triplet[1] = b;
-                triplet[2] = c;
-                return true;
-            }
-        }
-    }
-    return false;
-}
+#include <cmath>
 
 int main(int argc, char **argv) {
-    int triplet[3];
-    int abc = 0;
-    int quot = 1;
-    for (int c = 5; c < 1000; c+=2) {
-        if (isPythagorean(triplet, c)) {
-            int sumabc = triplet[0] + triplet[1] + triplet[2];
-            if (1000 % sumabc == 0) {
-                quot = 1000 / sumabc;
-                abc = (triplet[0] * triplet[1] * triplet[2]) * quot * quot * quot;
-                break;
+    for (int a = 1; a < 999; a++) {
+        for (int b = a + 1; b < 1000; b++) {
+            int a2b2 = a * a + b * b;
+            int c = (int) (std::sqrt(a2b2));
+            if (a2b2 == c * c && a + b + c == 1000) {
+                std::cout << a << ", " << b << ", " << c << std::endl;
+                std::cout << a * b * c << std::endl;
+                return 0;
             }
         }
     }
-    std::cout << triplet[0] * quot << ","
-              << triplet[1] * quot << ","
-              << triplet[2] * quot << std::endl;
-    std::cout << abc << std::endl;
-    return 0;
 }
