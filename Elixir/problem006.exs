@@ -1,4 +1,3 @@
-#! /usr/bin/env ruby
 # Problem 6 - Project Euler
 # http://projecteuler.net/index.php?section=problems&id=6
 defmodule P006 do

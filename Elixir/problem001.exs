@@ -1,4 +1,3 @@
-#! /usr/bin/env ruby
 # Problem 1 - Project Euler
 # http://projecteuler.net/index.php?section=problems&id=1
 defmodule P001 do
