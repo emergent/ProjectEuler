@@ -14,8 +14,8 @@ bool isPalindromic(int x) {
 int main(int argc, char **argv) {
     int ans = 0;
     int target = 0;
-    for (int i=999; i>=101; i--) {
-        for (int j=999; j>=101; j--) {
+    for (int i = 999; i >= 101; i--) {
+        for (int j = 999; j >= 101; j--) {
             target = i * j;
             if (target < ans || target < 100000) {
                 break;

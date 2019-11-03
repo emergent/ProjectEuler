@@ -8,7 +8,7 @@ long comb(long n, long k) {
     if (k == 1) {
         return n;
     } else {
-        return comb(n, k-1) * (n-k+1) / k;
+        return comb(n, k - 1) * (n - k + 1) / k;
     }
 }
 

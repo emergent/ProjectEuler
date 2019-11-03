@@ -7,7 +7,7 @@
 
 bool isprime(int x) {
     int nmax = std::ceil(std::sqrt(x));
-    if (x % 2 == 0) { 
+    if (x % 2 == 0) {
         return false;
     }
     for (int i = 3; i <= nmax; i += 2) {
@@ -21,7 +21,7 @@ bool isprime(int x) {
 int main(int argc, char **argv) {
     int order = 1; // first prime is 2
     int p = 1;
-    while(order < 10001) {
+    while (order < 10001) {
         p += 2;
         if (isprime(p)) {
             order++;

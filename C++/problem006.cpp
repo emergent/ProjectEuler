@@ -8,9 +8,9 @@ int main(int argc, char **argv) {
     int sqsum = 0;
     int sum = 0;
 
-    for(int i = 1; i <= 100; i++) {
+    for (int i = 1; i <= 100; i++) {
         sqsum += i * i;
-        sum   += i;
+        sum += i;
     }
 
     std::cout << (sum * sum) - sqsum << std::endl;
