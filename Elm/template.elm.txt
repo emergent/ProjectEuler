@@ -1,0 +1,13 @@
+module Problems.P%%id%% exposing (run)
+
+{-
+%%title%%
+%%url%%
+-}
+
+run : Bool -> Int
+run b =
+    if b == True then
+        0 -- replace here
+    else
+        -1
