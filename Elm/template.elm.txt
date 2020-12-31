@@ -7,7 +7,7 @@ module Problems.P%%id%% exposing (run)
 
 run : Bool -> Int
 run b =
-    if b == True then
+    if b then
         0 -- replace here
     else
         -1
