@@ -5,6 +5,8 @@ import Problems.P002
 import Problems.P003
 import Problems.P004
 import Problems.P005
+import Problems.P006
+import Problems.P007
 
 
 problems : List Int
@@ -14,6 +16,8 @@ problems =
     , 3
     , 4
     , 5
+    , 6
+    , 7
     ]
 
 
@@ -34,6 +38,12 @@ solve i =
 
         5 ->
             Problems.P005.run True
+
+        6 ->
+            Problems.P006.run True
+
+        7 ->
+            Problems.P007.run True
 
         _ ->
             -1
