@@ -24,7 +24,7 @@ echo "problems = " >> $list
 for f in $(dirname $0)/src/Problems/P*.elm;
 do
     tmp=$(basename $f)
-    tmp2=${tmp#P}
+    tmp2=$(echo ${tmp#P}|sed 's/^0*//')
     num=$((${tmp2%.elm} * 1))
     if [[ $(basename $f) = "P001.elm" ]]; then
         echo "    [" >> $list
@@ -41,7 +41,7 @@ echo "solve i = case i of" >> $list
 for f in $(dirname $0)/src/Problems/P*.elm;
 do
     tmp=$(basename $f)
-    tmp2=${tmp#P}
+    tmp2=$(echo ${tmp#P}|sed 's/^0*//')
     num=$((${tmp2%.elm} * 1))
     echo "    $num -> Problems.${tmp%.elm}.run True" >> $list
 done
