@@ -13,7 +13,7 @@ fn perm<T>(ins: &Vec<T>, outs: Vec<T>, n: u32, res: &mut Vec<Vec<T>>)
         for i in 0 .. ins.len() {
             let mut ins2 = ins.clone();
             let mut outs2 = outs.clone();
-            let mut a = ins2[i].clone();
+            let a = ins2[i].clone();
             outs2.push(a);
             ins2.remove(i);
             perm(&ins2, outs2, n-1, res);

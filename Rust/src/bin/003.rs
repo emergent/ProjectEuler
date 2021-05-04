@@ -1,18 +1,14 @@
 /// Problem 3 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=3
 
-fn maxprimefactor(x: i64) -> i64 {
-    let mut divider = 2;
-    let mut target = x;
-
-    while target != 1 {
-        if target % divider == 0 {
-            target /= divider;
-        } else {
-            divider += 1;
+fn maxprimefactor(mut x: i64) -> i64 {
+    for i in 2.. {
+        if i == x {break}
+        while x % i == 0 {
+            x /= i;
         }
     }
-    divider
+    x
 }
 
 #[test]
