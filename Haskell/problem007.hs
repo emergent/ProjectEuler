@@ -1,8 +1,7 @@
 {-
-Problem 10 - Project Euler
-http://projecteuler.net/index.php?section=problems&id=10
+Problem 7 - Project Euler
+http://projecteuler.net/index.php?section=problems&id=7
 -}
-
 sieve :: Int -> [Int] -> [Int] -> [Int]
 sieve _ _ [] = []
 sieve m xs (y : ys)
@@ -11,6 +10,6 @@ sieve m xs (y : ys)
 
 primesBelow x = sieve x [] [2, 3 .. x]
 
-problem010 = sum . primesBelow $ (2 * 1000 * 1000)
+problem007 = primesBelow 500000 !! (10001 -1)
 
-main = putStrLn $ "problem010: answer " ++ show problem010
+main = putStrLn $ "problem007: answer " ++ show problem007
