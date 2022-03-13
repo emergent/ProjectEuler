@@ -13,7 +13,8 @@ void problem002() {
     ans = 0;
     val = 0;
     a = 1;
-    b = 2; ans += b;
+    b = 2;
+    ans += b;
     while (val <= TERM_MAX) {
         if ((val % 2) == 0) {
             ans += val;
@@ -21,7 +22,7 @@ void problem002() {
         val = a + b;
         a = b;
         b = val;
-    } 
+    }
 
     printf("%s: answer = %d\n", __FUNCTION__, ans);
 }

@@ -2,8 +2,8 @@
  * Problem 7 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=007
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define PRIME_ORDER 10001
 
@@ -11,7 +11,7 @@ int is_prime(int num) {
     int i;
     int check_max = (int)floor(sqrt(num));
 
-    for (i=2; i<=check_max; i++) {
+    for (i = 2; i <= check_max; i++) {
         if (num % i == 0) {
             return 0;
         }

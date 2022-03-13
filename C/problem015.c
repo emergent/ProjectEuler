@@ -2,15 +2,15 @@
  * Problem 15 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=015
  */
-#include <stdio.h>
 #include <limits.h>
+#include <stdio.h>
 typedef long long int llong;
 
 llong comb(llong n, llong k) {
     if (k == 1) {
         return n;
     } else {
-        return ((n-k+1) * comb(n, k-1) / k);
+        return ((n - k + 1) * comb(n, k - 1) / k);
     }
 }
 

@@ -2,8 +2,8 @@
  * Problem 1 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=001
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 void problem001() {
     int ans, i;

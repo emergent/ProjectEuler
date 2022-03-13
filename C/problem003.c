@@ -2,8 +2,8 @@
  * Problem 3 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=003
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define TARGET_VALUE 600851475143LL
 

@@ -2,8 +2,8 @@
  * Problem 10 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=010
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 typedef long long int llong;
 #define NUM_MAX 2000000
@@ -19,7 +19,7 @@ int is_prime(llong num) {
     if (num % 2 == 0) {
         return 0;
     }
-    for (i=3; i*i<=num; i+=2) {
+    for (i = 3; i * i <= num; i += 2) {
         if (num % i == 0) {
             return 0;
         }
@@ -33,8 +33,8 @@ void problem010() {
 
     /* solve this problem here */
     ans = 0;
-    for (i=2; i<=NUM_MAX; i++) {
-        if (is_prime(i)>0) {
+    for (i = 2; i <= NUM_MAX; i++) {
+        if (is_prime(i) > 0) {
             ans += i;
         }
     }

@@ -23,10 +23,10 @@ void problem022() {
 
     size_t name_len;
     int score;
-    for (int i=0; i < names_count; i++) {
+    for (int i = 0; i < names_count; i++) {
         score = 0;
         name_len = strlen(names[i]);
-        for (int j=0; j < name_len; j++) {
+        for (int j = 0; j < name_len; j++) {
             score += ((int)names[i][j] - 64);
         }
         score *= i + 1;

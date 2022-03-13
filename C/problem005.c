@@ -9,7 +9,7 @@
 
 int divideall(int target) {
     int i;
-    for (i=2; i<NUM_MAX; i++) {
+    for (i = 2; i < NUM_MAX; i++) {
         if (target % i != 0) {
             return -1;
         }
@@ -19,12 +19,12 @@ int divideall(int target) {
 
 void problem005() {
     int ans;
-    
+
     /* solve this problem here */
     ans = 1;
     while (divideall(ans) < 0) {
         ans++;
-    }                
+    }
 
     printf("%s: answer = %d\n", __FUNCTION__, ans);
 }

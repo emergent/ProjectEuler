@@ -2,8 +2,8 @@
  * Problem 12 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=012
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 void problem012() {
     int ans;
@@ -18,12 +18,12 @@ void problem012() {
         term += term_count;
         loop_max = floor(sqrt(term));
         aliquot_num = 0;
-        for (i=1; i<=loop_max; i++) {
+        for (i = 1; i <= loop_max; i++) {
             if (term % i == 0) {
                 if (term / i == i) {
                     aliquot_num++;
                 } else {
-                    aliquot_num+=2;
+                    aliquot_num += 2;
                 }
             }
         }

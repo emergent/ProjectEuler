@@ -2,9 +2,9 @@
  * Problem 13 - Project Euler
  * http://projecteuler.net/index.php?section=problems&id=013
  */
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 static char values[100][50] = {
     "37107287533902102798797998220837590246510135740250",
@@ -106,13 +106,12 @@ static char values[100][50] = {
     "77158542502016545090413245809786882778948721859617",
     "72107838435069186155435662884062257473692284509516",
     "20849603980134001723930671666823555245252804609722",
-    "53503534226472524250874054075591789781264330331690"
-};
+    "53503534226472524250874054075591789781264330331690"};
 
 void problem013() {
     long long int ans;
     int array_size = sizeof(values) / sizeof(values[0]);
-    char *endptr;
+    char* endptr;
     int i;
     long long int sum;
 

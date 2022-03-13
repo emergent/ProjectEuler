@@ -11,11 +11,13 @@ void problem009() {
     int a, b, c;
 
     /* solve this problem here */
-    a = 1; b = 1; c = 1;
-    for (a=1; a<NUM_MAX; a++) {
-        for (b=a; b<NUM_MAX-a; b++) {
+    a = 1;
+    b = 1;
+    c = 1;
+    for (a = 1; a < NUM_MAX; a++) {
+        for (b = a; b < NUM_MAX - a; b++) {
             c = NUM_MAX - a - b;
-            if ((a*a)+(b*b) == c*c) {
+            if ((a * a) + (b * b) == c * c) {
                 goto answer;
             }
         }
