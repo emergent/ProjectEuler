@@ -6,3 +6,7 @@ authors = ["emergent <yosikawa@gmail.com>"]
 [dependencies]
 num = "*"
 itertools = "*"
+num-integer = "0.1.45"
+num-traits = "0.2.15"
+num-derive = "0.3.3"
+num-iter = "0.1.43"

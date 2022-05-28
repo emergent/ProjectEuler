@@ -20,7 +20,7 @@ fn main() {
 
     'outer: for i in (0..maxlen).rev() {
         for j in (0..len - i).rev() {
-            let sum = ps[j..j + i].iter().sum::<u32>();
+            let sum = ps[j..j + i].iter().sum::<u64>();
             if sum < lim && ps.contains(&sum) {
                 println!("{}, {}, {}", i, j, sum);
                 break 'outer;

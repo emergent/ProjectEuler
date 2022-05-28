@@ -3,7 +3,7 @@
 extern crate project_euler;
 use project_euler::prime::primes;
 
-fn count_cycle(x: u32) -> i32 {
+fn count_cycle(x: u64) -> u64 {
     let mut count = 0;
     let mut n = 1;
 
@@ -23,7 +23,7 @@ fn count_cycle(x: u32) -> i32 {
 }
 
 fn main() {
-    let ps: Vec<u32> = primes(1000u32);
+    let ps: Vec<u64> = primes(1000u64);
 
     let mut maxcount = 0;
     let mut ans = 0;

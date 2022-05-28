@@ -24,24 +24,29 @@ where
     }
 }
 
-pub fn primes(x: u32) -> Vec<u32> {
+pub fn primes(x: u64) -> Vec<u64> {
     let x_ = x as usize;
-    let mut ps = vec![];
     let mut is_prime = vec![true; x_ + 1];
+    let mut i = 2;
 
-    if x >= 2 {
-        for i in 2..x_ + 1 {
-            if is_prime[i] {
-                ps.push(i as u32);
-            }
-            if i * i <= x_ {
-                for j in 2..(x_ / i) + 1 {
-                    is_prime[i * j] = false;
-                }
+    while i * i <= x_ {
+        if is_prime[i] {
+            let mut n = i * 2;
+            while n <= x_ {
+                is_prime[n] = false;
+                n += i;
             }
         }
+        i += 1;
     }
-    ps
+
+    is_prime
+        .into_iter()
+        .enumerate()
+        .skip_while(|(i, _)| *i < 2)
+        .filter(|(_, x)| *x)
+        .map(|(i, _)| i as u64)
+        .collect::<Vec<_>>()
 }
 
 #[test]

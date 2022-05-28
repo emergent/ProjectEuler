@@ -4,7 +4,7 @@ extern crate project_euler;
 use project_euler::prime::{is_prime, primes};
 use std::collections::HashSet;
 
-fn rotate1(x: u32) -> u32 {
+fn rotate1(x: u64) -> u64 {
     if x / 10 == 0 {
         return x;
     }
@@ -13,10 +13,10 @@ fn rotate1(x: u32) -> u32 {
 
     let top = xs.remove(0);
     xs.push(top);
-    xs.iter().collect::<String>().parse::<u32>().unwrap_or(0)
+    xs.iter().collect::<String>().parse::<u64>().unwrap_or(0)
 }
 
-fn rotate(x: u32, n: u32) -> u32 {
+fn rotate(x: u64, n: u64) -> u64 {
     if n == 0 {
         return x;
     }
@@ -36,7 +36,7 @@ fn main() {
             continue;
         }
 
-        let digits_count = p.to_string().chars().count() as u32;
+        let digits_count = p.to_string().chars().count() as u64;
         if (0..digits_count).map(|i| rotate(p, i)).all(|x| is_prime(x)) {
             hs.insert(p);
         }

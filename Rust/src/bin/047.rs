@@ -6,7 +6,7 @@ use std::collections::HashSet;
 
 const CONSECUTIVE_NUMBERS_LEN: usize = 4;
 
-fn prime_factors(x: u32, ps: &Vec<u32>) -> Vec<u32> {
+fn prime_factors(x: u64, ps: &Vec<u64>) -> Vec<u64> {
     let mut v = Vec::new();
 
     let mut dividend = x;
