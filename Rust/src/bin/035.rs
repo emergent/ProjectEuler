@@ -1,6 +1,5 @@
 /// Problem 35 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=35
-extern crate project_euler;
 use project_euler::prime::{is_prime, primes};
 use std::collections::HashSet;
 

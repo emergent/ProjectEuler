@@ -1,6 +1,5 @@
 /// Problem 10 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=10
-extern crate project_euler;
 use project_euler::prime::primes;
 
 fn main() {

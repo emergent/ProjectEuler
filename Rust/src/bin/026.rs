@@ -1,6 +1,5 @@
 /// Problem 26 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=26
-extern crate project_euler;
 use project_euler::prime::primes;
 
 fn count_cycle(x: u64) -> u64 {

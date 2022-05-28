@@ -1,6 +1,4 @@
-extern crate num;
-
-use self::num::{Integer, NumCast};
+use num::{Integer, NumCast};
 
 pub fn is_prime<N>(x: N) -> bool
 where

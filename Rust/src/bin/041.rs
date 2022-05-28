@@ -1,6 +1,5 @@
 /// Problem 41 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=41
-extern crate project_euler;
 use project_euler::{itertools::permutations, prime::is_prime};
 
 fn numcat(v: &Vec<u32>) -> u32 {

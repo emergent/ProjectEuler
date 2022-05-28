@@ -1,6 +1,5 @@
 /// Problem 25 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=25
-extern crate num;
 use num::bigint::{BigInt, ToBigInt};
 
 fn fibodigits(max_digits: i32) -> i32 {

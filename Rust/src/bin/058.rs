@@ -1,6 +1,5 @@
 /// Problem 58 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=58
-extern crate project_euler;
 use project_euler::prime::is_prime;
 
 fn wrap(n: u32) -> (u32, Vec<u32>) {

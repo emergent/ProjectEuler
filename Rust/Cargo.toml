@@ -2,6 +2,7 @@
 name = "project-euler"
 version = "0.1.0"
 authors = ["emergent <yosikawa@gmail.com>"]
+edition = "2021"
 
 [dependencies]
 num = "*"

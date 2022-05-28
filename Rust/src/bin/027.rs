@@ -1,6 +1,5 @@
 /// Problem 27 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=27
-extern crate project_euler;
 use project_euler::prime::is_prime;
 
 fn count_primes(a: i64, b: i64) -> i64 {

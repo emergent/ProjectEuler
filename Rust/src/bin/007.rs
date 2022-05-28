@@ -1,6 +1,5 @@
 /// Problem 7 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=7
-extern crate project_euler;
 use project_euler::prime::is_prime;
 
 fn main() {
@@ -9,7 +8,9 @@ fn main() {
     loop {
         if is_prime(var) {
             counter += 1;
-            if counter == 10001 { break; }
+            if counter == 10001 {
+                break;
+            }
         }
         var += 2;
     }

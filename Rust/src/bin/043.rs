@@ -1,6 +1,5 @@
 /// Problem 43 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=43
-extern crate project_euler;
 use project_euler::itertools::permutations;
 
 fn all_divisible(pv: &Vec<char>, denomi: &Vec<u64>) -> bool {

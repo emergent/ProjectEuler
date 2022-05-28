@@ -1,6 +1,5 @@
 /// Problem 20 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=20
-extern crate num;
 use num::bigint::{BigInt, ToBigInt};
 
 fn sum_of_digits_fac(x: i32) -> i32 {
@@ -9,12 +8,9 @@ fn sum_of_digits_fac(x: i32) -> i32 {
         let mut i = x;
         while i > 0 {
             xb *= i;
-            i  -= 1;
+            i -= 1;
         }
-        xb.to_string()
-          .chars()
-          .map(|c| c as i32 - 48)
-          .sum::<i32>()
+        xb.to_string().chars().map(|c| c as i32 - 48).sum::<i32>()
     } else {
         1
     }

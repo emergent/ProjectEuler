@@ -1,8 +1,5 @@
 /// Problem 49 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=49
-extern crate itertools;
-extern crate project_euler;
-
 use itertools::Itertools;
 use project_euler::prime::primes;
 

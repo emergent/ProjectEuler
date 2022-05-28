@@ -1,6 +1,5 @@
 /// Problem 46 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=046
-extern crate project_euler;
 use project_euler::prime::is_prime;
 
 fn goldbach(x: u32) -> bool {

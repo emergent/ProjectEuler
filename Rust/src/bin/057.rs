@@ -1,6 +1,5 @@
 /// Problem 57 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=57
-extern crate num;
 use num::bigint::BigInt;
 use num::FromPrimitive;
 

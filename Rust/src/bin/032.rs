@@ -1,6 +1,5 @@
 /// Problem 32 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=32
-extern crate project_euler;
 use project_euler::itertools::permutations;
 use std::collections::HashSet;
 

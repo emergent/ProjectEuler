@@ -1,7 +1,5 @@
 /// Problem 29 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=29
-extern crate num;
-
 use num::bigint::BigInt;
 use num::FromPrimitive;
 use std::collections::HashSet;
