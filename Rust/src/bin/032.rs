@@ -1,6 +1,6 @@
 /// Problem 32 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=32
-use project_euler::itertools::permutations;
+use permutohedron::LexicalPermutation;
 use std::collections::HashSet;
 
 fn chars2int(cs: &[char]) -> i32 {
@@ -23,13 +23,19 @@ fn pandigital_product(cs: &Vec<char>) -> Option<i32> {
 }
 
 fn main() {
-    let nums = "123456789".chars().collect::<Vec<char>>();
-    let perm = permutations(&nums, nums.len() as u32);
-    let ans = perm
-        .iter()
-        .filter_map(|p| pandigital_product(p))
-        .collect::<HashSet<i32>>()
-        .iter()
-        .sum::<i32>();
+    let mut nums = "123456789".chars().collect::<Vec<char>>();
+    let mut hs = HashSet::new();
+
+    loop {
+        if let Some(x) = pandigital_product(&nums) {
+            hs.insert(x);
+        }
+
+        if !nums.next_permutation() {
+            break;
+        }
+    }
+
+    let ans = hs.into_iter().sum::<i32>();
     println!("{}", ans);
 }
