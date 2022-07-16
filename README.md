@@ -55,11 +55,18 @@ $ cargo run --bin 001 --release
 
 ### TypeScript
 
-Use [`ts-node`](https://github.com/TypeStrong/ts-node).
+Use [`deno`](https://deno.land/) or [`bun`](https://bun.sh/).
 
 ```
-$ ts-node problem001.ts
+$ deno run problem001.ts
 ```
+
+or
+
+```
+$ bun run problem001.ts
+```
+
 
 ### Kotlin
 
