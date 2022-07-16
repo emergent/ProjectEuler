@@ -11,11 +11,5 @@ export function sieve(max: number): number[] {
         }
     }
 
-    const ret = new Array<number>();
-    for (const [i, x] of mark.entries()) {
-        if (x) {
-            ret.push(i);
-        }
-    }
-    return ret;
+    return mark.map((x, i) => (x ? i : 0)).filter((y) => y > 0);
 }
