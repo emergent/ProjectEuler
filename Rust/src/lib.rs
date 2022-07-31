@@ -1,2 +1,2 @@
-pub mod prime;
 pub mod itertools;
+pub mod prime;

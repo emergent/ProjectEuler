@@ -20,7 +20,8 @@ fn test_pythagorean_triplet() {
 }
 
 fn main() {
-    let abc = (5..).step_by(2)
+    let abc = (5..)
+        .step_by(2)
         .flat_map(|c| pythagorean_triplet(c))
         .filter(|&(a, b, c)| 1000 % (a + b + c) == 0)
         .map(|(a, b, c)| {

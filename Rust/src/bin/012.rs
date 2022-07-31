@@ -6,8 +6,8 @@ fn triangle(n: i32) -> i32 {
 
 fn divisors(x: i32) -> i32 {
     let mut xd = x;
-    let mut d  = 2;
-    let mut v  = Vec::new();
+    let mut d = 2;
+    let mut v = Vec::new();
     let mut counter = 0;
 
     while xd > 1 {

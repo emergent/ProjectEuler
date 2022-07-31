@@ -19,25 +19,29 @@ const TRIANGLE: &str = "\
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 ";
 
-fn getmax(x:usize, y:usize, rest:usize, v:&Vec<Vec<i32>>) -> i32 {
+fn getmax(x: usize, y: usize, rest: usize, v: &Vec<Vec<i32>>) -> i32 {
     match rest {
         0 => v[y][x],
-        _ => v[y][x] + std::cmp::max(
-            getmax(x, y+1, rest-1, v),
-            getmax(x+1, y+1, rest-1, v)
-        ),
+        _ => {
+            v[y][x]
+                + std::cmp::max(
+                    getmax(x, y + 1, rest - 1, v),
+                    getmax(x + 1, y + 1, rest - 1, v),
+                )
+        }
     }
 }
 
 fn main() {
-    let tri: Vec<Vec<i32>> = TRIANGLE.trim()
+    let tri: Vec<Vec<i32>> = TRIANGLE
+        .trim()
         .split('\n')
-        .map(|line|
+        .map(|line| {
             line.split_whitespace()
                 .map(|s| s.parse::<i32>().unwrap_or(0))
                 .collect::<Vec<i32>>()
-        )
+        })
         .collect();
 
-    println!("{}", getmax(0, 0, tri.len()-1, &tri));
+    println!("{}", getmax(0, 0, tri.len() - 1, &tri));
 }

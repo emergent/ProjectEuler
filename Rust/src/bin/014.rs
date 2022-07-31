@@ -23,7 +23,7 @@ fn main() {
 
     let mut maxn = 0;
     let mut maxi = 0;
-    for i in 1 .. 1_000_000 {
+    for i in 1..1_000_000 {
         let ci = chain(i, &mut cache);
         if maxn < ci {
             maxn = ci;

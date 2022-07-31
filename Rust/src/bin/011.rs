@@ -28,28 +28,28 @@ fn maldiagonalr(i: usize, grid: &Vec<i32>) -> i32 {
     if i + 63 >= grid.len() {
         return 0;
     }
-    grid[i] * grid[i+21] * grid[i+42] * grid[i+63]
+    grid[i] * grid[i + 21] * grid[i + 42] * grid[i + 63]
 }
 
 fn maldiagonall(i: usize, grid: &Vec<i32>) -> i32 {
     if i + 57 >= grid.len() || i % 20 < 3 {
         return 0;
     }
-    grid[i] * grid[i+19] * grid[i+38] * grid[i+57]
+    grid[i] * grid[i + 19] * grid[i + 38] * grid[i + 57]
 }
 
 fn malright(i: usize, grid: &Vec<i32>) -> i32 {
     if i % 20 >= 17 {
         return 0;
     }
-    grid[i] * grid[i+1] * grid[i+2] * grid[i+3]
+    grid[i] * grid[i + 1] * grid[i + 2] * grid[i + 3]
 }
 
 fn maldown(i: usize, grid: &Vec<i32>) -> i32 {
     if i + 60 >= grid.len() {
         return 0;
     }
-    grid[i] * grid[i+20] * grid[i+40] * grid[i+60]
+    grid[i] * grid[i + 20] * grid[i + 40] * grid[i + 60]
 }
 
 fn main() {

@@ -2,9 +2,7 @@
 /// http://projecteuler.net/index.php?section=problems&id=17
 
 fn count_strings(string: &str) -> i32 {
-    string.split_whitespace()
-        .map(|s| s.len() as i32)
-        .sum()
+    string.split_whitespace().map(|s| s.len() as i32).sum()
 }
 
 fn count_from_1_to_9() -> i32 {
@@ -27,16 +25,22 @@ fn count_from_1_to_99() -> i32 {
 }
 
 fn count_from_100_to_999() -> i32 {
-    count_from_1_to_9() * 100 +
-        "hundred".len() as i32 * 900 +
-        "and".len() as i32 * (900 - 9) +
-        count_from_1_to_99() * 9
+    count_from_1_to_9() * 100
+        + "hundred".len() as i32 * 900
+        + "and".len() as i32 * (900 - 9)
+        + count_from_1_to_99() * 9
 }
 
 fn count_1000() -> i32 {
-    "one thousand".split_whitespace().map(|s| s.len() as i32).sum()
+    "one thousand"
+        .split_whitespace()
+        .map(|s| s.len() as i32)
+        .sum()
 }
 
 fn main() {
-    println!("{}", count_from_1_to_99() + count_from_100_to_999() + count_1000());
+    println!(
+        "{}",
+        count_from_1_to_99() + count_from_100_to_999() + count_1000()
+    );
 }

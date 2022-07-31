@@ -5,7 +5,7 @@ fn fibevensum2(a: i32, b: i32, sum: i32, xmax: i32) -> i32 {
     match a {
         a if a >= xmax => sum,
         a if a % 2 == 0 => fibevensum2(b, a + b, sum + a, xmax),
-        _ => fibevensum2(b, a + b, sum, xmax)
+        _ => fibevensum2(b, a + b, sum, xmax),
     }
 }
 
