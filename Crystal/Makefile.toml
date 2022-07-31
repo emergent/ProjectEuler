@@ -1,0 +1,23 @@
+[config]
+skip_core_tasks = true
+
+[tasks.build]
+script_runner = "@shell"
+script = '''
+crystal build --release "problem$(printf "%03d" ${@}).cr"
+'''
+
+[tasks.post-build]
+script = [ "rm *.dwarf" ]
+
+[tasks.clean]
+script = '''
+for f in `ls *.cr`; do rm -f ${f%.cr}{,.dwarf}; done
+'''
+
+[tasks.run]
+script_runner = "@shell"
+script = '''
+time ./problem$(printf "%03d" ${@})
+'''
+dependencies = [ "build", "post-build" ]
