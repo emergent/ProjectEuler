@@ -3,7 +3,7 @@
  * http://projecteuler.net/index.php?section=problems&id=15
  */
 const N = 40;
-let array: number[][] = new Array<Array<number>>(N + 1);
+const array: number[][] = new Array<Array<number>>(N + 1);
 
 for (let i = 0; i <= N; i++) {
     array[i] = new Array(N + 1).fill(0);
