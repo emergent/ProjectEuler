@@ -1,4 +1,4 @@
-COMPILER=crystal build
+COMPILER=crystal build --release
 DEFINE=
 INCLUDE=
 LDFLAGS=
