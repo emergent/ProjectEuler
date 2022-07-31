@@ -1,0 +1,30 @@
+[config]
+skip_core_tasks = true
+
+[tasks.run]
+script_runner = "@shell"
+script = [ "./target/release/${@}" ]
+dependencies = [ "format", "clippy", "build" ]
+
+[tasks.format]
+install_crate = "rustfmt"
+command = "cargo"
+args = [ "fmt", "--", "--emit=files" ]
+
+[tasks.clippy]
+install_crate = "clippy"
+command = "cargo"
+args = [ "clippy" ]
+
+[tasks.build]
+command = "cargo"
+args = [ "build", "--release", "--bin", "${@}" ]
+
+[tasks.test]
+command = "cargo"
+args = [ "test" ]
+
+[tasks.clean]
+command = "cargo"
+args = [ "clean" ]
+
