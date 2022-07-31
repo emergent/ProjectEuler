@@ -37,10 +37,10 @@ fn get_amicable_pair(x: i32) -> Option<(i32, i32)> {
 fn main() {
     let mut hs = HashSet::new();
     for i in 1..10000 {
-        get_amicable_pair(i).map(|(x, y)| {
+        if let Some((x, y)) = get_amicable_pair(i) {
             hs.insert(x);
             hs.insert(y);
-        });
+        }
     }
     println!("{}", hs.iter().sum::<i32>());
 }

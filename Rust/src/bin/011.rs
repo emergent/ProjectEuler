@@ -24,28 +24,28 @@ const GRID20X20: &str = "
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 ";
 
-fn maldiagonalr(i: usize, grid: &Vec<i32>) -> i32 {
+fn maldiagonalr(i: usize, grid: &[i32]) -> i32 {
     if i + 63 >= grid.len() {
         return 0;
     }
     grid[i] * grid[i + 21] * grid[i + 42] * grid[i + 63]
 }
 
-fn maldiagonall(i: usize, grid: &Vec<i32>) -> i32 {
+fn maldiagonall(i: usize, grid: &[i32]) -> i32 {
     if i + 57 >= grid.len() || i % 20 < 3 {
         return 0;
     }
     grid[i] * grid[i + 19] * grid[i + 38] * grid[i + 57]
 }
 
-fn malright(i: usize, grid: &Vec<i32>) -> i32 {
+fn malright(i: usize, grid: &[i32]) -> i32 {
     if i % 20 >= 17 {
         return 0;
     }
     grid[i] * grid[i + 1] * grid[i + 2] * grid[i + 3]
 }
 
-fn maldown(i: usize, grid: &Vec<i32>) -> i32 {
+fn maldown(i: usize, grid: &[i32]) -> i32 {
     if i + 60 >= grid.len() {
         return 0;
     }
@@ -54,7 +54,6 @@ fn maldown(i: usize, grid: &Vec<i32>) -> i32 {
 
 fn main() {
     let grid: Vec<i32> = GRID20X20
-        .trim()
         .split_whitespace()
         .map(|s| s.parse::<i32>().unwrap_or(0))
         .collect();

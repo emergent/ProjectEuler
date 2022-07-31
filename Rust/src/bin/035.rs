@@ -36,7 +36,7 @@ fn main() {
         }
 
         let digits_count = p.to_string().chars().count() as u64;
-        if (0..digits_count).map(|i| rotate(p, i)).all(|x| is_prime(x)) {
+        if (0..digits_count).map(|i| rotate(p, i)).all(is_prime) {
             hs.insert(p);
         }
     }

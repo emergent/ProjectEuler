@@ -22,11 +22,9 @@ fn main() {
     for i in (9..).step_by(2) {
         if is_prime(i) {
             continue;
-        } else {
-            if !goldbach(i) {
-                println!("{}", i);
-                break;
-            }
+        } else if !goldbach(i) {
+            println!("{}", i);
+            break;
         }
     }
 }

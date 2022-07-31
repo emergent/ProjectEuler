@@ -13,7 +13,7 @@ fn divisors(x: i32) -> i32 {
     while xd > 1 {
         if xd % d == 0 {
             counter += 1;
-            xd = xd / d;
+            xd /= d;
         }
         if xd % d != 0 || xd == 1 {
             if counter > 0 {
@@ -23,7 +23,7 @@ fn divisors(x: i32) -> i32 {
             d = if d == 2 { 3 } else { d + 2 };
         }
     }
-    v.iter().fold(1, |prod, x| prod * x)
+    v.iter().product()
 }
 
 fn main() {

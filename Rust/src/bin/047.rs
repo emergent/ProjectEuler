@@ -11,7 +11,7 @@ fn prime_factors(x: u64, ps: &Vec<u64>) -> Vec<u64> {
     let mut dividend = x;
     for &i in ps {
         while dividend % i == 0 {
-            dividend = dividend / i;
+            dividend /= i;
             v.push(i);
         }
         if dividend == 1 {

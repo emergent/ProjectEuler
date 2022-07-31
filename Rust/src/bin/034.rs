@@ -12,7 +12,7 @@ fn facdigits(x: i32) -> i32 {
     let mut sum = 0;
     while xd != 0 {
         sum += fac(xd % 10);
-        xd = xd / 10;
+        xd /= 10;
     }
     sum
 }

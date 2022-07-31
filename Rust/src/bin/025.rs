@@ -17,7 +17,7 @@ fn fibodigits(max_digits: i32) -> i32 {
 
         let tmp = a;
         a = b.clone();
-        b = b + tmp;
+        b += tmp;
     }
     idx
 }

@@ -9,7 +9,7 @@ fn sumofdigitspower(x: i32, p: usize) -> i32 {
         .to_string()
         .chars()
         .map(|c| c as i32 - 48)
-        .fold(0, |sum, x| sum + x)
+        .sum()
 }
 
 #[test]

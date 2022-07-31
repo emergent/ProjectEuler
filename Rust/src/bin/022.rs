@@ -7,15 +7,15 @@ use std::path::Path;
 fn read_names() -> Vec<String> {
     let path = Path::new("data/p022_names.txt");
 
-    let mut file = File::open(&path).expect(&format!("couldn't open {}", path.display()));
+    let mut file = File::open(&path).unwrap_or_else(|_| panic!("couldn't open {}", path.display()));
 
     let mut s = String::new();
     file.read_to_string(&mut s)
-        .expect(&format!("couldn't read {}", path.display()));
+        .unwrap_or_else(|_| panic!("couldn't read {}", path.display()));
 
     let mut v = s
         .split(',')
-        .map(|s| s.to_string().replace("\"", ""))
+        .map(|s| s.to_string().replace('\"', ""))
         .collect::<Vec<String>>();
     v.sort();
     v

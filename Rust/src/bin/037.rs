@@ -11,7 +11,7 @@ fn is_truncatable(x: u64) -> bool {
         if !(is_prime(xr) && is_prime(xl)) {
             return false;
         }
-        xr = xr / 10;
+        xr /= 10;
         d *= 10;
     }
     is_prime(x)
@@ -27,7 +27,7 @@ fn main() {
         tp += 2;
     }
     println!("{:?}", tps);
-    println!("{}", tps.iter().fold(0, |sum, x| sum + x));
+    println!("{}", tps.iter().sum::<u64>());
 }
 
 #[test]

@@ -22,7 +22,7 @@ fn pythagorean_triplet(c: i32) -> Option<Vec<(i32, i32, i32)>> {
 fn main() {
     let x = 5;
     let n = (x..1000)
-        .filter_map(|c| pythagorean_triplet(c))
+        .filter_map(pythagorean_triplet)
         .flatten()
         .filter_map(|(a, b, c)| {
             if a + b + c < 1000 {

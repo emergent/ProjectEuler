@@ -5,7 +5,7 @@ fn digits_to_vec_sorted(n: i32) -> Vec<i32> {
     let mut x = n;
     while x != 0 {
         v.push(x % 10);
-        x = x / 10;
+        x /= 10;
     }
     v.sort();
     v
@@ -15,7 +15,7 @@ fn has_same_digits(m: i32, n: i32) -> bool {
     let mut mv = digits_to_vec_sorted(m);
     let mut nv = digits_to_vec_sorted(n);
 
-    while mv.len() > 0 {
+    while !mv.is_empty() {
         if mv.pop() != nv.pop() {
             return false;
         }
@@ -28,7 +28,7 @@ fn main() {
     loop {
         let mut same = true;
         for i in 2..6 {
-            same = same & has_same_digits(n, n * i);
+            same &= has_same_digits(n, n * i);
         }
         if same {
             println!("{}", n);

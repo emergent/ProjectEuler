@@ -9,7 +9,7 @@ fn dec2bin(x: i32) -> String {
     while xd > 0 {
         r = xd % 2;
         s.push_str(&r.to_string());
-        xd = xd / 2;
+        xd /= 2;
     }
     s.chars().rev().collect::<String>()
 }
@@ -27,6 +27,6 @@ fn main() {
                 .unwrap()
         })
         .filter(|&x| dec2bin(x) == dec2bin(x).chars().rev().collect::<String>())
-        .fold(0, |sum, x| sum + x);
+        .sum::<i32>();
     println!("{}", ans)
 }

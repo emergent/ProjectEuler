@@ -108,7 +108,6 @@ const CHUNK_LEN: usize = 5;
 
 fn split_digits() -> Vec<Vec<i32>> {
     DIGITS
-        .trim()
         .split_whitespace()
         .map(|line| {
             let mut v = Vec::new();

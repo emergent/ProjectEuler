@@ -85,7 +85,7 @@ fn main() {
                 numerator: a,
                 denominator: b,
             };
-            if &f.cancel_same_numbers() == &f.lowest_common_terms() {
+            if f.cancel_same_numbers() == f.lowest_common_terms() {
                 v.push(f);
             }
         }

@@ -7,11 +7,11 @@ use std::path::Path;
 fn read_triangle() -> Vec<Vec<u32>> {
     let path = Path::new("data/p067_triangle.txt");
 
-    let mut file = File::open(&path).expect(&format!("couldn't open {}", path.display()));
+    let mut file = File::open(&path).unwrap_or_else(|_| panic!("couldn't open {}", path.display()));
 
     let mut s = String::new();
     file.read_to_string(&mut s)
-        .expect(&format!("couldn't read {}", path.display()));
+        .unwrap_or_else(|_| panic!("couldn't read {}", path.display()));
 
     s.trim()
         .split('\n')
@@ -23,7 +23,7 @@ fn read_triangle() -> Vec<Vec<u32>> {
         .collect()
 }
 
-fn dp(pred: &mut Vec<u32>, curr: &Vec<u32>) -> Vec<u32> {
+fn dp(pred: &mut Vec<u32>, curr: &[u32]) -> Vec<u32> {
     let mut v = Vec::new();
     pred.push(0);
     pred.insert(0, 0);

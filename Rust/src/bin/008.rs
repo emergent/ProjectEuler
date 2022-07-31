@@ -23,14 +23,14 @@ fn main() {
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450"
         .trim_start()
-        .replace("\n", "");
+        .replace('\n', "");
 
     let mut prodmax = 0;
     for i in 0..(digits.len() - 13 + 1) {
         let product = digits[i..(i + 13)]
             .chars()
-            .map(|c| (c as i64) - 48 as i64)
-            .fold(1, |prod, x| prod * x);
+            .map(|c| (c as i64) - 48)
+            .product();
         prodmax = std::cmp::max(prodmax, product);
     }
     println!("{}", prodmax);

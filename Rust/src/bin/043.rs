@@ -2,14 +2,14 @@
 /// http://projecteuler.net/index.php?section=problems&id=43
 use project_euler::itertools::permutations;
 
-fn all_divisible(pv: &Vec<char>, denomi: &Vec<u64>) -> bool {
+fn all_divisible(pv: &[char], denomi: &[u64]) -> bool {
     denomi
         .iter()
         .enumerate()
         .all(|(i, d)| subnum(pv, i + 1, 3) % d == 0)
 }
 
-fn subnum(xv: &Vec<char>, n: usize, digits_len: usize) -> u64 {
+fn subnum(xv: &[char], n: usize, digits_len: usize) -> u64 {
     xv[n..n + digits_len]
         .iter()
         .collect::<String>()

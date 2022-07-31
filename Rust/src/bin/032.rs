@@ -7,7 +7,7 @@ fn chars2int(cs: &[char]) -> i32 {
     cs.iter().collect::<String>().parse::<i32>().unwrap()
 }
 
-fn pandigital_product(cs: &Vec<char>) -> Option<i32> {
+fn pandigital_product(cs: &[char]) -> Option<i32> {
     let product = chars2int(&cs[5..]);
 
     for i in 1..4 {

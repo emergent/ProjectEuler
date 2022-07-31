@@ -7,7 +7,7 @@ fn nthpower(x: i32, e: u32) -> bool {
 
     while quot != 0 {
         sumpower += (quot % 10).pow(e);
-        quot = quot / 10;
+        quot /= 10;
     }
 
     sumpower == x

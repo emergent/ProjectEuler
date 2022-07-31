@@ -14,7 +14,7 @@ fn is_lychrel(x: u128) -> bool {
     let mut xrev = reverse_num(xl);
 
     for _ in 0..50 {
-        xl = xl + xrev;
+        xl += xrev;
         xrev = reverse_num(xl);
         if xrev == xl {
             return false;
