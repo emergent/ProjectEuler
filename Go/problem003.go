@@ -1,8 +1,8 @@
-package main
+package projecteuler
 
 // Problem 3 - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=3
-import "fmt"
+import "log"
 
 func MaxPrimeFactor(x int) int {
 	for n := 2; n != x; n++ {
@@ -13,6 +13,6 @@ func MaxPrimeFactor(x int) int {
 	return x
 }
 
-func main() {
-	fmt.Println(MaxPrimeFactor(600851475143))
+func P003() {
+	log.Println(MaxPrimeFactor(600851475143))
 }

@@ -1,9 +1,9 @@
-package main
+package projecteuler
 
 // Problem 2 - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=2
 
-import "fmt"
+import "log"
 
 func fibevensum2(a int32, b int32, sum int32, xmax int32) int32 {
 	switch {
@@ -20,6 +20,6 @@ func fibevensum(xmax int32) int32 {
 	return fibevensum2(1, 2, 0, xmax)
 }
 
-func main() {
-	fmt.Println(fibevensum(4000000))
+func P002() {
+	log.Println(fibevensum(4000000))
 }

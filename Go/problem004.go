@@ -1,7 +1,7 @@
-package main
+package projecteuler
 
 import (
-	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -19,7 +19,7 @@ func is_palindromic(x int) bool {
 	return true
 }
 
-func main() {
+func P004() {
 	ans := 0
 	for i := 100; i < 1000; i++ {
 		for j := i; j < 1000; j++ {
@@ -29,6 +29,6 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(ans)
+	log.Println(ans)
 
 }

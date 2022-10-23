@@ -1,0 +1,11 @@
+package main
+
+import (
+	"log"
+	"projecteuler"
+)
+
+func main() {
+	log.SetFlags(log.Lshortfile)
+	projecteuler.P%%PROBLEM%%()
+}

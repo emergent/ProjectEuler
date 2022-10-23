@@ -1,0 +1,13 @@
+[tasks.preprocess]
+script = ['''
+sed "s/%%PROBLEM%%/$(printf '%03d' $1)/g" main.go.txt > ./cmd/main/main.go
+''']
+
+[tasks.run]
+dependencies = ["preprocess"]
+command = "go"
+args = ["run", "./cmd/main/main.go"]
+
+[tasks.clean]
+command = "rm"
+args = ["main"]

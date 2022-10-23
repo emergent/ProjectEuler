@@ -1,8 +1,8 @@
-package main
+package projecteuler
 
 // Problem 5 - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=5
-import "fmt"
+import "log"
 
 func gcd(x, y int) int {
 	if y == 0 {
@@ -15,10 +15,10 @@ func lcm(x, y int) int {
 	return x * y / gcd(x, y)
 }
 
-func main() {
+func P005() {
 	ans := 1
 	for i := 2; i <= 20; i++ {
 		ans = lcm(ans, i)
 	}
-	fmt.Println(ans)
+	log.Println(ans)
 }
