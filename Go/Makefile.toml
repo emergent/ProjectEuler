@@ -8,6 +8,11 @@ dependencies = ["preprocess"]
 command = "go"
 args = ["run", "./cmd/main/main.go"]
 
+[tasks.build]
+dependencies = ["preprocess"]
+command = "go"
+args = ["build", "./cmd/main/main.go"]
+
 [tasks.clean]
 command = "rm"
 args = ["main"]
