@@ -4,7 +4,7 @@ package projecteuler
 // http://projecteuler.net/index.php?section=problems&id=7
 import "log"
 
-func primes(max int) []int {
+func Primes(max int) []int {
 	marks := make([]bool, max+1)
 	x := 2
 
@@ -35,5 +35,5 @@ func primes(max int) []int {
 }
 
 func P007() {
-	log.Println(primes(200000)[10000])
+	log.Println(Primes(200000)[10000])
 }
