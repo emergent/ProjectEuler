@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"projecteuler/my"
 )
 
 func P011() {
@@ -55,7 +57,7 @@ func P011() {
 				for k := 0; k < 4; k++ {
 					x *= board[i+k][j]
 				}
-				ans = max(ans, x)
+				ans = my.Max(ans, x)
 			}
 
 			if j < height-3 {
@@ -63,7 +65,7 @@ func P011() {
 				for k := 0; k < 4; k++ {
 					x *= board[i][j+k]
 				}
-				ans = max(ans, x)
+				ans = my.Max(ans, x)
 			}
 
 			if i < width-3 && j < height-3 {
@@ -71,7 +73,7 @@ func P011() {
 				for k := 0; k < 4; k++ {
 					x *= board[i+k][j+k]
 				}
-				ans = max(ans, x)
+				ans = my.Max(ans, x)
 			}
 
 			if i < width-3 && j >= 3 {
@@ -79,17 +81,9 @@ func P011() {
 				for k := 0; k < 4; k++ {
 					x *= board[i+k][j-k]
 				}
-				ans = max(ans, x)
+				ans = my.Max(ans, x)
 			}
 		}
 	}
 	fmt.Println(ans)
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
 }
