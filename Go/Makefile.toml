@@ -16,3 +16,7 @@ args = ["build", "./cmd/main/main.go"]
 [tasks.clean]
 command = "rm"
 args = ["main"]
+
+[tasks.format]
+command = "gofmt"
+args = ["-l", "-w", "-s", "."]
