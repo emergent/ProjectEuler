@@ -50,8 +50,7 @@ func P018() {
 
 	dp[0][0] = v[0][0]
 	for i := 0; i < length-1; i++ {
-		for j, val := range v[i] {
-			log.Println(j, val)
+		for j := range v[i] {
 			dp[i+1][j] = my.Max(dp[i+1][j], dp[i][j]+v[i+1][j])
 			dp[i+1][j+1] = my.Max(dp[i+1][j+1], dp[i][j]+v[i+1][j+1])
 		}
