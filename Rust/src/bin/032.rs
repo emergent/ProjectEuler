@@ -1,38 +1,35 @@
 /// Problem 32 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=32
-use permutohedron::LexicalPermutation;
 use std::collections::HashSet;
 
-fn chars2int(cs: &[char]) -> i32 {
-    cs.iter().collect::<String>().parse::<i32>().unwrap()
-}
+fn is_pandigital(a: i32, b: i32, c: i32) -> bool {
+    let mut f = [false; 10];
 
-fn pandigital_product(cs: &[char]) -> Option<i32> {
-    let product = chars2int(&cs[5..]);
+    for mut x in [a, b, c] {
+        while x > 0 {
+            let digit = (x % 10) as usize;
+            if digit == 0 || f[digit] {
+                return false;
+            }
 
-    for i in 1..4 {
-        let m1 = chars2int(&cs[..i]);
-        let m2 = chars2int(&cs[i..5]);
-
-        if m1 * m2 == product {
-            println!("{}, {}, {}", m1, m2, product);
-            return Some(product);
+            f[digit] = true;
+            x /= 10;
         }
     }
-    None
+
+    f[1..].iter().all(|x| *x)
 }
 
 fn main() {
-    let mut nums = "123456789".chars().collect::<Vec<char>>();
     let mut hs = HashSet::new();
 
-    loop {
-        if let Some(x) = pandigital_product(&nums) {
-            hs.insert(x);
-        }
-
-        if !nums.next_permutation() {
-            break;
+    for i in 1..100 {
+        let (mut j, limit) = if i < 10 { (1000, 10000) } else { (100, 1000) };
+        while j < limit {
+            if is_pandigital(i, j, i * j) {
+                hs.insert(i * j);
+            }
+            j += 1;
         }
     }
 
