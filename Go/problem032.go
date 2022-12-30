@@ -29,8 +29,12 @@ func isPandigital(a, b, c int) bool {
 
 func P032() {
 	m := map[int]struct{}{}
-	for i := 1; i < 1000; i++ {
-		for j := i; j < 10000; j++ {
+	for i := 1; i < 100; i++ {
+		j, limit := 100, 1000
+		if i < 10 {
+			j, limit = 1000, 10000
+		}
+		for ; j < limit; j++ {
 			if isPandigital(i, j, i*j) {
 				m[i*j] = struct{}{}
 			}
