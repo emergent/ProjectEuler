@@ -7,7 +7,7 @@ use std::path::Path;
 fn read_names() -> Vec<String> {
     let path = Path::new("data/p022_names.txt");
 
-    let mut file = File::open(&path).unwrap_or_else(|_| panic!("couldn't open {}", path.display()));
+    let mut file = File::open(path).unwrap_or_else(|_| panic!("couldn't open {}", path.display()));
 
     let mut s = String::new();
     file.read_to_string(&mut s)

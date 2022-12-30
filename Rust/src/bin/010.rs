@@ -3,6 +3,6 @@
 use project_euler::prime::primes;
 
 fn main() {
-    let ans = primes(2_000_000).iter().fold(0, |sum, &x| sum + x as u64);
+    let ans = primes(2_000_000).into_iter().sum::<u64>();
     println!("{}", ans);
 }
