@@ -1,3 +1,4 @@
+// zig version 0.10.0
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 
