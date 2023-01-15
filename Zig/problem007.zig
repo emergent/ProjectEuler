@@ -19,17 +19,22 @@ fn primes(comptime max: u64) !ArrayList(u64) {
         marks[i] = i >= 2;
     }
 
-    var ps = ArrayList(u64).init(allocator);
-
-    for (marks) |_, i| {
+    var i: u64 = 2;
+    while (i * i <= max) : (i += 1) {
         if (!marks[i]) {
             continue;
         }
 
-        try ps.append(i);
         var j = i * 2;
         while (j <= max) : (j += i) {
             marks[j] = false;
+        }
+    }
+
+    var ps = ArrayList(u64).init(allocator);
+    for (marks) |mark, j| {
+        if (mark) {
+            try ps.append(j);
         }
     }
 
