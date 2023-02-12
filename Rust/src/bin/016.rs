@@ -1,23 +1,27 @@
 /// Problem 16 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=16
-use num::bigint::BigInt;
-use num::FromPrimitive;
+fn sum_of_digits_power(base: u32, exp: usize) -> u32 {
+    let mut digits = vec![1];
 
-fn sumofdigitspower(x: i32, p: usize) -> i32 {
-    let xb: BigInt = FromPrimitive::from_i32(x).unwrap();
-    num::pow(xb, p)
-        .to_string()
-        .chars()
-        .map(|c| c as i32 - 48)
-        .sum()
+    for _ in 0..exp {
+        let mut carried = 0;
+
+        for i in 0..digits.len() {
+            (carried, digits[i]) = divmod(digits[i] * base + carried, 10);
+
+            if i == digits.len() - 1 && carried > 0 {
+                digits.push(carried);
+            }
+        }
+    }
+
+    digits.into_iter().sum()
 }
 
-#[test]
-fn test_sumof() {
-    assert_eq!(sumofdigitspower(2, 2), 4);
-    assert_eq!(sumofdigitspower(2, 10), 7);
+fn divmod(x: u32, y: u32) -> (u32, u32) {
+    (x / y, x % y)
 }
 
 fn main() {
-    println!("{}", sumofdigitspower(2, 1000));
+    println!("{}", sum_of_digits_power(2, 1000));
 }
