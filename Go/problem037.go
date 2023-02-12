@@ -7,25 +7,37 @@ import (
 	"projecteuler/my"
 )
 
-func isPrime(primeSet map[int]struct{}, p int) bool {
-	_, ok := primeSet[p]
+type MyPrimes struct {
+	primeSet map[int]struct{}
+}
+
+func (mp *MyPrimes) isPrime(p int) bool {
+	if mp == nil {
+		return false
+	}
+
+	_, ok := mp.primeSet[p]
 	return ok
 }
 
-func truncatablePrime(primeSet map[int]struct{}, p int) bool {
+func (mp *MyPrimes) truncatablePrime(p int) bool {
+	if mp == nil {
+		return false
+	}
+
 	filter := 1
 	x := p
 	for x > 0 {
 		x /= 10
 		filter *= 10
-		if x > 0 && !isPrime(primeSet, x) {
+		if x > 0 && !mp.isPrime(x) {
 			return false
 		}
 	}
 
 	for filter > 0 {
 		p %= filter
-		if p > 0 && !isPrime(primeSet, p) {
+		if p > 0 && !mp.isPrime(p) {
 			return false
 		}
 		filter /= 10
@@ -43,8 +55,10 @@ func P037() {
 	for _, p := range ps {
 		set[p] = struct{}{}
 	}
+	mp := MyPrimes{primeSet: set}
+
 	for i := 4; i < len(ps); i++ {
-		if truncatablePrime(set, ps[i]) {
+		if mp.truncatablePrime(ps[i]) {
 			ans += ps[i]
 			count += 1
 			if count == 11 {
