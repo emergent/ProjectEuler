@@ -15,23 +15,18 @@ pub fn main() !void {
     while (i < N) : (i += 1) {
         var carried: u32 = 0;
 
-        var j: usize = 0;
-        const loop_max = len;
-        while (j < loop_max) : (j += 1) {
-            const d = digits[j] * BASE + carried;
-
-            if (d >= 10) {
-                digits[j] = d % 10;
-                carried = d / 10;
-
-                if (j == len - 1 and carried > 0) {
-                    digits[len] = carried;
+        for (digits) |*value, j| {
+            if (j == len) {
+                if (carried > 0) {
+                    value.* = carried;
                     len += 1;
                 }
-            } else {
-                digits[j] = d;
-                carried = 0;
+                break;
             }
+
+            const d = value.* * BASE + carried;
+            value.* = d % 10;
+            carried = d / 10;
         }
     }
 
