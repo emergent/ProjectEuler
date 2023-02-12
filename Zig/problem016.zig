@@ -5,14 +5,17 @@ const stdout = std.io.getStdOut().writer();
 // #16 Power digit sum - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=16
 pub fn main() !void {
-    const N = 1000;
-    const BASE = 2;
-    var digits = [_]u32{0} ** N; // array of 1000 items
+    const ans = sumOfDigitsPower(2, 1000);
+    try stdout.print("{}\n", .{ans});
+}
+
+fn sumOfDigitsPower(comptime base: u32, comptime exp: u32) u32 {
+    var digits = [_]u32{0} ** exp; // array of 1000 items
     digits[0] = 1;
 
     var i: u32 = 0;
     var len: usize = 1;
-    while (i < N) : (i += 1) {
+    while (i < exp) : (i += 1) {
         var carried: u32 = 0;
 
         for (digits) |*value, j| {
@@ -24,14 +27,13 @@ pub fn main() !void {
                 break;
             }
 
-            const d = value.* * BASE + carried;
+            const d = value.* * base + carried;
             value.* = d % 10;
             carried = d / 10;
         }
     }
 
-    const ans = sum(&digits);
-    try stdout.print("{}\n", .{ans});
+    return sum(&digits);
 }
 
 fn sum(arr: []const u32) u32 {
