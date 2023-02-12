@@ -30,10 +30,14 @@ pub fn main() !void {
         }
     }
 
-    var sum: u32 = 0;
-    for (digits) |value| {
-        sum += value;
-    }
+    const ans = sum(&digits);
+    try stdout.print("{}\n", .{ans});
+}
 
-    try stdout.print("{}\n", .{sum});
+fn sum(arr: []const u32) u32 {
+    var s: u32 = 0;
+    for (arr) |value| {
+        s += value;
+    }
+    return s;
 }
