@@ -2,7 +2,7 @@ package projecteuler
 
 // #16 Power digit sum - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=16
-import "log"
+import "fmt"
 
 func P016() {
 	digits := []int{1}
@@ -10,25 +10,26 @@ func P016() {
 		carried := 0
 		d_len := len(digits)
 		for j := 0; j < d_len; j++ {
-			d := digits[j]*2 + carried
-			if d >= 10 {
-				digits[j] = d % 10
-				carried = d / 10
-				if j == d_len-1 {
-					digits = append(digits, carried)
-					carried = 0
-				}
-			} else {
-				digits[j] = d
-				carried = 0
+			carried, digits[j] = divmod(digits[j]*2+carried, 10)
+
+			if j == d_len-1 {
+				digits = append(digits, carried)
 			}
 		}
 	}
 
-	sum := 0
-	for _, v := range digits {
-		sum += v
-	}
+	ans := sum(digits)
+	fmt.Println(ans)
+}
 
-	log.Println(sum)
+func divmod(x, y int) (int, int) {
+	return x / y, x % y
+}
+
+func sum(arr []int) int {
+	s := 0
+	for _, v := range arr {
+		s += v
+	}
+	return s
 }
