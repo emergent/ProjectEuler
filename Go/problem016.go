@@ -5,12 +5,18 @@ package projecteuler
 import "fmt"
 
 func P016() {
+	ans := sumOfDigitsPower(2, 1000)
+	fmt.Println(ans)
+}
+
+func sumOfDigitsPower(base, exp int) int {
 	digits := []int{1}
-	for i := 0; i < 1000; i++ {
+
+	for i := 0; i < exp; i++ {
 		carried := 0
 		d_len := len(digits)
 		for j := 0; j < d_len; j++ {
-			carried, digits[j] = divmod(digits[j]*2+carried, 10)
+			carried, digits[j] = divmod(digits[j]*base+carried, 10)
 
 			if j == d_len-1 {
 				digits = append(digits, carried)
@@ -18,8 +24,7 @@ func P016() {
 		}
 	}
 
-	ans := sum(digits)
-	fmt.Println(ans)
+	return sum(digits)
 }
 
 func divmod(x, y int) (int, int) {
