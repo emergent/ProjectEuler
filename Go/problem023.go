@@ -25,8 +25,11 @@ func P023() {
 
 	two_abs := make(map[int]struct{})
 	for i := 0; i < len(abs); i++ {
-		for j := 0; j < len(abs); j++ {
-			two_abs[abs[i]+abs[j]] = struct{}{}
+		for j := i; j < len(abs); j++ {
+			d := abs[i] + abs[j]
+			if d < 28123 {
+				two_abs[d] = struct{}{}
+			}
 		}
 	}
 
