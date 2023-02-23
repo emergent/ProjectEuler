@@ -7,7 +7,7 @@ import (
 	"reflect"
 )
 
-func isPalindromic(base, x int) bool {
+func isPalindromicBase(base, x int) bool {
 	v1 := []int{}
 	v2 := []int{}
 
@@ -21,7 +21,7 @@ func isPalindromic(base, x int) bool {
 }
 
 func isPalindromic2Base(x int) bool {
-	return isPalindromic(10, x) && isPalindromic(2, x)
+	return isPalindromicBase(10, x) && isPalindromicBase(2, x)
 }
 
 func P036() {
