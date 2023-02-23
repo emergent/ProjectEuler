@@ -8,6 +8,14 @@ func Max(x, y int) int {
 	}
 }
 
+func Min(x, y int) int {
+	if x < y {
+		return x
+	} else {
+		return y
+	}
+}
+
 func Gcd(x, y int) int {
 	if y == 0 {
 		return x
