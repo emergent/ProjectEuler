@@ -7,11 +7,11 @@ const big = @import("big.zig");
 // #25 1000-digit Fibonacci number - Project Euler
 // http://projecteuler.net/problem=25
 pub fn main() !void {
-    var a = try big.BigInt(u64).init(allocator, 1);
+    var a = try big.BigInt.init(allocator, 1);
     defer a.deinit();
-    var b = try big.BigInt(u64).init(allocator, 1);
+    var b = try big.BigInt.init(allocator, 1);
     defer b.deinit();
-    var tmp = try big.BigInt(u64).init(allocator, 1);
+    var tmp = try big.BigInt.init(allocator, 1);
     defer tmp.deinit();
 
     var i: usize = 1;
@@ -19,10 +19,10 @@ pub fn main() !void {
         if (a.len() >= 1000) {
             break;
         }
-        try tmp.reset(a);
-        try a.reset(b);
-        _ = try tmp.add(b);
-        try b.reset(tmp);
+        try tmp.reset(&a);
+        try a.reset(&b);
+        _ = try tmp.add(&b);
+        try b.reset(&tmp);
 
         //try a.printDigits();
     }
