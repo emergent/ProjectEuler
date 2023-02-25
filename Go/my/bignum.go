@@ -10,9 +10,12 @@ type BigInt struct {
 
 func NewBigInt(x int) *BigInt {
 	inner := []int{}
-	for x > 0 {
+	for {
 		inner = append(inner, x%10)
 		x /= 10
+		if x <= 0 {
+			break
+		}
 	}
 	return &BigInt{inner}
 }

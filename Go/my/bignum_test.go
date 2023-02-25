@@ -2,6 +2,19 @@ package my
 
 import "testing"
 
+func helperInit(l, expect int, t *testing.T) {
+	b := NewBigInt(l)
+	if !(b.Len() == expect) {
+		t.Errorf("Initial length of %v == %v, want = %v", l, b.Len(), expect)
+	}
+}
+
+func TestInit(t *testing.T) {
+	helperInit(0, 1, t)
+	helperInit(1, 1, t)
+	helperInit(1000, 4, t)
+}
+
 func helperAdd(l, r, expect int, t *testing.T) {
 	bl := NewBigInt(l)
 	br := NewBigInt(r)
