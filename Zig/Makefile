@@ -1,15 +1,15 @@
 COMPILER=zig build-exe
-DEFINE=
+DEFINE=-O ReleaseFast
 INCLUDE=
 LDFLAGS=
 CPPFLAGS=
-TARGET=$(patsubst %.zig,%, $(wildcard *.zig))
+TARGET=$(patsubst %.zig,%, $(wildcard problem*.zig))
 
 .PHONY: all
 all: $(TARGET)
 
 %: %.zig
-	$(COMPILER) $<
+	$(COMPILER) $< $(DEFINE)
 
 clean:
 	rm -rf $(TARGET) *.o *~ zig-cache
