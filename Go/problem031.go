@@ -10,7 +10,7 @@ func dfs(m []int, rest, idx int) int {
 	}
 
 	count := 0
-	for i := 0; rest-i*m[idx] >= 0; i++ {
+	for i := 0; rest >= i*m[idx]; i++ {
 		count += dfs(m, rest-i*m[idx], idx+1)
 	}
 	return count
