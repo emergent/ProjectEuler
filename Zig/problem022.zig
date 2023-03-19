@@ -1,11 +1,15 @@
 // zig version 0.10.1
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
-const allocator = std.heap.page_allocator;
 
 // #22 Names scores - Project Euler
 // http://projecteuler.net/problem=22
 pub fn main() !void {
+const allocator = std.heap.page_allocator;
+try run(allocator);
+}
+
+fn run(allocator: std.mem.Allocator) !void {
     const file_name = "p022_names.txt";
     const file = try std.fs.cwd().openFile(file_name, .{});
     defer file.close();
@@ -28,7 +32,13 @@ pub fn main() !void {
     }
 
     var nameSlice = nameList.toOwnedSlice();
-    defer allocator.free(nameSlice);
+    defer {
+        for (nameSlice) |name, i| {
+            nameSlice[i] = undefined;
+            allocator.free(name);
+        }
+        allocator.free(nameSlice);
+    }
     std.sort.sort([]u8, nameSlice, {}, strcmp);
 
     var score: u64 = 0;
@@ -52,4 +62,8 @@ fn strcmp(context: void, a: []u8, b: []u8) bool {
     } else {
         return if (a.len < b.len) true else false;
     }
+}
+
+test "detect leak" {
+    try run(std.testing.allocator);
 }
