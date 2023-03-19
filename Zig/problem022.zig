@@ -5,8 +5,8 @@ const stdout = std.io.getStdOut().writer();
 // #22 Names scores - Project Euler
 // http://projecteuler.net/problem=22
 pub fn main() !void {
-const allocator = std.heap.page_allocator;
-try run(allocator);
+    const allocator = std.heap.page_allocator;
+    try run(allocator);
 }
 
 fn run(allocator: std.mem.Allocator) !void {
