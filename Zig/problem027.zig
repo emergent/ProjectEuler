@@ -24,14 +24,8 @@ pub fn main() !void {
 }
 
 fn count_primes(a: i64, b: i64) usize {
-    var n: i64 = 0;
-    var count: usize = 0;
-
-    while (is_prime(f(a, b, n))) : (n += 1) {
-        count += 1;
-    }
-
-    return count;
+    var n: usize = 0;
+    return while (is_prime(f(a, b, @intCast(i64, n)))) : (n += 1) {} else n;
 }
 
 fn f(a: i64, b: i64, n: i64) i64 {
@@ -41,17 +35,16 @@ fn f(a: i64, b: i64, n: i64) i64 {
 fn is_prime(x: i64) bool {
     if (x == 2) {
         return true;
-    }
-    if (x < 2 or @mod(x, 2) == 0) {
+    } else if (x < 2 or @mod(x, 2) == 0) {
         return false;
     }
+
     var n: i64 = 3;
-    while (n * n <= x) : (n += 2) {
+    return while (n * n <= x) : (n += 2) {
         if (@mod(x, n) == 0) {
-            return false;
+            break false;
         }
-    }
-    return true;
+    } else true;
 }
 
 const expect = std.testing.expect;
