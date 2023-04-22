@@ -5,7 +5,6 @@ pub const BigInt = struct {
     const Self = @This();
 
     inner: std.ArrayList(u8),
-    //allocator: std.mem.Allocator,
 
     pub fn init(alloc: std.mem.Allocator, val: u64) !Self {
         var inner = std.ArrayList(u8).init(alloc);
@@ -35,7 +34,7 @@ pub const BigInt = struct {
             return false;
         }
 
-        for (self.inner.items) |digit, i| {
+        for (self.inner.items, 0..) |digit, i| {
             if (digit != rhs.inner.items[i]) {
                 return false;
             }
@@ -62,7 +61,7 @@ pub const BigInt = struct {
 
     pub fn printDigits(self: Self) !void {
         try stdout.print("{{ ", .{});
-        for (self.inner.items) |x, i| {
+        for (self.inner.items, 0..) |x, i| {
             if (i == 0) {
                 try stdout.print("{}", .{x});
             } else {
@@ -85,7 +84,7 @@ pub const BigInt = struct {
         const r_len = rhs.len();
         var carried: u8 = 0;
 
-        for (self.inner.items) |*digit, i| {
+        for (self.inner.items, 0..) |*digit, i| {
             const d = if (i < r_len) digit.* + rhs.inner.items[i] + carried else digit.* + carried;
 
             digit.* = d % 10;
@@ -113,10 +112,10 @@ pub const BigInt = struct {
             d.* = 0;
         }
 
-        for (rhs.inner.items) |r, i| {
+        for (rhs.inner.items, 0..) |r, i| {
             var carried: u8 = 0;
 
-            for (orig.inner.items) |o, j| {
+            for (orig.inner.items, 0..) |o, j| {
                 if (i + j < self.len()) {
                     const m = self.inner.items[i + j] + r * o + carried;
                     self.inner.items[i + j] = m % 10;
@@ -174,31 +173,11 @@ test "init" {
 }
 
 test "add" {
-    var bl = try BigInt.init(testing.allocator, 10);
-    defer bl.deinit();
-
-    var br = try BigInt.init(testing.allocator, 21);
-    defer br.deinit();
-
-    var be = try BigInt.init(testing.allocator, 31);
-    defer be.deinit();
-
-    try bl.add(br);
-    try expect(bl.eq(be));
+    try expect(try helper_add(10, 21, 31));
 }
 
 test "mul" {
-    var bl = try BigInt.init(testing.allocator, 123);
-    defer bl.deinit();
-
-    var br = try BigInt.init(testing.allocator, 456);
-    defer br.deinit();
-
-    var be = try BigInt.init(testing.allocator, 56088);
-    defer be.deinit();
-
-    try bl.mul(br);
-    try expect(bl.eq(be));
+    try expect(try helper_mul(123, 456, 56088));
 }
 
 test "exp" {
@@ -208,19 +187,44 @@ test "exp" {
     try expect(try helper_exp(2, 3, 8));
     try expect(try helper_exp(3, 2, 9));
     try expect(try helper_exp(3, 3, 27));
-
     try expect(try helper_exp(123, 5, 28153056843));
+}
+
+fn helper_add(a: u64, b: u64, e: u64) !bool {
+    var bl = try BigInt.init(testing.allocator, a);
+    defer bl.deinit();
+
+    var br = try BigInt.init(testing.allocator, b);
+    defer br.deinit();
+
+    var be = try BigInt.init(testing.allocator, e);
+    defer be.deinit();
+
+    try bl.add(br);
+    return bl.eq(be);
+}
+
+fn helper_mul(a: u64, b: u64, e: u64) !bool {
+    var bl = try BigInt.init(testing.allocator, a);
+    defer bl.deinit();
+
+    var br = try BigInt.init(testing.allocator, b);
+    defer br.deinit();
+
+    var be = try BigInt.init(testing.allocator, e);
+    defer be.deinit();
+
+    try bl.mul(br);
+    return bl.eq(be);
 }
 
 fn helper_exp(a: u64, b: u32, e: u64) !bool {
     var bl = try BigInt.init(testing.allocator, a);
     defer bl.deinit();
     try bl.exp(b);
-    try bl.printDigits();
 
     const be = try BigInt.init(testing.allocator, e);
     defer be.deinit();
-    try be.printDigits();
 
     return bl.eq(be);
 }
