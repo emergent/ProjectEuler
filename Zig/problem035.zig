@@ -39,28 +39,15 @@ fn isCircularPrime(set: std.AutoHashMap(u64, void), p: u64) bool {
 }
 
 fn rot(n: u64) u64 {
-    if (n == 0) return 0;
+    if (n / 10 == 0) return n;
 
-    var digits = [_]u64{0} ** 8;
-    var i: usize = 0;
-    var x: u64 = n;
-    while (x > 0) : (i += 1) {
-        digits[i] = x % 10;
-        x /= 10;
+    var n2 = n / 10;
+    var digits_order: usize = 1;
+    while (n2 > 0) : (n2 /= 10) {
+        digits_order *= 10;
     }
 
-    const len = i;
-    var ret: u64 = 0;
-    var d: u64 = 1;
-
-    i = 1;
-    while (i < len) : (i += 1) {
-        ret += digits[i] * d;
-        d *= 10;
-    }
-    ret += digits[0] * d;
-
-    return ret;
+    return n % 10 * digits_order + n / 10;
 }
 
 const expectEqual = std.testing.expectEqual;
