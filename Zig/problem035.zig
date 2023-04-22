@@ -1,4 +1,4 @@
-// zig version 0.10.1
+// zig version 0.11.0-dev
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 const util = @import("util.zig");
