@@ -8,5 +8,6 @@ fn summul(n: i32, x: i32) i32 {
 }
 
 pub fn main() !void {
-    try stdout.print("{}\n", .{summul(999, 3) + summul(999, 5) - summul(999, 15)});
+    const ans = summul(999, 3) + summul(999, 5) - summul(999, 15);
+    try stdout.print("{}\n", .{ans});
 }
