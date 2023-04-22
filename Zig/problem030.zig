@@ -9,11 +9,14 @@ pub fn main() !void {
 
     var i: u64 = 2;
     while (i <= 354294) : (i += 1) {
-        var x: u64 = i;
-        var sum: u64 = 0;
-        while (x > 0) : (x /= 10) {
-            sum += pow5(x % 10);
-        }
+        var sum: u64 = blk: {
+            var s: u64 = 0;
+            var x: u64 = i;
+            while (x > 0) : (x /= 10) {
+                s += pow5(x % 10);
+            }
+            break :blk s;
+        };
 
         if (i == sum) {
             ans += i;
