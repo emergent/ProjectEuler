@@ -1,4 +1,4 @@
-// zig version 0.10.1
+// zig version 0.11.0-dev
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 const allocator = std.heap.page_allocator;
@@ -21,7 +21,7 @@ pub fn main() !void {
         }
         try tmp.reset(&a);
         try a.reset(&b);
-        _ = try tmp.add(&b);
+        _ = try tmp.add(b);
         try b.reset(&tmp);
 
         //try a.printDigits();

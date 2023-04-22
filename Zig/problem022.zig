@@ -1,4 +1,4 @@
-// zig version 0.10.1
+// zig version 0.11.0-dev
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 
@@ -31,9 +31,9 @@ fn run(allocator: std.mem.Allocator) !void {
         try nameList.append(unquoted);
     }
 
-    var nameSlice = nameList.toOwnedSlice();
+    var nameSlice = try nameList.toOwnedSlice();
     defer {
-        for (nameSlice) |name, i| {
+        for (nameSlice, 0..) |name, i| {
             nameSlice[i] = undefined;
             allocator.free(name);
         }
@@ -42,7 +42,7 @@ fn run(allocator: std.mem.Allocator) !void {
     std.sort.sort([]u8, nameSlice, {}, strcmp);
 
     var score: u64 = 0;
-    for (nameSlice) |name, i| {
+    for (nameSlice, 0..) |name, i| {
         var name_score: u64 = 0;
         for (name) |c| {
             name_score += c - 64;

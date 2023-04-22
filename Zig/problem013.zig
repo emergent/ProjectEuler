@@ -1,4 +1,4 @@
-// zig version 0.10.1
+// zig version 0.11.0.dev
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 
@@ -116,7 +116,7 @@ pub fn main() !void {
 
     var i: usize = 0;
     while (strings.next()) |string| {
-        for (string) |digit, j| {
+        for (string, 0..) |digit, j| {
             carr[i][digits - j - 1] = @as(u32, digit - '0');
         }
         i += 1;
@@ -133,7 +133,7 @@ pub fn main() !void {
     }
 
     var carried: u32 = 0;
-    for (ansarr) |*d| {
+    for (&ansarr) |*d| {
         d.* += carried;
         carried = d.* / 10;
         d.* %= 10;

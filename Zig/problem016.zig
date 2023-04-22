@@ -1,4 +1,4 @@
-// zig version 0.10.1
+// zig version 0.11.0-dev
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
 
@@ -18,7 +18,7 @@ fn sumOfDigitsPower(comptime base: u32, comptime exp: u32) u32 {
     while (i < exp) : (i += 1) {
         var carried: u32 = 0;
 
-        for (digits) |*value, j| {
+        for (&digits, 0..) |*value, j| {
             if (j == len) {
                 if (carried > 0) {
                     value.* = carried;

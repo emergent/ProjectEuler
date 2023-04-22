@@ -4,7 +4,7 @@ const allocator = std.heap.page_allocator;
 
 pub fn primes(comptime max: u64) !ArrayList(u64) {
     var marks: [max + 1]bool = undefined;
-    for (marks) |_, i| {
+    for (marks, 0..) |_, i| {
         marks[i] = i >= 2;
     }
 
@@ -21,7 +21,7 @@ pub fn primes(comptime max: u64) !ArrayList(u64) {
     }
 
     var ps = ArrayList(u64).init(allocator);
-    for (marks) |mark, j| {
+    for (marks, 0..) |mark, j| {
         if (mark) {
             try ps.append(j);
         }
