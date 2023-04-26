@@ -5,7 +5,7 @@ const stdout = std.io.getStdOut().writer();
 // #28 Number spiral diagonals - Project Euler
 // http://projecteuler.net/problem=28
 pub fn main() !void {
-    const ans = sumDiagonalsSpiral(1001);
+    const ans = comptime sumDiagonalsSpiral(1001);
 
     try stdout.print("{}\n", .{ans});
 }
