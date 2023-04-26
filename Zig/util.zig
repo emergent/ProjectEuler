@@ -29,3 +29,56 @@ pub fn primes(comptime max: u64) !ArrayList(u64) {
 
     return ps;
 }
+
+pub fn markPrimes(comptime max: u64) [max + 1]bool {
+    comptime var marks = blk: {
+        var m: [max + 1]bool = undefined;
+        inline for (m, 0..) |_, i| {
+            m[i] = i >= 2;
+        }
+        break :blk m;
+    };
+
+    comptime var i = 2;
+    inline while (i * i <= max) : (i += 1) {
+        if (!marks[i]) {
+            comptime continue;
+        }
+
+        comptime var j = i * 2;
+        inline while (j <= max) : (j += i) {
+            marks[j] = false;
+        }
+    }
+    return marks;
+}
+
+pub fn countPrimes(comptime marks: []const bool) usize {
+    comptime var count = 0;
+    return inline for (marks) |m| {
+        if (m) count += 1;
+    } else count;
+}
+
+pub fn primesComp(comptime marks: []const bool, comptime size: usize, comptime ps: *[size]u64) void {
+    comptime var i = 0;
+    inline for (marks, 0..) |m, j| {
+        if (m) {
+            ps[i] = j;
+            i += 1;
+        }
+    }
+}
+
+test "primesComp" {
+    @setEvalBranchQuota(2000000);
+    const marks = comptime markPrimes(10000);
+    const size = comptime countPrimes(&marks);
+    std.debug.print("{}\n", .{size});
+    comptime var ps: [size]u64 = undefined;
+    comptime primesComp(&marks, size, &ps);
+    for (ps) |p| {
+        std.debug.print("{} ", .{p});
+    }
+    std.debug.print("\n", .{});
+}
