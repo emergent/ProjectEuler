@@ -41,11 +41,9 @@ pub fn main() !void {
         i += 1;
     }
 
-    var j: usize = 0;
-    while (j <= N - 13) : (j += 1) {
+    for (0..N - 13 + 1) |j| {
         var prod: u64 = 1;
-        var k: usize = 0;
-        while (k < 13) : (k += 1) {
+        for (0..13) |k| {
             prod *= carr[j + k];
         }
 

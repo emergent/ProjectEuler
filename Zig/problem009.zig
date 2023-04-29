@@ -7,10 +7,8 @@ const stdout = std.io.getStdOut().writer();
 pub fn main() !void {
     const N = 1000;
 
-    var i: u64 = 1;
-    L: while (i < N) : (i += 1) {
-        var j: u64 = i;
-        while (i + j < N) : (j += 1) {
+    L: for (1..N) |i| {
+        for (i..N - i) |j| {
             const k = N - i - j;
             if (i * i + j * j == k * k) {
                 try stdout.print("{}\n", .{i * j * k});

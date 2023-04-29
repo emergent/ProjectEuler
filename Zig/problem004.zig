@@ -7,13 +7,11 @@ const allocator = std.heap.page_allocator;
 // #4 Largest palindrome product - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=4
 pub fn main() !void {
-    var ans: i32 = 0;
-    var i: i32 = 100;
+    var ans: u32 = 0;
 
-    while (i < 1000) : (i += 1) {
-        var j = i;
-        while (j < 1000) : (j += 1) {
-            const x = i * j;
+    for (100..1000) |i| {
+        for (i..1000) |j| {
+            const x = @intCast(u32, i * j);
             if (ans < x and try is_palindromic(x)) {
                 ans = x;
             }
@@ -23,21 +21,20 @@ pub fn main() !void {
     try stdout.print("{}\n", .{ans});
 }
 
-fn is_palindromic(n: i32) !bool {
-    var digits = ArrayList(i32).init(allocator);
+fn is_palindromic(n: u32) !bool {
+    var digits = ArrayList(u32).init(allocator);
     defer digits.deinit();
 
     var i: usize = 0;
-    var x: i32 = n;
+    var x: u32 = n;
     while (x > 0) : (x = @divTrunc(x, 10)) {
         try digits.append(@mod(x, 10));
         i += 1;
     }
 
     var ret = false;
-    var j: usize = 0;
     const len = digits.items.len;
-    while (j < @divTrunc(len, 2)) : (j += 1) {
+    for (0..@divTrunc(len, 2)) |j| {
         if (digits.items[j] != digits.items[len - j - 1]) {
             break;
         }

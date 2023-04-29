@@ -9,17 +9,13 @@ pub fn main() !void {
     const k = 20;
 
     var matnxn: [n + 1][n + 1]u64 = undefined;
-    var i: usize = 0;
-    var j: usize = 0;
 
-    while (i <= n) : (i += 1) {
-        j = 0;
-        while (j <= n) : (j += 1) {
+    for (0..n + 1) |i| {
+        for (0..n + 1) |j| {
             matnxn[i][j] = 0;
         }
 
-        j = 0;
-        while (j <= i) : (j += 1) {
+        for (0..i + 1) |j| {
             if (i == 0 or j == 0) {
                 matnxn[i][j] = 1;
             } else {

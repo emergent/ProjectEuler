@@ -124,11 +124,10 @@ pub fn main() !void {
 
     const ansdigits = 100;
     var ansarr = [_]u32{0} ** ansdigits;
-    i = 0;
 
-    while (i < digits) : (i += 1) {
+    for (0..digits) |j| {
         for (carr) |n| {
-            ansarr[i] += n[i];
+            ansarr[j] += n[j];
         }
     }
 
@@ -141,9 +140,8 @@ pub fn main() !void {
 
     i = ansdigits - 1;
     while (ansarr[i] == 0) : (i -= 1) {}
-    var count: usize = 0;
 
-    while (count < 10) : (count += 1) {
+    for (0..10) |count| {
         try stdout.print("{}", .{ansarr[i - count]});
     }
     try stdout.print("\n", .{});

@@ -7,8 +7,7 @@ const stdout = std.io.getStdOut().writer();
 pub fn main() !void {
     var ans: u64 = 0;
 
-    var i: u64 = 2;
-    while (i <= 354294) : (i += 1) {
+    for (2..354294 + 1) |i| {
         var sum: u64 = blk: {
             var s: u64 = 0;
             var x: u64 = i;

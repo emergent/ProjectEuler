@@ -13,14 +13,12 @@ pub fn main() !void {
     var set = std.StringHashMap(void).init(allocator);
     defer set.deinit();
 
-    var a: u64 = 2;
-    while (a <= 100) : (a += 1) {
-        var b: u32 = 2;
-        while (b <= 100) : (b += 1) {
-            var a2 = try big.BigInt.init(allocator, a);
+    for (2..101) |a| {
+        for (2..101) |b| {
+            var a2 = try big.BigInt.init(allocator, @intCast(u32, a));
             defer a2.deinit();
 
-            try a2.exp(b);
+            try a2.exp(@intCast(u32, b));
             const s = try a2.toString(allocator);
             //std.debug.print("{}^{}={s}\n", .{ a, b, s });
             try set.put(s, {});

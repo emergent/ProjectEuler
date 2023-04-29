@@ -8,8 +8,7 @@ pub fn main() !void {
     const N = 100;
     var square_sum: u64 = 0;
 
-    var i: u64 = 1;
-    while (i <= N) : (i += 1) {
+    for (1..N + 1) |i| {
         square_sum += i * i;
     }
 

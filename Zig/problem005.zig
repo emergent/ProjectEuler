@@ -6,8 +6,7 @@ const stdout = std.io.getStdOut().writer();
 // http://projecteuler.net/index.php?section=problems&id=5
 pub fn main() !void {
     var ans: i64 = 1;
-    var i: i64 = 1;
-    while (i <= 20) : (i += 1) {
+    inline for (1..20 + 1) |i| {
         ans = lcm(ans, i);
     }
 
