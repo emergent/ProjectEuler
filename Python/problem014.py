@@ -6,7 +6,7 @@ http://projecteuler.net/index.php?section=problems&id=014
 chains = {}
 
 
-def getCollatzChainLength(n):
+def get_collatz_chain_length(n:int)-> int:
     chain = []
     extra = 0
     while n != 1:
@@ -32,7 +32,7 @@ def getCollatzChainLength(n):
 if __name__ == "__main__":
     print(
         max(
-            [(x, getCollatzChainLength(x)) for x in range(1, 1_000_000)],
+            [(x, get_collatz_chain_length(x)) for x in range(1, 1_000_000)],
             key=(lambda x: x[1]),
         )
     )
