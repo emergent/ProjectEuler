@@ -1,6 +1,8 @@
 #! /usr/bin/env clojure
 ; Problem 13 - Project Euler
 ; http://projecteuler.net/index.php?section=problems&id=013
+(require '[clojure.string :as string])
+
 
 (def digits (-> "
                 37107287533902102798797998220837590246510135740250
@@ -104,13 +106,13 @@
                 20849603980134001723930671666823555245252804609722
                 53503534226472524250874054075591789781264330331690
                 "
-                (clojure.string/trim)
-                (clojure.string/split #"\s+")))
+                (string/trim)
+                (string/split #"\s+")))
 
 (->> digits
      (map bigint)
      (reduce +)
      (str)
      (take 10)
-     (clojure.string/join)
+     (string/join)
      (println))
