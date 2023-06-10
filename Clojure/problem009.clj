@@ -18,7 +18,7 @@
       (let [m (quot p sum)]
         (map #(* % m) ls))
       nil)))
-  
+
 (loop [n 6
        p 1000]
   (let [t (->> (pythagorean-triplet n)
