@@ -5,24 +5,26 @@ http://projecteuler.net/index.php?section=problems&id=012
 """
 
 
-def get_divisors(x):
-    dv = []
+def count_divisors(x: int) -> int:
+    count = 0
     i = 1
     while i * i <= x:
         if x % i == 0:
-            dv.append(i)
-            dv.append(x // i)
+            if i == x // i:
+                count += 1
+            else:
+                count += 2
         i += 1
-    return list(set(dv))
+    return count
 
 
 if __name__ == "__main__":
     num = 1
     i = 1
     while True:
-        dv = get_divisors(num)
-        if len(dv) > 500:
-            print(num, len(dv))
+        count = count_divisors(num)
+        if count > 500:
+            print(num, count)
             break
         i += 1
         num += i
