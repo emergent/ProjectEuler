@@ -15,10 +15,9 @@ func P024() {
 	}
 
 	ans := 0
-	d := 1
-	for i := len(v) - 1; i >= 0; i-- {
-		ans += v[i] * d
-		d *= 10
+	for _, x := range v {
+		ans = ans*10 + x
 	}
+
 	fmt.Println(ans)
 }

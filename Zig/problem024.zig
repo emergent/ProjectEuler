@@ -12,12 +12,8 @@ pub fn main() !void {
     }
 
     var ans: u64 = 0;
-    var d: u64 = 1;
-    var j: u64 = v.len;
-    while (j > 0) {
-        j -= 1;
-        ans += v[j] * d;
-        d *= 10;
+    for (v) |x| {
+        ans = ans * 10 + x;
     }
 
     try stdout.print("{}\n", .{ans});
