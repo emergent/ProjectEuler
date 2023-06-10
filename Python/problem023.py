@@ -3,26 +3,29 @@
 Problem 23 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=023
 """
-import math
 
 
-def getDivisors(x):
-    dv = []
-    for i in range(1, int(math.sqrt(x)) + 1):
+def is_abundant(x: int) -> bool:
+    sum_div = 0
+    i = 1
+    while i * i <= x:
         if x % i == 0:
-            dv.append(i)
-            dv.append(x // i)
-    return list(set(dv))
+            sum_div += i
+            m = x // i
+            if m != i and x != m:
+                sum_div += x // i
+        i += 1
 
-
-def isAbundant(x):
-    return x < (sum(getDivisors(x)) - x)
+    return x < sum_div
 
 
 if __name__ == "__main__":
-    limit = 28123 + 1
-    abundants = list(filter(isAbundant, range(1, limit)))
-    sumoftwoab = set(
-        x + y for i, x in enumerate(abundants) for y in abundants[i:] if x + y < limit
+    limit = 28123
+    abundant_nums = list(filter(is_abundant, range(12, limit + 1)))
+    sum_of_two_ab = set(
+        x + y
+        for i, x in enumerate(abundant_nums)
+        for y in abundant_nums[i:]
+        if x + y < limit
     )
-    print(sum(set(range(1, limit)) - sumoftwoab))
+    print(sum(set(range(1, limit)) - sum_of_two_ab))
