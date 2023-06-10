@@ -1,15 +1,28 @@
 /*
- * #16 Power digit sum - Project Euler
- * http://projecteuler.net/index.php?section=problems&id=16
+ * #16 Power Digit Sum - Project Euler
+ * http://projecteuler.net/problem=16
  */
 {
-    let x = 1n;
-    for (let i = 0; i < 1000; i++) {
-        x *= 2n;
+    function sumOfDigitsPower(base: number, exp: number): number {
+        let digits = [1];
+
+        for (let time = 0; time < exp; time++) {
+            let carried = 0;
+
+            const len = digits.length;
+            for (let i = 0; i < len; i++) {
+                const m = digits[i] * base + carried;
+                carried = Math.floor(m / 10);
+                digits[i] = m % 10;
+
+                if (i == digits.length - 1 && carried > 0) {
+                    digits.push(carried);
+                }
+            }
+        }
+
+        return digits.reduce((acc, x) => acc + x);
     }
 
-    const ans = [...x.toString()]
-        .map((c) => parseInt(c))
-        .reduce((acc, x) => (isNaN(x) ? acc : acc + x));
-    console.log(ans);
+    console.log(sumOfDigitsPower(2, 1000));
 }
