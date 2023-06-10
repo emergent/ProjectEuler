@@ -3,18 +3,13 @@
  * http://projecteuler.net/problem=15
  */
 {
-    const n = 40;
-    const k = 20;
-    let c = [];
-    for (let i = 0; i < n + 1; i++) {
-        const a = new Array(n + 1);
-        for (let j = 0; j < n + 1; j++) {
-            a[j] = 0;
-        }
-        c.push(a);
-    }
+    const N = 40;
+    const K = 20;
+    let c: number[][] = [];
 
-    for (let i = 0; i < n + 1; i++) {
+    for (let i = 0; i < N + 1; i++) {
+        c.push(new Array(N + 1).fill(0));
+
         for (let j = 0; j <= i; j++) {
             if (i == 0 || j == 0) {
                 c[i][j] = 1;
@@ -24,5 +19,5 @@
         }
     }
 
-    console.log(c[n][k]);
+    console.log(c[N][K]);
 }
