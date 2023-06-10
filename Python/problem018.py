@@ -1,11 +1,14 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 18 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=018
-'''
+"""
 import math
 
-triangle = list(map(lambda x: list(map(int, x.split())), '''
+triangle = list(
+    map(
+        lambda x: list(map(int, x.split())),
+        """
 75
 95 64
 17 47 82
@@ -21,13 +24,21 @@ triangle = list(map(lambda x: list(map(int, x.split())), '''
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
-'''.strip().split('\n')))
+""".strip().split(
+            "\n"
+        ),
+    )
+)
+
 
 def getmax(x, y, rest):
     if rest == 0:
         return triangle[y][x]
     else:
-        return triangle[y][x] + max(getmax(x, y+1, rest-1), getmax(x+1, y+1, rest-1))
-    
-if __name__ == '__main__':
-    print(getmax(0, 0, len(triangle)-1))
+        return triangle[y][x] + max(
+            getmax(x, y + 1, rest - 1), getmax(x + 1, y + 1, rest - 1)
+        )
+
+
+if __name__ == "__main__":
+    print(getmax(0, 0, len(triangle) - 1))

@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 13 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=013
-'''
+"""
 digits = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -106,6 +106,6 @@ digits = """
 53503534226472524250874054075591789781264330331690
 """.split()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ans = str(sum(map(lambda x: int(x), digits)))[0:10]
     print(ans)

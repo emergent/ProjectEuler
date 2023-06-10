@@ -1,9 +1,10 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 26 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=026
-'''
+"""
 from mathtools import primes
+
 
 def countcycle(x):
     count, n = 0, 1
@@ -17,7 +18,8 @@ def countcycle(x):
         n = (n % x) * 10
     return count
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     n = 1000
     ps = primes(n)
     ps.remove(2)

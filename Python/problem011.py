@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 11 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=011
-'''
+"""
 import math
 
 gridtext = """
@@ -28,27 +28,32 @@ gridtext = """
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """.split()
 
+
 def muldiagonalr(i, gr):
     if (i + 63) >= len(gr):
         return 0
-    return gr[i] * gr[i+21] * gr[i+42] * gr[i+63]
+    return gr[i] * gr[i + 21] * gr[i + 42] * gr[i + 63]
+
 
 def muldiagonall(i, gr):
     if (i + 57) >= len(gr) or (i % 20) < 3:
         return 0
-    return gr[i] * gr[i+19] * gr[i+38] * gr[i+57]
+    return gr[i] * gr[i + 19] * gr[i + 38] * gr[i + 57]
+
 
 def mulright(i, gr):
     if (i + 3) >= 20:
-        return 0 
-    return gr[i] * gr[i+1] * gr[i+2] * gr[i+3]
+        return 0
+    return gr[i] * gr[i + 1] * gr[i + 2] * gr[i + 3]
+
 
 def muldown(i, gr):
     if (i + 60) >= len(gr):
         return 0
-    return gr[i] * gr[i+20] * gr[i+40] * gr[i+60]
+    return gr[i] * gr[i + 20] * gr[i + 40] * gr[i + 60]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     grid = list(map(int, gridtext))
 
     xmax = 0

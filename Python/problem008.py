@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 8 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=8
-'''
+"""
 digits = """
 73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -24,13 +24,15 @@ digits = """
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450
-""".replace("\n",'')
+""".replace(
+    "\n", ""
+)
 
 from functools import reduce
-from operator  import mul
+from operator import mul
 
 maxnum = 0
-for i in range(0, len(digits)-13):
-    maxnum = max(maxnum, reduce(mul, list(map(int, digits[i:i+13]))))
+for i in range(0, len(digits) - 13):
+    maxnum = max(maxnum, reduce(mul, list(map(int, digits[i : i + 13]))))
 
 print(maxnum)

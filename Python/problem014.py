@@ -1,9 +1,10 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 14 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=014
-'''
+"""
 chains = {}
+
 
 def getCollatzChainLength(n):
     chain = []
@@ -14,9 +15,9 @@ def getCollatzChainLength(n):
             break
         else:
             chain.append(n)
-            if (n % 2 == 0): # even
+            if n % 2 == 0:  # even
                 n = n // 2
-            else:            # odd
+            else:  # odd
                 n = n * 3 + 1
     else:
         chain.append(n)
@@ -27,6 +28,11 @@ def getCollatzChainLength(n):
 
     return len(chain) + extra
 
-if __name__ == '__main__':
-    print(max([(x, getCollatzChainLength(x)) for x in range(1, 1_000_000)],
-            key=(lambda x: x[1])))
+
+if __name__ == "__main__":
+    print(
+        max(
+            [(x, getCollatzChainLength(x)) for x in range(1, 1_000_000)],
+            key=(lambda x: x[1]),
+        )
+    )

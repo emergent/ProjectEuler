@@ -1,9 +1,10 @@
 #! /usr/bin/env python3
-'''
+"""
 Problem 37 - Project Euler
 http://projecteuler.net/index.php?section=problems&id=037
-'''
+"""
 from mathtools import isprime
+
 
 def is_truncatable(x):
     xr = x // 10
@@ -16,7 +17,8 @@ def is_truncatable(x):
         d *= 10
     return isprime(x)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     a = []
     i = 11
     while len(a) < 11:
