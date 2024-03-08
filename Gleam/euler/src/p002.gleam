@@ -1,16 +1,12 @@
 /// Problem 2 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=2
 import gleam/io
-import gleam/int
 
 fn fibevensum2(a: Int, b: Int, sum: Int, xmax: Int) -> Int {
-  case a >= xmax {
-    True -> sum
-    False ->
-      case int.is_even(a) {
-        True -> fibevensum2(b, a + b, sum + a, xmax)
-        False -> fibevensum2(b, a + b, sum, xmax)
-      }
+  case a >= xmax, a % 2 == 0 {
+    True, _ -> sum
+    _, True -> fibevensum2(b, a + b, sum + a, xmax)
+    _, _ -> fibevensum2(b, a + b, sum, xmax)
   }
 }
 
