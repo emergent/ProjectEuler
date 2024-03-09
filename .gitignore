@@ -9,7 +9,6 @@ template.*.txt
 clean.sh
 getall.sh
 cmake-build-debug
-/*/.*
 
 # Haskell
 run
@@ -30,4 +29,3 @@ run
 
 # TypeScript
 /TypeScript/dist/*.js
-

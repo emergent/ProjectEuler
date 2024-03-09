@@ -1,0 +1,4 @@
+{:deps
+ {clojure/math.combinatorics
+  {:git/url "https://github.com/clojure/math.combinatorics"
+   :sha "44ba3bf925108a3d1cd0b33c79ea58c6b9360c96"}}}

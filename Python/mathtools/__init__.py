@@ -1,7 +1,6 @@
 # methods for solving Project Euler
 # https://projecteuler.net/
 
-import math
 import numpy as np
 from functools import lru_cache
 
