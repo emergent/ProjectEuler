@@ -31,7 +31,11 @@ elixir problem001.exs
 
 ### Elm
 
-Open `index.html` on web browser and click the button.
+```shell
+elm make src/Main.elm
+```
+
+Then, open `index.html` on web browser and click the button.
 
 ### FSharp
 
