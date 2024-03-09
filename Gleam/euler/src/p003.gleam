@@ -1,12 +1,14 @@
 /// Problem 3 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=3
 import gleam/io
+import gleam/bool.{guard}
 
 fn maxprimefactor(x: Int, div: Int, ans: Int) -> Int {
-  case x <= 1, x % div == 0 {
-    True, _ -> ans
-    _, True -> maxprimefactor(x / div, div, div)
-    _, _ -> maxprimefactor(x, div + 1, ans)
+  use <- guard(x <= 1, ans)
+
+  case x % div {
+    0 -> maxprimefactor(x / div, div, div)
+    _ -> maxprimefactor(x, div + 1, ans)
   }
 }
 
