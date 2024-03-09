@@ -12,8 +12,7 @@ fn is_palindromic(x: Int) -> Bool {
 
 pub fn main() {
   list.range(100, 999)
-  |> list.map(fn(x) { list.map(list.range(100, x), fn(y) { x * y }) })
-  |> list.flatten()
+  |> list.flat_map(fn(x) { list.map(list.range(100, x), fn(y) { x * y }) })
   //|> list.unique() // ???
   |> list.filter(is_palindromic)
   |> list.fold(0, max)
