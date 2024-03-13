@@ -5,6 +5,10 @@ import gleam/int
 import gleam/list
 import gleam/result
 
+type Fibonacci {
+  Fibonacci(index: Int, number: Int)
+}
+
 fn count_digits(x: Int) -> Int {
   x
   |> int.digits(10)
@@ -12,14 +16,15 @@ fn count_digits(x: Int) -> Int {
   |> list.length()
 }
 
-fn fib_idx_over(digits: Int, idx: Int, n_1: Int, n_2: Int) -> Int {
-  case count_digits(n_1 + n_2) >= digits {
-    True -> idx
-    False -> fib_idx_over(digits, idx + 1, n_1 + n_2, n_1)
+fn fib_idx_over(digits: Int, n_2: Fibonacci, n_1: Fibonacci) -> Int {
+  let this = Fibonacci(index: n_1.index + 1, number: n_1.number + n_2.number)
+  case count_digits(this.number) >= digits {
+    True -> this.index
+    False -> fib_idx_over(digits, n_1, this)
   }
 }
 
 pub fn main() {
-  fib_idx_over(1000, 3, 1, 1)
+  fib_idx_over(1000, Fibonacci(1, 1), Fibonacci(2, 1))
   |> io.debug()
 }
