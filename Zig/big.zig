@@ -11,7 +11,8 @@ pub const BigInt = struct {
         var x = val;
 
         while (true) {
-            try inner.append(@intCast(u8, x % 10));
+            const a: u8 = @intCast(x % 10);
+            try inner.append(a);
             x /= 10;
             if (x <= 0) {
                 break;

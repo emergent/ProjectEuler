@@ -26,8 +26,8 @@ fn run(allocator: std.mem.Allocator) !void {
     defer nameList.deinit();
 
     while (names.next()) |name| {
-        var unquoted = try allocator.alloc(u8, name.len - 2);
-        std.mem.copy(u8, unquoted, name[1..(name.len - 1)]);
+        const unquoted = try allocator.alloc(u8, name.len - 2);
+        std.mem.copyForwards(u8, unquoted, name[1..(name.len - 1)]);
         try nameList.append(unquoted);
     }
 
@@ -39,7 +39,7 @@ fn run(allocator: std.mem.Allocator) !void {
         }
         allocator.free(nameSlice);
     }
-    std.sort.sort([]u8, nameSlice, {}, strcmp);
+    std.sort.block([]u8, nameSlice, {}, strcmp);
 
     var score: u64 = 0;
     for (nameSlice, 0..) |name, i| {

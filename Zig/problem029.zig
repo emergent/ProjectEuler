@@ -15,10 +15,12 @@ pub fn main() !void {
 
     for (2..101) |a| {
         for (2..101) |b| {
-            var a2 = try big.BigInt.init(allocator, @intCast(u32, a));
+            const i: u32 = @intCast(a);
+            var a2 = try big.BigInt.init(allocator, i);
             defer a2.deinit();
 
-            try a2.exp(@intCast(u32, b));
+            const j: u32 = @intCast(b);
+            try a2.exp(j);
             const s = try a2.toString(allocator);
             //std.debug.print("{}^{}={s}\n", .{ a, b, s });
             try set.put(s, {});

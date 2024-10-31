@@ -8,7 +8,7 @@ pub fn main() !void {
     var ans: u64 = 0;
 
     for (2..354294 + 1) |i| {
-        var sum: u64 = blk: {
+        const sum: u64 = blk: {
             var s: u64 = 0;
             var x: u64 = i;
             while (x > 0) : (x /= 10) {

@@ -24,8 +24,9 @@ pub fn main() !void {
 }
 
 fn count_primes(a: i64, b: i64) usize {
-    var n: usize = 0;
-    return while (is_prime(f(a, b, @intCast(i64, n)))) : (n += 1) {} else n;
+    var n: i64 = 0;
+    const ret = while (is_prime(f(a, b, n))) : (n += 1) {} else n;
+    return @intCast(ret);
 }
 
 fn f(a: i64, b: i64, n: i64) i64 {

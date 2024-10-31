@@ -30,7 +30,7 @@ pub fn main() !void {
         }
     }
 
-    var ans = prod_d / gcd(prod_n, prod_d);
+    const ans = prod_d / gcd(prod_n, prod_d);
     try stdout.print("{}\n", .{ans});
 }
 

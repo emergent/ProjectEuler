@@ -33,7 +33,7 @@ pub fn primes(comptime max: u64) !ArrayList(u64) {
 pub fn markPrimes(comptime max: u64) [max + 1]bool {
     comptime var marks = blk: {
         var m: [max + 1]bool = undefined;
-        inline for (m, 0..) |_, i| {
+        for (m, 0..) |_, i| {
             m[i] = i >= 2;
         }
         break :blk m;

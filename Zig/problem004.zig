@@ -11,7 +11,7 @@ pub fn main() !void {
 
     for (100..1000) |i| {
         for (i..1000) |j| {
-            const x = @intCast(u32, i * j);
+            const x: u32 = @intCast(i * j);
             if (ans < x and try is_palindromic(x)) {
                 ans = x;
             }
