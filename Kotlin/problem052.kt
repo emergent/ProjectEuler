@@ -20,5 +20,5 @@ fun hasSameDigits(x: Int): Boolean {
 }
 
 fun digitSet(x: Int): Set<Int> {
-    return x.toString().map { it.toInt() - 48 }.toSet()
+    return x.toString().map { it.code - 48 }.toSet()
 }

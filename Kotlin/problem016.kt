@@ -4,7 +4,7 @@ fun sum_of_digits_power(x: Int, p: Int): Int {
     return x.toBigInteger()
             .pow(p)
             .toString()
-            .map { it.toInt() - 48 }
+            .map { it.code - 48 }
             .sum()
 }
 

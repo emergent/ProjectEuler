@@ -15,5 +15,5 @@ fun main(args: Array<String>) {
         n++
     }
     println(ans)
-    println(ans.map { it.toInt() - 48 }.fold(1) { acc, x -> acc * x })
+    println(ans.map { it.code - 48 }.fold(1) { acc, x -> acc * x })
 }

@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
     println((10..2540160) // 9! * 7 = 2540160
             .filter {
                 it == it.toString()
-                        .map { c -> (c.toInt() - 48).fac() }
+                        .map { c -> (c.code - 48).fac() }
                         .sum()
             }
             .sum())

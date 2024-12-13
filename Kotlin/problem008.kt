@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
     for (i in 0 .. (digits.length - 13)) {
         val product = digits
                 .slice(i .. i + 12)
-                .map { it.toLong() - 48 }
+                .map { it.code - 48 }
                 .fold(1L, { p, x -> p * x })
         prodmax = if (prodmax < product) product else prodmax
     }

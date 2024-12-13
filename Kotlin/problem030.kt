@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     val sum = (2..354294)
             .map { x ->
                 Pair(x, x.toString()
-                        .map { c -> (c.toInt() - 48).nth_power(5) }
+                        .map { c -> (c.code - 48).nth_power(5) }
                         .sum())
             }
             .filter { it.first == it.second }
