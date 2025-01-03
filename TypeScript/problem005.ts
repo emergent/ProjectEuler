@@ -11,10 +11,7 @@
         return (x * y) / gcd(x, y);
     };
 
-    const reducer = (a: number, x: number): number => lcm(a, x);
     console.log(
-        Array.from(Array(20).keys())
-            .map(x => ++x)
-            .reduce(lcm)
+        [...Array(21).keys()].slice(1).reduce(lcm, 1)
     );
 }

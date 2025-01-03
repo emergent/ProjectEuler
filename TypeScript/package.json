@@ -1,17 +1,11 @@
 {
   "name": "typescript",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --build tsconfig.json",
-    "watch": "tsc -w --build tsconfig.json",
-    "clean": "rm dist/*.js"
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
   },
-  "author": "",
-  "license": "Unlicense",
-  "dependencies": {
-    "ts-node": "^7.0.1"
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
