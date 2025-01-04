@@ -27,11 +27,13 @@ fn divisors(x: i32) -> i32 {
 }
 
 fn main() {
-    let mut i = 0;
-    while divisors(triangle(i)) <= 500 {
-        i += 1;
+    for i in 1.. {
+        let count = divisors(triangle(i));
+        if count > 500 {
+            println!("{} {}", triangle(i), count);
+            break;
+        }
     }
-    println!("{}", triangle(i));
 }
 
 #[test]
