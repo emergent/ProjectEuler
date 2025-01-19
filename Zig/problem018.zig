@@ -48,7 +48,15 @@ pub fn main() !void {
         break :blk mat;
     };
 
-    const ans: u32 = getMax(0, 0, triangle.len - 1, &triangle);
+    var dp: [15][15]u32 = .{.{0} ** 15} ** 15;
+    dp[0][0] = triangle[0][0];
+    for (0..triangle.len - 1) |i| {
+        for (0..i + 1) |j| {
+            dp[i + 1][j] = @max(dp[i][j] + triangle[i + 1][j], dp[i + 1][j]);
+            dp[i + 1][j + 1] = @max(dp[i][j] + triangle[i + 1][j + 1], dp[i + 1][j + 1]);
+        }
+    }
+    const ans = std.mem.max(u32, &dp[triangle.len - 1]);
 
     try stdout.print("{}\n", .{ans});
 }
