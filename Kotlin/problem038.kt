@@ -4,7 +4,7 @@ fun isPandigital9digits(x: Int): Boolean {
     return (x.toString()+"0").toSet().count() == 10
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val maxp = (9183..9999)
             .map { p ->
                 (p.toString() + (p * 2).toString()).toInt()

@@ -7,6 +7,6 @@ fun comb(n: Long, k: Long): Long {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(comb(40, 20))
 }

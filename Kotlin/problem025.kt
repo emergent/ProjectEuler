@@ -13,6 +13,6 @@ fun fib_digits_index(digits_len: Int): Int {
     return index
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(fib_digits_index(1000))
 }

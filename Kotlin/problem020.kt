@@ -7,6 +7,6 @@ fun sum_of_digits_factorial(x: Int): Int {
             .sum()
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(sum_of_digits_factorial(100))
 }

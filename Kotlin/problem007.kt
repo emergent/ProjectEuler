@@ -28,6 +28,6 @@ fun prime_index(n: Int): Int {
     return num
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(prime_index(10001))
 }

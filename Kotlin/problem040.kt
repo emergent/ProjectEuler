@@ -1,6 +1,6 @@
 // Problem 40 - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=40
-fun main(args: Array<String>) {
+fun main() {
     var n = 1
     var str = ""
     var d = 1

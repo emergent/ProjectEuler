@@ -6,7 +6,7 @@ fun Int.nth_power(n: Int): Int {
     return x
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val sum = (2..354294)
             .map { x ->
                 Pair(x, x.toString()

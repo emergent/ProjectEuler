@@ -5,7 +5,7 @@
 fun isPalindromic(x: Int): Boolean {
     return x.toString().reversed() == x.toString()
 }
-fun main(args: Array<String>) {
+fun main() {
     val pmax = (100..1000).map { i ->
                 (i..1000).map { j -> i * j }
             }

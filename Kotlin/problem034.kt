@@ -5,7 +5,7 @@ fun Int.fac() = when {
     else -> (1..this).fold(1) { acc, p -> acc * p }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println((10..2540160) // 9! * 7 = 2540160
             .filter {
                 it == it.toString()

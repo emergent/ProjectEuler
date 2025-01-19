@@ -8,6 +8,6 @@ fun sum_of_digits_power(x: Int, p: Int): Int {
             .sum()
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(sum_of_digits_power(2, 1000))
 }

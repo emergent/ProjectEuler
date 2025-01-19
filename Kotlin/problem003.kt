@@ -16,6 +16,6 @@ fun maxprimefactor(x: Long): Long {
     return divider
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(maxprimefactor(600851475143))
 }

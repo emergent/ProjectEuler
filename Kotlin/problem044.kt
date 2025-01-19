@@ -12,7 +12,7 @@ fun penta(i: Int): Int {
     return i * (3 * i - 1) / 2
 }
 
-fun main(args: Array<String>) {
+fun main() {
     var k = 2
     loop@ while (true) {
         val pk = penta(k)

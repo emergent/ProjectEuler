@@ -11,7 +11,7 @@ fun pythagorean_triplet(c: Int): Triple<Int, Int, Int>? {
     return null
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val abclist = (5..999)
             .map { pythagorean_triplet(it)?.toList() }
             .filterNotNull()

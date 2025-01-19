@@ -20,7 +20,7 @@ fun primes(n: Int): List<Int> {
     return ps
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val ans = primes(2_000_000).map{ it.toLong() }.sum()
     println(ans)
 }

@@ -10,6 +10,6 @@ fun lcm(x: Long, y: Long): Long {
     return x * y / gcd(x, y)
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println((1L..20).fold(1L, { x, y -> lcm(x, y) }))
 }

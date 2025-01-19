@@ -6,6 +6,6 @@ fun summul2(n: Int, x: Int, y: Int): Int {
     return summul1(n, x) + summul1(n, y) - summul1(n, x * y)
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(summul2(999, 3, 5))
 }

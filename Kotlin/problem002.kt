@@ -14,6 +14,6 @@ fun fibevensum2(a: Int, b: Int, sum: Int, xmax: Int): Int {
 
 fun fibevensum(xmax: Int) = fibevensum2(1, 2, 0, xmax)
 
-fun main(args: Array<String>) {
+fun main() {
     println(fibevensum(4000000))
 }

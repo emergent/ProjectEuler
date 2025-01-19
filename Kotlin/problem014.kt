@@ -1,6 +1,6 @@
 // Problem 14 - Project Euler
 // http://projecteuler.net/index.php?section=problems&id=14
-fun main(args: Array<String>) {
+fun main() {
     var map = mutableMapOf(1L to 1L)
     for (i in 2L..1000000) {
         var x = i

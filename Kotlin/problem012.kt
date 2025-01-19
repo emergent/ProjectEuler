@@ -16,7 +16,7 @@ fun count_divisors(x: Int): Int {
 
 fun Int.triangle() = this * (this + 1) / 2
 
-fun main(args: Array<String>) {
+fun main() {
     var n = 1
     while (count_divisors(n.triangle()) <= 500) {
         n++

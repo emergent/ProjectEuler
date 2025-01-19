@@ -21,7 +21,7 @@ fun amicable_pair(x: Int): Int? {
     return if (d(dx) == x && dx != x) dx else null
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val ans = (1..10000-1).map { amicable_pair(it) }
             .filterNotNull()
             .filter { it < 10000 }
