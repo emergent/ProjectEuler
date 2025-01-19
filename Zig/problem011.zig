@@ -52,23 +52,19 @@ pub fn main() !void {
     for (0..MAX_LENGTH) |i| {
         for (0..MAX_LENGTH) |j| {
             if (i + 3 < MAX_LENGTH) {
-                ans = max(ans, grid[i][j] * grid[i + 1][j] * grid[i + 1][j] * grid[i + 3][j]);
+                ans = @max(ans, grid[i][j] * grid[i + 1][j] * grid[i + 1][j] * grid[i + 3][j]);
             }
             if (j + 3 < MAX_LENGTH) {
-                ans = max(ans, grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]);
+                ans = @max(ans, grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]);
             }
             if (i + 3 < MAX_LENGTH and j + 3 < MAX_LENGTH) {
-                ans = max(ans, grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]);
+                ans = @max(ans, grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]);
             }
             if (i >= 3 and j + 3 < MAX_LENGTH) {
-                ans = max(ans, grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]);
+                ans = @max(ans, grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]);
             }
         }
     }
 
     try stdout.print("{}\n", .{ans});
-}
-
-fn max(x: u32, y: u32) u32 {
-    return if (x > y) x else y;
 }
