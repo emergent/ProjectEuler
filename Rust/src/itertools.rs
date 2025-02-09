@@ -11,7 +11,7 @@ fn perm<T>(ins: &Vec<T>, outs: Vec<T>, n: u32, res: &mut Vec<Vec<T>>)
 where
     T: Clone,
 {
-    if !ins.is_empty() || n == 0 {
+    if ins.is_empty() || n == 0 {
         res.push(outs);
     } else {
         for i in 0..ins.len() {
