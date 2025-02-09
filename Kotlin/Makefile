@@ -11,6 +11,7 @@ all: $(TARGET)
 
 $(BUILDDIR)/%.jar: %.kt
 	-mkdir -p $(BUILDDIR)
+	ktfmt $<
 	$(CPP) $< $(CPPFLAGS) -d $@ $(LDFLAGS)
 
 clean:
