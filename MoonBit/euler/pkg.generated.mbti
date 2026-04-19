@@ -1,0 +1,20 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "username/euler"
+
+// Values
+pub fn problem_0001() -> Int
+
+pub fn problem_0002() -> Int
+
+pub fn problem_0003() -> Int64
+
+pub fn render_answer(Int, String) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

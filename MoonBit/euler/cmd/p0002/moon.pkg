@@ -1,0 +1,7 @@
+import {
+  "username/euler" @euler,
+}
+
+options(
+  "is-main": true,
+)
