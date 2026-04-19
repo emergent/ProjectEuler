@@ -1,7 +1,6 @@
 /// #13 Large Sum - Project Euler
 /// http://projecteuler.net/problem=13
 import gleam/int
-import gleam/io
 import gleam/list
 import gleam/string
 
@@ -116,5 +115,6 @@ pub fn main() {
   |> list.fold(0, int.add)
   |> int.to_string()
   |> string.slice(0, 10)
-  |> io.println()
+  |> int.base_parse(10)
+  |> echo
 }

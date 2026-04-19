@@ -1,11 +1,12 @@
 /// #5 Smallest Multiple - Project Euler
 /// http://projecteuler.net/problem=5
 import euler_math.{lcm}
-import gleam/io
+import gleam/int
 import gleam/list
 
 pub fn main() {
-  list.range(1, 20)
+  int.range(1, 21, [], list.prepend)
+  |> list.reverse()
   |> list.fold(1, lcm)
-  |> io.debug()
+  |> echo
 }

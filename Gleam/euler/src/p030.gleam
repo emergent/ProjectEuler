@@ -1,18 +1,19 @@
 /// #30 Digit Fifth Powers - Project Euler
 /// http://projecteuler.net/problem=30
+import euler_math.{digits}
 import gleam/int
-import gleam/io
 import gleam/list
 
 fn fifth(x: Int) -> Int {
-  let assert Ok(ds) = int.digits(x, 10)
+  let ds = digits(x)
   ds
   |> list.fold(0, fn(acc, x) { acc + x * x * x * x * x })
 }
 
 pub fn main() {
-  list.range(2, 354_294)
+  int.range(2, 354_295, [], list.prepend)
+  |> list.reverse()
   |> list.filter(fn(x) { fifth(x) == x })
   |> list.fold(0, int.add)
-  |> io.debug()
+  |> echo
 }

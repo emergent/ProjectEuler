@@ -1,7 +1,6 @@
 /// #12 Highly Divisible Triangular Number - Project Euler
 /// http://projecteuler.net/problem=12
 import gleam/bool.{guard}
-import gleam/io
 
 fn d(i: Int, x: Int, count: Int) -> Int {
   use <- guard(i * i > x, count)
@@ -24,5 +23,5 @@ fn triangle_div(tn: Int, next: Int, divs: Int) -> Int {
 }
 
 pub fn main() {
-  io.debug(triangle_div(1, 2, 500))
+  echo triangle_div(1, 2, 500)
 }

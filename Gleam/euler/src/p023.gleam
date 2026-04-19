@@ -2,7 +2,6 @@
 /// http://projecteuler.net/problem=23
 import gleam/bool.{guard}
 import gleam/int
-import gleam/io
 import gleam/list
 import gleam/set
 
@@ -30,7 +29,7 @@ const upper = 28_123
 
 pub fn main() {
   let abundants =
-    list.range(1, upper)
+    int.range(1, upper, [], list.prepend)
     |> list.filter(fn(x) { is_abundant(x) })
   let sum = { 1 + upper } * upper / 2
 
@@ -44,5 +43,5 @@ pub fn main() {
     |> set.from_list()
     |> set.fold(0, int.add)
 
-  io.debug(sum - sum_of_abundants)
+  echo sum - sum_of_abundants
 }

@@ -1,7 +1,6 @@
 /// Problem 2 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=2
 import gleam/bool.{guard}
-import gleam/io
 
 fn fibevensum2(a: Int, b: Int, sum: Int, xmax: Int) -> Int {
   use <- guard(a >= xmax, sum)
@@ -14,5 +13,5 @@ fn fibevensum(xmax: Int) -> Int {
 }
 
 pub fn main() {
-  io.debug(fibevensum(4_000_000))
+  echo fibevensum(4_000_000)
 }

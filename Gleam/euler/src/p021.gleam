@@ -2,7 +2,6 @@
 /// http://projecteuler.net/problem=21
 import gleam/bool.{guard}
 import gleam/int
-import gleam/io
 import gleam/list
 import gleam/pair
 import gleam/set.{type Set}
@@ -44,10 +43,10 @@ fn get_amicable_pair(x: Int) -> Result(#(Int, Int), Nil) {
 }
 
 pub fn main() {
-  list.range(1, 10_000)
+  int.range(1, 10_001, [], list.prepend)
   |> list.filter_map(fn(i) { get_amicable_pair(i) })
   |> list.flat_map(fn(p) { [pair.first(p), pair.second(p)] })
   |> list.unique()
   |> list.fold(0, int.add)
-  |> io.debug()
+  |> echo
 }

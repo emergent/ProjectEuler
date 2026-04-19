@@ -1,7 +1,6 @@
 /// #8 Largest Product in a Series - Project Euler
 /// http://projecteuler.net/problem=8
 import gleam/int
-import gleam/io
 import gleam/list
 import gleam/string
 
@@ -37,5 +36,5 @@ pub fn main() {
   |> list.window(window_size)
   |> list.map(fn(x) { list.fold(x, 1, int.multiply) })
   |> list.fold(0, int.max)
-  |> io.debug()
+  |> echo
 }

@@ -2,7 +2,6 @@
 /// http://projecteuler.net/problem=16
 import gleam/bool.{guard}
 import gleam/int
-import gleam/io
 import gleam/list
 import gleam/result
 
@@ -18,15 +17,33 @@ fn pow(base: Int, n: Int, ans: Int) -> Result(Int, Nil) {
   }
 }
 
+pub fn digits(n: Int) -> List(Int) {
+  n
+  |> int.absolute_value()
+  |> digits_loop([])
+  |> list.reverse
+}
+
+fn digits_loop(n: Int, acc: List(Int)) -> List(Int) {
+  case n < 10 {
+    True -> [n, ..acc]
+    False -> digits_loop(n / 10, [n % 10, ..acc])
+  }
+}
+
 pub fn main() {
   use p2_1000 <- result.try(pow(2, 1000, 1))
-  use digits <- result.map(
-    p2_1000
-    |> int.digits(10)
-    |> result.nil_error(),
-  )
+  //use digits <- result.map(
+  //p2_1000
+  //|> digits(),
+  //|> result.unwrap([])
+  //)
 
-  digits
+  let dg = digits(p2_1000)
+
+  dg
   |> list.fold(0, int.add)
-  |> io.debug()
+  |> echo
+
+  Ok(0)
 }

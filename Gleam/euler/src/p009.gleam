@@ -1,7 +1,7 @@
 /// #9 Special Pythagorean Triplet - Project Euler
 /// http://projecteuler.net/problem=9
 import gleam/bool
-import gleam/io
+import gleam/int
 import gleam/list
 import gleam/result
 
@@ -14,9 +14,11 @@ fn to_abc_if_is_pythagorean(a: Int, b: Int, c: Int) -> Result(Int, Nil) {
 
 pub fn main() {
   use ans <- result.try(
-    list.range(1, sum_abc - 2)
+    int.range(1, sum_abc - 2 + 1, [], list.prepend)
+    |> list.reverse()
     |> list.flat_map(fn(x) {
-      list.range(x, sum_abc - 1)
+      int.range(x, sum_abc - 1, [], list.prepend)
+      |> list.reverse()
       |> list.filter_map(fn(y) {
         to_abc_if_is_pythagorean(x, y, sum_abc - x - y)
       })
@@ -24,5 +26,6 @@ pub fn main() {
     |> list.first(),
   )
 
-  Ok(io.debug(ans))
+  echo ans
+  Ok(ans)
 }

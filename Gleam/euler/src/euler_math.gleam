@@ -43,6 +43,31 @@ pub fn lcm(a: Int, b: Int) -> Int {
   }
 }
 
+pub fn digits(n: Int) -> List(Int) {
+  n
+  |> abs()
+  |> digits_loop([])
+  |> reverse()
+}
+
+fn digits_loop(n: Int, acc: List(Int)) -> List(Int) {
+  case n < 10 {
+    True -> [n, ..acc]
+    False -> digits_loop(n / 10, [n % 10, ..acc])
+  }
+}
+
+fn reverse(xs: List(a)) -> List(a) {
+  reverse_loop(xs, [])
+}
+
+fn reverse_loop(xs: List(a), acc: List(a)) -> List(a) {
+  case xs {
+    [] -> acc
+    [x, ..rest] -> reverse_loop(rest, [x, ..acc])
+  }
+}
+
 fn min(a: Int, b: Int) -> Int {
   case a <= b {
     True -> a

@@ -1,6 +1,6 @@
 /// #14 Longest Collatz Sequence - Project Euler
 /// http://projecteuler.net/problem=14
-import gleam/io
+import gleam/int
 import gleam/list
 import gleam/pair
 
@@ -17,7 +17,8 @@ fn chain(x: Int) -> #(Int, Int) {
 }
 
 pub fn main() {
-  list.range(2, 1_000_000)
+  int.range(2, 1_000_000, [], list.prepend)
+  |> list.reverse()
   |> list.map(chain)
   |> list.fold(#(1, 1), fn(acc, x) {
     case pair.second(acc) < pair.second(x) {
@@ -26,5 +27,5 @@ pub fn main() {
     }
   })
   |> pair.first()
-  |> io.debug()
+  |> echo
 }
