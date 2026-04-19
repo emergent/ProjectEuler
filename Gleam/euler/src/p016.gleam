@@ -1,10 +1,10 @@
 /// #16 Power Digit Sum - Project Euler
 /// http://projecteuler.net/problem=16
-import gleam/io
+import gleam/bool.{guard}
 import gleam/int
+import gleam/io
 import gleam/list
 import gleam/result
-import gleam/bool.{guard}
 
 fn pow(base: Int, n: Int, ans: Int) -> Result(Int, Nil) {
   use <- guard(base < 0, Error(Nil))

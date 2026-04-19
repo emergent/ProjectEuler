@@ -1,7 +1,7 @@
 /// #25 $1000$-digit Fibonacci Number - Project Euler
 /// http://projecteuler.net/problem=25
-import gleam/io
 import gleam/int
+import gleam/io
 import gleam/list
 import gleam/result
 

@@ -1,7 +1,7 @@
 /// #12 Highly Divisible Triangular Number - Project Euler
 /// http://projecteuler.net/problem=12
-import gleam/io
 import gleam/bool.{guard}
+import gleam/io
 
 fn d(i: Int, x: Int, count: Int) -> Int {
   use <- guard(i * i > x, count)

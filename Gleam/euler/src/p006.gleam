@@ -1,8 +1,8 @@
 /// #6 Sum Square Difference - Project Euler
 /// http://projecteuler.net/problem=6
+import gleam/int
 import gleam/io
 import gleam/list
-import gleam/int
 
 pub fn main() {
   let sum_of_sq =

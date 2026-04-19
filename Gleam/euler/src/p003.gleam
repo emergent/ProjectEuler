@@ -1,7 +1,7 @@
 /// Problem 3 - Project Euler
 /// http://projecteuler.net/index.php?section=problems&id=3
-import gleam/io
 import gleam/bool.{guard}
+import gleam/io
 
 fn maxprimefactor(x: Int, div: Int, ans: Int) -> Int {
   use <- guard(x <= 1, ans)

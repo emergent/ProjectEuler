@@ -1,8 +1,8 @@
 /// #9 Special Pythagorean Triplet - Project Euler
 /// http://projecteuler.net/problem=9
+import gleam/bool
 import gleam/io
 import gleam/list
-import gleam/bool
 import gleam/result
 
 const sum_abc = 1000

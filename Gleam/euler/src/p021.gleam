@@ -1,11 +1,11 @@
 /// #21 Amicable Numbers - Project Euler
 /// http://projecteuler.net/problem=21
+import gleam/bool.{guard}
+import gleam/int
 import gleam/io
 import gleam/list
-import gleam/int
 import gleam/pair
 import gleam/set.{type Set}
-import gleam/bool.{guard}
 
 fn f(x: Int, i: Int, ans: Set(Int)) -> Set(Int) {
   use <- guard(i * i > x, return: ans)

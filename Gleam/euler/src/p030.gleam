@@ -1,7 +1,7 @@
 /// #30 Digit Fifth Powers - Project Euler
 /// http://projecteuler.net/problem=30
-import gleam/io
 import gleam/int
+import gleam/io
 import gleam/list
 
 fn fifth(x: Int) -> Int {

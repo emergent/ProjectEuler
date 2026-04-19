@@ -1,10 +1,10 @@
 /// #23 Non-Abundant Sums - Project Euler
 /// http://projecteuler.net/problem=23
+import gleam/bool.{guard}
+import gleam/int
 import gleam/io
 import gleam/list
-import gleam/int
 import gleam/set
-import gleam/bool.{guard}
 
 fn fsum(x: Int, i: Int, ans: Int) -> Int {
   use <- guard(i * i > x, return: ans)

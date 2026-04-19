@@ -1,25 +1,24 @@
 # euler
 
-[![Package Version](https://img.shields.io/hexpm/v/euler)](https://hex.pm/packages/euler)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/euler/)
+Project Euler solutions written in Gleam.
 
-```sh
-gleam add euler
-```
-```gleam
-import euler
-
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
-
-Further documentation can be found at <https://hexdocs.pm/euler>.
+This repository predates the current Gleam toolchain. The code has been cleaned
+up so it no longer depends on the external maths package, and the dependency
+set is pinned to a combination that builds with the locally installed
+`gleam 1.12.0`.
 
 ## Development
 
 ```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-gleam shell # Run an Erlang shell
+gleam run          # Show the entrypoint help
+gleam run -m p001  # Run problem 1
+gleam run -m p024  # Run problem 24
+gleam test         # Run the tests
 ```
+
+## Notes
+
+- On this machine, newer package releases pulled in by `gleam update` required
+  a newer Gleam compiler than `1.12.0`, so they were not adopted here.
+- If you upgrade the `gleam` binary itself, the next step is to run
+  `gleam update` again and revisit the stdlib / test dependency versions.

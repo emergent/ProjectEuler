@@ -1,9 +1,9 @@
 /// #8 Largest Product in a Series - Project Euler
 /// http://projecteuler.net/problem=8
-import gleam/io
-import gleam/string
-import gleam/list
 import gleam/int
+import gleam/io
+import gleam/list
+import gleam/string
 
 const str = "73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843

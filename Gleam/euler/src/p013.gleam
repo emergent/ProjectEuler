@@ -1,9 +1,9 @@
 /// #13 Large Sum - Project Euler
 /// http://projecteuler.net/problem=13
-import gleam/io
-import gleam/string
 import gleam/int
+import gleam/io
 import gleam/list
+import gleam/string
 
 const numbers = "
 37107287533902102798797998220837590246510135740250

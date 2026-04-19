@@ -1,9 +1,9 @@
 /// #4 Largest Palindrome Product - Project Euler
 /// http://projecteuler.net/problem=4
-import gleam/io
 import gleam/int.{max, to_string}
-import gleam/string.{reverse}
+import gleam/io
 import gleam/list
+import gleam/string.{reverse}
 
 fn is_palindromic(x: Int) -> Bool {
   let s = to_string(x)

@@ -1,7 +1,7 @@
 /// #5 Smallest Multiple - Project Euler
 /// http://projecteuler.net/problem=5
+import euler_math.{lcm}
 import gleam/io
-import gleam_community/maths/arithmetics.{lcm}
 import gleam/list
 
 pub fn main() {

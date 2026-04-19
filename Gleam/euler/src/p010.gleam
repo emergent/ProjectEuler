@@ -1,8 +1,8 @@
 /// #10 Summation of Primes - Project Euler
 /// http://projecteuler.net/problem=10
+import gleam/int
 import gleam/io
 import gleam/list
-import gleam/int
 import prime
 
 pub fn main() {

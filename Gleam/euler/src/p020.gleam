@@ -1,9 +1,9 @@
 /// #20 Factorial Digit Sum - Project Euler
 /// http://projecteuler.net/problem=20
-import gleam/io
+import euler_math.{factorial}
 import gleam/int
+import gleam/io
 import gleam/list
-import gleam_community/maths/combinatorics.{factorial}
 
 pub fn main() {
   let assert Ok(f) = factorial(100)

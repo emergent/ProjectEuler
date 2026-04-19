@@ -1,5 +1,5 @@
-import gleam/list
 import gleam/bool.{guard}
+import gleam/list
 
 pub fn primes(max: Int) -> List(Int) {
   use <- guard(max < 2, [])

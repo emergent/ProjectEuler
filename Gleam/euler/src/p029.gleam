@@ -1,8 +1,8 @@
 /// #29 Distinct Powers - Project Euler
 /// http://projecteuler.net/problem=29
 import gleam/io
-import gleam/list
 import gleam/iterator
+import gleam/list
 
 pub fn main() {
   list.range(2, 100)
